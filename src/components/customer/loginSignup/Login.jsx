@@ -1,7 +1,7 @@
 import React from 'react';
 import './Login.css'
 
-export default function CustomerLogin() {
+export default function CustomerLogin({user, setUser, setLogin, login}) {
 
 
     return(
