@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from './assets/logo.svg'
 
 
-export default function Home() {
+export default function Home({user, setUser, setLogin }) {
 
     return(
         <div id='eHome'>
