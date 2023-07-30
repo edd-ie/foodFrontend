@@ -1,9 +1,107 @@
-#gSignup {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* signup.css */
+
+* {
+    background-color: #000000;
 }
+
+#gSignup {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 250px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: #000000;
+    box-shadow: #000000;
+    align-content: center;
+  }
+  
+  #gSignup h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 30px;
+  }
+  
+  form {
+    display: grid;
+    gap: 10px;
+    color: #ffa500;
+  }
+  
+  label1 {
+    display: block;
+    font-weight: bold;
+  }
+
+  label2 {
+    display: block;
+    font-weight: bold;
+  }
+
+  label3 {
+    display: block;
+    font-weight: bold;
+  }
+
+  label4 {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type='text'],
+  input[type='email'],
+  input[type='password'] {
+    width: 100%;
+    height: 40%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #000000;
+  }
+  
+  input[type='checkbox'] {
+    margin-right: 5px;
+  }
+  
+  button {
+    background-color: #ffa500;
+    color: #fff;
+    font-size: 100px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #ffa413;
+  }
+
+  #gCheckbox {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    color: #fff;
+    font-size: 20px;
+  }
+  
+  #gCheckbox label5 {
+    margin-left: 5px;
+  }
+
+  #gLogin {
+    color: white;
+    margin-left: 80px;
+    align-items: center;
+    font-size: 20px;
+  }
+
+  #gMain {
+    background-color: #000000;
+    align-items: center;
+  }
+  
+
+  
