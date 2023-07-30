@@ -33,13 +33,13 @@ export default function CustomerSignUp({ user, setUser, setLogin, login }) {
   };
 
   return (
-    <div id="mLand">
-    <div id='mLogin'>
-    <img id='mLogo'  src={logo} alt="logo" />
+    <div id="maLand">
+    <div id='maLogin'>
+    <img id='maLogo'  src={logo} alt="logo" />
       <h1>Login to your account</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label id='mUsername' htmlFor='username'>Username:</label>
+          <label id='maUsername' htmlFor='username'>Username:</label>
           <input 
             type='text'
             id='markusername'
@@ -50,7 +50,7 @@ export default function CustomerSignUp({ user, setUser, setLogin, login }) {
           />
         </div>
         <div>
-          <label id='mPassword' htmlFor='password'>Password:</label>
+          <label id='maPassword' htmlFor='password'>Password:</label>
           <input
             type='password'
             id='markpassword'
@@ -61,7 +61,7 @@ export default function CustomerSignUp({ user, setUser, setLogin, login }) {
           />
         </div>
 
-        <div id='mForgot'>
+        <div id='maForgot'>
         <p>
             <span
               style={{ cursor: 'pointer', color: 'orange' }}
@@ -71,7 +71,7 @@ export default function CustomerSignUp({ user, setUser, setLogin, login }) {
             </span>
           </p>
         </div>
-        <button id='mButton' type='submit'>Login</button>
+        <button id='maButton' type='submit'>Login</button>
       </form>
       <div id="markLogin">
       <p>
