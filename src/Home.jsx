@@ -12,22 +12,22 @@ export default function Home({user, setUser, setLogin }) {
             <img src={logo} alt="logo" />
             
             <div id='eHomeButtons'>
-                <Link to='/restaurant/signup'>
+                <Link to='/customer/restaurant'>
                     <button>
                         Lizzie
                     </button>
                 </Link>
-                <Link to='/restaurant/login'>
+                <Link to='/customer/cart'>
                     <button>
                         Mohamed
                     </button>
                 </Link>
-                <Link to='/customer/login'>
+                <Link to='/customer/food'>
                     <button>
                         Mark
                     </button>
                 </Link>
-                <Link to='/customer/signup'>
+                <Link to='/customer/homepage'>
                     <button>
                         Glory
                     </button>

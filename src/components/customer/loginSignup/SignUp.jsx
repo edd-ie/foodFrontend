@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './signup.css';
+import logo from '../../../assets/logo.svg';
 
 
 
@@ -29,6 +30,9 @@ export default function CustomerSignUp({ user, setUser, setLogin, login }) {
   return (
     <div id="gMain">
     <div id='gSignup'>
+    <div id="gLogo">
+       <img id='logo'  src={logo} alt="logo" />
+     </div>
       <h1>Create your account</h1>
       <form onSubmit={handleSubmit}>
         <div>
