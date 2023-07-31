@@ -32,26 +32,26 @@ export default function CustomerSignUp({ user, setUser, setLogin, login }) {
       <h1>Create your account</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label1 htmlFor='name'>Name:</label1>
+          <label id="glabel1" htmlFor='name'>Name:</label>
           <input type='text' id='name' name='name' value={formData.name} onChange={handleChange}required />
         </div>
         <div>
-          <label2 htmlFor='username'>Username:</label2>
+          <label id="glabel2" htmlFor='username'>Username:</label>
           <input type='text' id='username' name='username' value={formData.username} onChange={handleChange} required/>
         </div>
         <div>
-          <label3 htmlFor='email'>Your email:</label3>
+          <label id="glabel3" htmlFor='email'>Your email:</label>
           <input type='email' id='email' name='email' value={formData.email} onChange={handleChange} required />
         </div>
         <div>
-          <label4 htmlFor='password'>Password:</label4>
+          <label id="glabel4" htmlFor='password'>Password:</label>
           <input type='password' id='password' name='password' value={formData.password} onChange={handleChange} required />
         </div>
         <div id="gCheckbox">
           <input type='checkbox' id='agreeTerms' name='agreeTerms' checked={formData.agreeTerms} onChange={handleChange} required />
-          <label5 htmlFor='agreeTerms'>
+          <label id="glabel5" htmlFor='agreeTerms'>
             Agree to all Term,Privacy Policies and Fees
-          </label5>
+          </label>
         </div>
         <button type='submit'>Sign Up</button>
       </form>
