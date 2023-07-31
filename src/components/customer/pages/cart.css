@@ -1,0 +1,26 @@
+.cart {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .cart > div {
+    margin-bottom: 10px;
+  }
+  
+  .cart span {
+    font-size: 18px;
+  }
+  
+  .cart button {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
