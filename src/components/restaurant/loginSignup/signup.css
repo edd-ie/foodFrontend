@@ -39,8 +39,7 @@ input[type="checkbox"]{
 #kcheckbox-div{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    
+    justify-content: flex-start; 
    
 
 }

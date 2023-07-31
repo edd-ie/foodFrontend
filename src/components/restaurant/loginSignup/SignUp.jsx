@@ -11,7 +11,6 @@ export default function RestaurantSignUp({user, setUser, setLogin, login}) {
 
     }
     
-
     return(
         <div id='kSignup'>
             <div className='logo'><img src={logo} alt="logo" />
