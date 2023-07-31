@@ -1,4 +1,4 @@
-#moLand {
+#maLand {
     background-color: black;
     display: flex;
     justify-content: center;
@@ -8,7 +8,7 @@
 }
 
 
-#moLogin h1 {
+#maLogin h1 {
     text-align: center;
     color: white;
     font-size: 20px;
@@ -16,7 +16,7 @@
 
 }
 
-#moButton {
+#maButton {
     background-color: #ffa500;
     color: white;
     padding: 10px;
@@ -27,23 +27,23 @@
     margin-top: 10px;
 }
 
-#mohaLogin {
+#markLogin {
     color: white;
     font-size: 15px;
     margin-left: 40px;
 }
 
-#moUsername {
+#maUsername {
     color: orange;
     margin: 10px;
 }
 
-#moPassword {
+#maPassword {
     color: orange;
     margin: 10px;
 }
 
-#mohausername {
+#markusername {
     width: 100%;
     height: 15px;
     padding: 10px;
@@ -53,7 +53,7 @@
     color: white;
 }
 
-#mohapassword {
+#markpassword {
     width: 100%;
     height: 15px;
     padding: 10px;
@@ -63,7 +63,6 @@
     color: white;
 }
 
-#moForgot {
-    margin: 3px;
+#maForgot {
+    margin: 3px;
 }
-
