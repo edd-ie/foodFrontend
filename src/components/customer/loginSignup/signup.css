@@ -5,14 +5,11 @@
 }
 
 #gSignup {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 250px;
-    border: 1px solid;
+    width: 400px; /* Adjust the width as needed */
+    padding: 20px;
+    border: 1px solid #000000;
     border-radius: 5px;
     background-color: #000000;
-    box-shadow: #000000;
-    align-content: center;
   }
   
   #gSignup h1 {
@@ -28,22 +25,22 @@
     color: #ffa500;
   }
   
-  label1 {
+  #glabel1 {
     display: block;
     font-weight: bold;
   }
 
-  label2 {
+  #glabel2 {
     display: block;
     font-weight: bold;
   }
 
-  label3 {
+  #glabel3 {
     display: block;
     font-weight: bold;
   }
 
-  label4 {
+  #glabel4 {
     display: block;
     font-weight: bold;
   }
@@ -87,7 +84,7 @@
     font-size: 20px;
   }
   
-  #gCheckbox label5 {
+  #gCheckbox glabel5 {
     margin-left: 5px;
   }
 
@@ -100,7 +97,10 @@
 
   #gMain {
     background-color: #000000;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
   }
   
 
