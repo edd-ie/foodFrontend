@@ -8,6 +8,7 @@
     margin: 0 auto;
   }
   
+  
   .cart > div {
     margin-bottom: 10px;
   }
@@ -22,5 +23,10 @@
     padding: 10px;
     border: none;
     cursor: pointer;
+  }
+
+  #mocart1{
+    width: 200px;
+    height: 100px;
   }
   
