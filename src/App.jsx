@@ -28,6 +28,22 @@ function App() {
       {
         path: "/restaurant/signup",
         element: <RestaurantSignUp user={user} setUser={setUser} login={login} setLogin={setLogin}/>
+      },
+      {
+        path: "/customer/cart",
+        element: <Cart user={user} setUser={setUser} login={login} setLogin={setLogin}/>
+      },
+      {
+        path: "/customer/food",
+        element: <Food user={user} setUser={setUser} login={login} setLogin={setLogin}/>
+      },
+      {
+        path: "/customer/homepage",
+        element: <Homepage user={user} setUser={setUser} login={login} setLogin={setLogin}/>
+      },
+      {
+        path: "/customer/restaurant",
+        element: <Restaurant user={user} setUser={setUser} login={login} setLogin={setLogin}/>
       }
     ]
   )
@@ -48,5 +64,9 @@ import CustomerLogin from './components/customer/loginSignup/Login'
 import CustomerSignUp from './components/customer/loginSignup/SignUp'
 import RestaurantLogin from './components/restaurant/loginSignup/Login'
 import RestaurantSignUp from './components/restaurant/loginSignup/SignUp'
+import Cart from './components/customer/pages/Cart'
+import Food from './components/customer/pages/Food'
+import Homepage from './components/customer/pages/Homepage'
+import Restaurant from './components/customer/pages/Restaurant'
 
 
