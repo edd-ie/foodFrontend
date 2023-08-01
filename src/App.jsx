@@ -4,7 +4,7 @@ import './App.css'
 
 
 function App() {
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState({id:1})
   const [login, setLogin] = useState(false)
   const [resId, setResId] = useState([])
   const [foodId, setFoodId] = useState([])
@@ -65,6 +65,10 @@ function App() {
       {
         path: "/restaurant/dashboard",
         element: <Dashboard user={user} setUser={setUser} login={login} setLogin={setLogin}/>
+      },
+      {
+        path: '/restaurant/staff',
+        element: <Staff user={user}/>
       }
     ]
   )
@@ -94,5 +98,6 @@ import Review from './components/customer/pages/Reviews'
 import NavR from './components/utility/NavR'
 import NavC from './components/utility/NavC'
 import Dashboard from './components/restaurant/Components/Dashboard'
+import Staff from './components/restaurant/Components/Staff'
 
 
