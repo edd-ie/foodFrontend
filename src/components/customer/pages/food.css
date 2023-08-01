@@ -1,0 +1,136 @@
+/* General styles */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Food details container */
+.food-details-container {
+    display: flex;
+    flex-direction: column;
+    /* Display content in a column */
+    align-items: center;
+    /* Center content horizontally */
+    max-width: 800px;
+    /* Limit the container width to avoid overflow */
+    margin: 20px auto;
+    /* Center the container on the page */
+}
+
+/* Food image container */
+.food-image-container {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Food info container */
+.food-info-container {
+    padding: 0.02%;
+    max-width: 400px;
+    /* Limit the width to avoid overflow */
+    text-align: center;
+    /* Center text within the container */
+}
+
+/* Food name */
+.food-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Food price */
+.food-price {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+/* Food ingredients */
+.food-ingredients {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Food category */
+.food-category {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Specific instructions text area */
+.specific-instructions {
+    width: 110%;
+    height: 100px;
+    margin-top: 10px;
+    padding: 5px;
+    color: white;
+}
+
+/* Vegetarian checkbox */
+.vegetarian-checkbox {
+    display: flex;
+    align-items: center;
+    /* Align checkboxes horizontally */
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Style the radio buttons and labels */
+input[type="radio"] {
+    margin-right: 20px;
+    transform: scale(0.4);
+    /* Reduce the size of the radio buttons */
+    cursor: pointer;
+}
+
+
+
+/* Quantity controls */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.minus-button,
+.plus-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    background-color: orange;
+    cursor: pointer;
+}
+
+.quantity {
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+/* Add to cart button */
+.add-to-cart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+}
+
+/* Loading text */
+.food-details-container>div {
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Center content in the page */
+h1,
+.food-details-container {
+    margin: 0 auto;
+    max-width: 800px;
+}
