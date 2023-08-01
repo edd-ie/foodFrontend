@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./staff.css"
+import "./Staff.css"
 import NavR from "../../utility/NavR";
 //import {BsFillTrashFill, BsFillPencilFill} from 'react-icons/bs'
 
