@@ -38,6 +38,8 @@
     display: flex;
 
 }
+
+
 .kbottomnames{
     width: 650px;
     height: 200px;
@@ -92,9 +94,17 @@
 }
 .kleft-sidebar{
     width: 30%;
-    height: 100%;
+    /* height: 100%; */
     position: relative;
+    background: #ca7608;
+    position: static;
 
+}
+.koption{
+    margin-top: 50px;
+    margin-left: 40px;
+    height: 100%;
+    background: #fff;
 }
 .kright-sidebar{
     overflow-y: scroll;

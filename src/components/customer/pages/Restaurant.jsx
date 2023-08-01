@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import './restaurant.css'
+import NavC from '../../utility/NavC';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart , faLocationDot} from '@fortawesome/free-solid-svg-icons'
 
@@ -45,9 +46,20 @@ export default function Restaurant({user, setUser, setLogin, login}) {
 
     return(
         <div id='krestauraunts'>
-           <div className="knavbar"></div>
+            <NavC />
+           {/* <div className="knavbar"></div> */}
            <div className="kmain">
-            <div className="kleft-sidebar"></div>
+            <div className="kleft-sidebar">
+          <div className="koption">
+          <label for="cars">Choose a car:</label>
+  <select name="cars" id="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+          </div>
+            </div>
             <div className="kright-sidebar">{elements}</div>
            </div>
            <div className="kfooter"></div>
