@@ -27,7 +27,7 @@ export default function Home({user, setUser, setLogin }) {
                         Mark
                     </button>
                 </Link>
-                <Link to='/customer/homepage'>
+                <Link to='/customer/menu'>
                     <button>
                         Glory
                     </button>
