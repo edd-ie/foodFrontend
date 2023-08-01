@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./staff.css"
 import NavR from "../../utility/NavR";
-import {BsFillTrashFill, BsFillPencilFill} from 'react-icons/bs'
+//import {BsFillTrashFill, BsFillPencilFill} from 'react-icons/bs'
 
 
 
@@ -28,8 +28,12 @@ export default function Staff({user}) {
                 <td className={`label ${side}`} key={staff.id+ staff.name+2}>{staff.active ? 'Yes' : 'No'}</td>
                 <td  key={staff.id+ staff.name+3}>
                     <span className="actions">
-                        <BsFillPencilFill className="editIcon"/>
-                        <BsFillTrashFill className="eDeleteIcon"/>
+                        <span className="material-symbols-sharp editIcon">
+                        edit
+                        </span>
+                        <span className="material-symbols-sharp eDeleteIcon">
+                        delete
+                        </span>
                     </span>
                 </td>
             </tr>
@@ -39,22 +43,7 @@ export default function Staff({user}) {
     
     return(
         <div id="eStaffContainer">
-            <NavR /> 
-            
-            <div className="eTableFilter">
-                <div className="setActive">
-                    <div className="eSelectActitve"></div>
-                    <div>Active</div>
-                </div>
-                <div className="setActive">
-                    <div className="eSelectActitve"></div>
-                    <div>Active</div>
-                </div>
-            </div>
-
-            <div className="eAddStaff">
-                
-            </div>
+            <NavR />
 
             <div className="eStaffContent">
                 <table className="eTable">
