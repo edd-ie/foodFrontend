@@ -4,9 +4,10 @@ import './App.css'
 
 
 function App() {
-  const [count, setCount] = useState(0)
   const [user, setUser] = useState([])
   const [login, setLogin] = useState(false)
+  const [resId, setResId] = useState([])
+  const [foodId, setFoodId] = useState([])
 
   const router = createBrowserRouter([
       {
@@ -48,6 +49,10 @@ function App() {
       {
         path: "/customer/menu",
         element: <Menu user={user} setUser={setUser} login={login} setLogin={setLogin}/>
+      },
+      {
+        path: "/customer/reviews",
+        element: <Review user={user} resId={resId} foodId={foodId}/>
       }
     ]
   )
@@ -73,5 +78,6 @@ import Food from './components/customer/pages/Food'
 import Homepage from './components/customer/pages/Homepage'
 import Restaurant from './components/customer/pages/Restaurant'
 import Menu from './components/customer/pages/Menu'
+import Review from './components/customer/pages/Reviews'
 
 
