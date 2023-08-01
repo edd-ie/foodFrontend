@@ -1,4 +1,4 @@
-.cart {
+/* .cart {
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 20px;
@@ -22,11 +22,64 @@
     color: #fff;
     padding: 10px;
     border: none;
-    cursor: pointer;
+    cursor: pointer; */
+  /* } */
+
+  .mocart1{
+    position: absolute;
+    width: 70%;
+    left: 40%;
+    top: 30%;
   }
 
-  #mocart1{
-    width: 200px;
-    height: 100px;
+  .img_def{
+    float: left;
+    width: 20%;
+    margin-right: 50px;
   }
+
+  .mocart2{
+    position: absolute;
+    width: 80%;
+    left: 40%;
+    top: 55%;
+    }
+  .img_def2{
+    float: left;
+    width: 17%;
+    height: 120px;
+    margin-right: 50px;
+    margin-top: 20px;
+  }
+
+  .motymbutton{
+    margin-left: 0%;
+  }
+
+  .mocontent{
+    margin-bottom: 0%;
+  }
+
+  .mocon1{
+    float: right;
+    margin-top: 40%;
+    margin-right: 50%;
+  }
+  .mocon2{
+    float: right;
+    margin-right: 50%;
+  }
+  .mocon3{
+    float: right;
+    margin-right: 50%;
+  }
+  .mocon4{
+    float: right;
+    margin-right: 50%;
+    margin-left: 40%;
+  }
+
+
+
+
   
