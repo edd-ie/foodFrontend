@@ -4,7 +4,11 @@ import './navC.css'
 
 export default function NavC({user, setLogin}) {
     const [count, setCount] = React.useState(1)
+    const [show, setShow] = React.useState(false)
 
+    function handleProfile() {
+        setShow(!show)
+    }
 
     return(
         <div id="rootNav">
@@ -16,14 +20,31 @@ export default function NavC({user, setLogin}) {
             <div className="rLink">History</div>
             <div className="rLink rCart">
                 Cart 
-                <span class="material-symbols-sharp">
+                <span className="material-symbols-sharp">
                     shopping_cart
                 </span>
                 <div className="cartCount">
                     {count}
                 </div>
             </div>
-            <div className="rLink rProf"></div>
+            <div className="rLink rProf" onClick={handleProfile}></div>
+
+            {show && 
+                <div className="rProfSetting">
+                    <div className="rProfSettingItem" onClick={handleProfile}>
+                        <span className="material-symbols-sharp">
+                        account_circle
+                        </span>
+                        <p>Account</p> 
+                    </div> 
+                    <div className="rProfSettingItem" onClick={handleProfile}>
+                        <span className="material-symbols-sharp">
+                        logout
+                        </span> 
+                        <p>Logout</p>    
+                    </div>   
+                </div>
+            }
         </div>
     )
 }
