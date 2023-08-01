@@ -4,7 +4,7 @@ import './menu.css'
 export default function Menu({user, setUser, setLogin, login}) {
 
     return(
-        <div>
+        <div id='gMenuContainer'>
             Menu
         </div>
     )
