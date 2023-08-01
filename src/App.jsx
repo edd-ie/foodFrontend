@@ -4,9 +4,10 @@ import './App.css'
 
 
 function App() {
-  const [count, setCount] = useState(0)
   const [user, setUser] = useState([])
   const [login, setLogin] = useState(false)
+  const [resId, setResId] = useState([])
+  const [foodId, setFoodId] = useState([])
 
   const router = createBrowserRouter([
       {
@@ -48,6 +49,22 @@ function App() {
       {
         path: "/customer/menu",
         element: <Menu user={user} setUser={setUser} login={login} setLogin={setLogin}/>
+      },
+      {
+        path: "/customer/reviews",
+        element: <Review user={user} resId={resId} foodId={foodId}/>
+      },
+      {
+        path: "/navR",
+        element: <NavR user={user} setLogin={setLogin}/>
+      },
+      {
+        path: "/navC",
+        element: <NavC  user={user} setLogin={setLogin}/>
+      },
+      {
+        path: "/restaurant/dashboard",
+        element: <Dashboard user={user} setUser={setUser} login={login} setLogin={setLogin}/>
       }
     ]
   )
@@ -73,5 +90,9 @@ import Food from './components/customer/pages/Food'
 import Homepage from './components/customer/pages/Homepage'
 import Restaurant from './components/customer/pages/Restaurant'
 import Menu from './components/customer/pages/Menu'
+import Review from './components/customer/pages/Reviews'
+import NavR from './components/utility/NavR'
+import NavC from './components/utility/NavC'
+import Dashboard from './components/restaurant/Components/Dashboard'
 
 
