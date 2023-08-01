@@ -54,7 +54,7 @@ const handleLikeRestaurant = (restaurantId) => {
   };
 
   return (
-    <div>
+    <div id='gHomeContainer'>
       {/* Header */}
       <header id="gHeader">
       
