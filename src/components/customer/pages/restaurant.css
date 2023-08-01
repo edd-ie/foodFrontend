@@ -1,0 +1,110 @@
+#krestauraunts{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.krest{
+    position: relative;
+    height: 70%;
+    width: 40%;
+    border: 1px solid #fff;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    
+}
+.ktopRest{
+    height: 60%;
+}
+.kimg-rest{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    
+   
+}
+.kbottomRest{
+    /* height: 40%; */
+    /* width: 100%; */
+    /* background: #fff; */
+    /* padding: 10px; */
+    display: flex;
+
+}
+.kbottomnames{
+    width: 650px;
+    height: 200px;
+}
+.kbottomnames > *{
+    margin-left: 10px;
+    
+
+}
+.kbottomnames >h2{
+    font-size: 30px;
+}
+
+.kbottomnames >h3{
+    font-size: 20px;
+}
+.emoji-location{
+    height: 20px;
+    padding-right: 10px;
+    color: #ca7608;
+
+}
+.emoji{
+    height: 50px;
+    padding: 10px;
+    width: 90px;
+}
+
+.emoji-heart{
+    color: #ca7608;
+    height: 60px;
+}
+
+.knavbar{
+    position: relative;
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+.kmain{
+    position: relative;
+    height: 60%;
+    width: 100%;
+    display: flex;
+    background: red;
+    overflow:hidden;
+}
+.kmain > .kright-sidebar{
+    flex-basis: 100%;
+}
+.kleft-sidebar{
+    width: 30%;
+    height: 100%;
+    position: relative;
+
+}
+.kright-sidebar{
+    overflow-y: scroll;
+    width: 70%;
+    height: 100%;
+    position: relative;
+    display: flex;
+   flex-wrap: wrap;
+   gap: 2%;
+   margin: 40px;
+
+
+}
