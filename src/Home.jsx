@@ -37,7 +37,7 @@ export default function Home({user, setUser, setLogin }) {
                         edd
                     </button>
                 </Link>
-                <Link to='/navR'>
+                <Link to='/restaurant/dashboard'>
                     <button>
                         edd2
                     </button>

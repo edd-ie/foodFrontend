@@ -61,6 +61,10 @@ function App() {
       {
         path: "/navC",
         element: <NavC  user={user} setLogin={setLogin}/>
+      },
+      {
+        path: "/restaurant/dashboard",
+        element: <Dashboard user={user} setUser={setUser} login={login} setLogin={setLogin}/>
       }
     ]
   )
@@ -89,5 +93,6 @@ import Menu from './components/customer/pages/Menu'
 import Review from './components/customer/pages/Reviews'
 import NavR from './components/utility/NavR'
 import NavC from './components/utility/NavC'
+import Dashboard from './components/restaurant/Components/Dashboard'
 
 
