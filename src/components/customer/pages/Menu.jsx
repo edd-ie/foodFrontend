@@ -8,7 +8,7 @@ import drinks from '../../../assets/drinks.jpg';
 import fast from '../../../assets/fast.jpg';
 import offers from '../../../assets/offers.jpg';
 import burger from '../../../assets/burger.jpg';
-import {FaFavoriteBorderOutlinedIcon} from 'react-icons'
+//import {FaFavoriteBorderOutlinedIcon} from 'react-icons'
 
 export default function Menu({ user, setUser, setLogin, login }) {
   const [menuItems, setMenuItems] = useState([]);
@@ -93,7 +93,7 @@ export default function Menu({ user, setUser, setLogin, login }) {
             </div>
             <h3>{menu.name}</h3>
             <p>Price: ${menu.price}</p>
-            <FaFavoriteBorderOutlinedIcon id="icons"/>
+            {/*<FaFavoriteBorderOutlinedIcon id="icons"/>*/}
             <button onClick={handleAddToCart}>Add to Cart</button>
           </div>
         ))}
