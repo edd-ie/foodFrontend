@@ -44,6 +44,10 @@ function App() {
       {
         path: "/customer/restaurant",
         element: <Restaurant user={user} setUser={setUser} login={login} setLogin={setLogin}/>
+      },
+      {
+        path: "/customer/menu",
+        element: <Menu user={user} setUser={setUser} login={login} setLogin={setLogin}/>
       }
     ]
   )
@@ -68,5 +72,6 @@ import Cart from './components/customer/pages/Cart'
 import Food from './components/customer/pages/Food'
 import Homepage from './components/customer/pages/Homepage'
 import Restaurant from './components/customer/pages/Restaurant'
+import Menu from './components/customer/pages/Menu'
 
 
