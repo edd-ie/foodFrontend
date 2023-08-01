@@ -32,6 +32,16 @@ export default function Home({user, setUser, setLogin }) {
                         Glory
                     </button>
                 </Link>
+                <Link to='/navC'>
+                    <button>
+                        edd
+                    </button>
+                </Link>
+                <Link to='/navR'>
+                    <button>
+                        edd2
+                    </button>
+                </Link>
             </div>
         </div>
     )

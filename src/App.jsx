@@ -53,6 +53,14 @@ function App() {
       {
         path: "/customer/reviews",
         element: <Review user={user} resId={resId} foodId={foodId}/>
+      },
+      {
+        path: "/navR",
+        element: <NavR user={user} setLogin={setLogin}/>
+      },
+      {
+        path: "/navC",
+        element: <NavC  user={user} setLogin={setLogin}/>
       }
     ]
   )
@@ -79,5 +87,7 @@ import Homepage from './components/customer/pages/Homepage'
 import Restaurant from './components/customer/pages/Restaurant'
 import Menu from './components/customer/pages/Menu'
 import Review from './components/customer/pages/Reviews'
+import NavR from './components/utility/NavR'
+import NavC from './components/utility/NavC'
 
 
