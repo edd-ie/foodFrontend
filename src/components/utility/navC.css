@@ -64,3 +64,46 @@
 .rCart{
     padding-top: 5px;
 }
+
+.rProfSetting{
+    position: absolute;
+    height: 70px;
+    width: 9%;
+    top: 6%;
+    right: 0.4%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border-radius: 6px;
+}
+
+.rProfSettingItem{
+    position: relative;
+    width: 90%;
+    height: 50%;
+    background: transparent;
+    color: black;
+    text-align: left;
+    padding-top: 5%;
+    padding-left: 10%;
+    display: flex;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.rProfSettingItem *:hover{
+    color: rgb(255, 166, 0);
+    font-size: 500;
+}
+
+.rProfSettingItem span, .rProfSettingItem p{
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    color: black;
+    margin-left: 5%;
+}

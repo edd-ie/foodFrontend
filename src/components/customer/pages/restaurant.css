@@ -1,0 +1,261 @@
+#krestauraunts{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.krest{
+    position: relative;
+    height: 70%;
+    width: 40%;
+    border: 1px solid #fff;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    
+}
+.ktopRest{
+    height: 60%;
+}
+.kimg-rest{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    
+   
+}
+.kbottomRest{
+    /* height: 40%; */
+    /* width: 100%; */
+    /* background: #fff; */
+    /* padding: 10px; */
+    display: flex;
+
+}
+
+
+.kbottomnames{
+    width: 650px;
+    height: 200px;
+}
+.kbottomnames > *{
+    margin-left: 10px;
+    
+
+}
+.kbottomnames >h2{
+    font-size: 30px;
+}
+
+.kbottomnames >h3{
+    font-size: 20px;
+}
+.emoji-location{
+    height: 20px;
+    padding-right: 10px;
+    color: #ca7608;
+
+}
+.emoji{
+    height: 50px;
+    padding: 10px;
+    width: 90px;
+}
+
+.emoji-heart{
+    color: #ca7608;
+    height: 60px;
+}
+
+.knavbar{
+    position: relative;
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+.kmain{
+    position: relative;
+    height: 60%;
+    width: 100%;
+    display: flex;
+    background: red;
+    overflow:hidden;
+}
+.kmain > .kright-sidebar{
+    flex-basis: 100%;
+}
+.kleft-sidebar{
+    width: 30%;
+    /* height: 100%; */
+    position: relative;
+    background: #ca7608;
+    position: static;
+
+}
+.koption{
+    margin-top: 50px;
+    margin-left: 40px;
+    height: 100%;
+    background: #fff;
+}
+.kright-sidebar{
+    overflow-y: scroll;
+    width: 70%;
+    height: 100%;
+    position: relative;
+    display: flex;
+   flex-wrap: wrap;
+   gap: 2%;
+   margin: 40px;
+
+
+}
+
+/* body{
+
+} */
+
+.kResMain{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.kBodyRes{
+    position: relative;
+    background: rgb(165, 160, 160);
+    width: 100%;
+    height: 95%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.kSidBarRes{
+    background: #212121;
+    width: 20%;
+    position: relative;
+    height: 80;
+}
+
+.kMainContent{
+    background: #212121;
+        width: 80%;
+        position: relative;
+        height: 80;
+        display: flex;
+        flex-direction: column;
+}
+
+
+.kSideFilter{
+    position: relative;
+    width: 60%;
+    height: 20%;
+    margin-top: 2%;
+    margin-left: 10%;
+    border: 1px solid orange;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding-left: 2%;
+}
+
+
+.kFilterComp{
+    position: relative;
+    width: 100%;
+    height: 25%;
+    border: 15px;
+    padding-bottom: 2%;
+}
+
+.filterK{
+    position: relative;
+    margin-left: 80%;
+    padding-bottom: 2px;
+}
+
+.kDisplayRes{
+    background: #212121;
+    width: 80%;
+    height: 100%;
+    margin-left: 20%;
+    padding-right: 2%;
+    padding-top: 2%;
+    overflow-y: scroll;
+    display: flex;
+    gap: 2%;
+    flex-wrap: wrap;
+}
+
+.kResDisp{
+    border: 1px solid orange;
+    width: 30%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
+.kResDispTop{
+    position: relative;
+    width: 100%;
+    height: 70%;
+    background-size:0%;
+    background-repeat: no-repeat;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.kResDipBot{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.kFooterRes{
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    background: black;
+    width: 100%;
+    height: 5%;
+}
+
+.kDispLeft{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 60%
+}
+
+.kDispLeft :nth-child(1){
+    font-size: large;
+    font-weight: 500;
+}
+
+.kDispTags{
+    position: relative;
+    width: 98%;
+    height: 20%;
+    margin-top: 2%;
+    margin-left: 2%;
+}
