@@ -103,27 +103,30 @@ export default function Restaurant({user, setUser, setLogin, login}) {
     return(
         <div className="kResMain">
             <NavC/>
+            <div className="kBodyCenter">
+                
+            </div>
             <div className="kBodyRes">
 
                 <div className="kSidBarRes">
                     <div className="kSideFilter">
                         <div className="kFilterComp">Ambience
                         </div>
-                        <div className="kFilterComp"></div>
-                        <div className="kFilterComp"></div>
-                        <div className="kFilterComp"></div>
+                        <div className="kFilterComp">Romantic</div>
+                        <div className="kFilterComp">Casual</div>
+                        <div className="kFilterComp">Fine Dining</div>
                     </div>
                     <div className="kSideFilter">
                         <div className="kFilterComp">Cuisine</div>
-                        <div className="kFilterComp"></div>
-                        <div className="kFilterComp"></div>
-                        <div className="kFilterComp"></div>
+                        <div className="kFilterComp">Swahili</div>
+                        <div className="kFilterComp">Italian</div>
+                        <div className="kFilterComp">Chinese</div>
                     </div>
                     <div className="kSideFilter">
                         <div className="kFilterComp">Price Range</div>
-                        <div className="kFilterComp"></div>
-                        <div className="kFilterComp"></div>
-                        <div className="kFilterComp"></div>
+                        <div className="kFilterComp">$</div>
+                        <div className="kFilterComp">$$</div>
+                        <div className="kFilterComp">$$$</div>
                     </div>
                 </div>
 
