@@ -4,6 +4,7 @@
     position: absolute;
     margin: 0;
     padding: 0;
+    overflow-y: scroll;
 }
 
 /* body {
@@ -142,7 +143,8 @@
    border: 1px solid #ffa500;
    text-align: center;
    transition: transform 0.3s ease; 
-   width: 10%
+   width: 10%;
+   border-radius: 15px;
   }
 
 #nMenuCard:hover {
