@@ -22,7 +22,7 @@ export default function Home({user, setUser, setLogin }) {
                         Mohamed
                     </button>
                 </Link>
-                <Link to='/customer/reviews'>
+                <Link to='/restaurant/inventory'>
                     <button>
                         Mark
                     </button>
@@ -32,7 +32,7 @@ export default function Home({user, setUser, setLogin }) {
                         Glory
                     </button>
                 </Link>
-                <Link to='/customer/profile'>
+                <Link to='/customer/login'>
                     <button>
                         edd
                     </button>
