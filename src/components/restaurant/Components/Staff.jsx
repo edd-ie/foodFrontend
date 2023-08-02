@@ -43,9 +43,11 @@ export default function Staff({user}) {
     
     return(
         <div id="eStaffContainer">
-            <NavR />
-
+            <NavR />            
             <div className="eStaffContent">
+                {/* <div className="eStaffBar">
+
+                </div> */}
                 <table className="eTable">
                     <thead>
                         <tr>
