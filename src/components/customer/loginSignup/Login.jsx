@@ -8,11 +8,8 @@ import logo from '../../../assets/logo.svg';
 export default function CustomerSignUp({ user, setUser, setLogin, login }) {
 
   const [formData, setFormData] = useState({
-    name: '',
-    username: '',
     email: '',
     password: '',
-    agreeTerms: false,
   });
 
   const handleChange = (event) => {
@@ -22,9 +19,17 @@ export default function CustomerSignUp({ user, setUser, setLogin, login }) {
   };
 
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(formData);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let set = {email: formData.email, password: formData.password}
+    console.log(set);
+
+    fetch('https://backendfood-co7z.onrender.com/customer/login',{
+      method: 'POST',
+      headers: {'Content-type': 'application/json',}
+    })
+
+
   };
 
   const handleForgotPassword = () => {
@@ -39,12 +44,12 @@ export default function CustomerSignUp({ user, setUser, setLogin, login }) {
       <h1>Login to your account</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label id='maUsername' htmlFor='username'>Username:</label>
+          <label id='maUsername' htmlFor='email'>Email:</label>
           <input 
-            type='text'
+            type='email'
             id='markusername'
-            name='username'
-            value={formData.username}
+            name='email'
+            value={formData.email}
             onChange={handleChange}
             required
           />
