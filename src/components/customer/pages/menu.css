@@ -1,16 +1,18 @@
-#nMenuContainer{
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    margin: 0;
-    padding: 0;
+#nMenuContainer {
+  width: 100vw;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll; 
+  overflow-x: hidden; /* Hide horizontal scrolling */
 }
 
-/* body {
-    margin: 0;
-    padding: 0;
-    overflow: scroll;
-  } */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll; 
+  overflow-x: hidden;
+} 
   
   #nHeader {
     background-color: #000;
@@ -68,7 +70,6 @@
     background-color: #31363a;
     margin-top: 6.5vh;
     display: flex;
-    /* Use flexbox to align content */
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap; /* Allow wrapping to the next row */
@@ -205,7 +206,7 @@
 #gfooterLogo img {
   height: 170px;
   position: absolute;
-  margin-top: 121%;
+  top: 3955px;
   left: 1px;
 }
 

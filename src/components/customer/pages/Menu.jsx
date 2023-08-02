@@ -28,6 +28,7 @@ export default function Menu({ user, setUser, setLogin, login }) {
   return (
     <div id="nMenuContainer">
       <header id="nHeader">
+        <NavC />
         <nav>
           <img id="nLogo" src={logo} alt="logo" />
           <ul>
