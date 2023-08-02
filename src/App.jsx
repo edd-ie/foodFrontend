@@ -77,11 +77,15 @@ function App() {
       {
         path: '/restaurant/orders',
         element: <Orders user={user}/>
+      },
+      {
+        path: '/customer/tracking',
+        element: <OrderTracking user={user}/>
       }
     ]
   )
 
-  
+
   return (
     <div className="App">
       <RouterProvider router={router}/>
@@ -109,5 +113,6 @@ import Dashboard from './components/restaurant/Components/Dashboard'
 import Staff from './components/restaurant/Components/Staff'
 import ProfC from './components/utility/ProfC'
 import Orders from './components/restaurant/Components/orders'
+import OrderTracking from './components/customer/pages/OrderTracking'
 
 
