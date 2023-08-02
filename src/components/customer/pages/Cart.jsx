@@ -1,87 +1,98 @@
 import React, { useEffect, useState } from 'react';
 import './cart.css';
-import burger from '../../../assets/burger.jpg';
-import orangecicle from '../../../assets/orangecircle.png';
-import chips from '../../../assets/chips.jpeg';
 import NavC from '../../utility/NavC';
 
 export default function Cart({ user, setUser, setLogin, login }) {
-    const  [ids, setIds] = React.useState([1,4,6,2])
-    const [food, setFood] = React.useState([])
+  const [ids, setIds] = useState([1, 4, 6, 2]);
+  const [food, setFood] = useState([]);
+  const [quantities, setQuantities] = useState({});
+  const [showTime, setShowTime] = useState(false);
+  const [selectedFoodIndex, setSelectedFoodIndex] = useState(null);
 
-    useEffect(()=>{
-      let all = []
-      for(let id of ids){
-        fetch(`https://backendfood-co7z.onrender.com/foods/${id}`)
-        .then((r)=> r.json())
-        .then((data)=>{
-          all.push(data)
-          
-          setFood(all)
-          //console.log(data)
-        })
+  useEffect(() => {
+    const fetchFoods = async () => {
+      try {
+        const allFoods = await Promise.all(ids.map(id =>
+          fetch(`https://backendfood-co7z.onrender.com/foods/${id}`)
+            .then(response => response.json())
+        ));
+        setFood(allFoods);
+
+        const initialQuantities = allFoods.reduce((acc, element) => {
+          acc[element.id] = 1; // Set initial quantity to 1 for each food item
+          return acc;
+        }, {});
+        setQuantities(initialQuantities);
+      } catch (error) {
+        console.error('Error fetching data:', error);
       }
-    },[])
+    };
 
-    const elements = food.map((element, index) =>{
-      return(
-        <div className="gOrderMain" key={element.category+1}>
+    fetchFoods();
+  }, []);
 
+  const toggleShowTime = (index) => {
+    setShowTime(!showTime);
+    setSelectedFoodIndex(index);
+  };
+
+  const handleQuantityChange = (foodId, action) => {
+    setQuantities(prevQuantities => {
+      const newQuantities = { ...prevQuantities };
+      if (action === 'add') {
+        newQuantities[foodId] = (newQuantities[foodId] || 0) + 1;
+      } else if (action === 'subtract' && newQuantities[foodId] > 1) {
+        newQuantities[foodId] -= 1;
+      }
+      return newQuantities;
+    });
+  };
+
+  const elements = food.map((element, index) => (
+    <div className="gCart-container">
+    <div className="gOrderMain" key={element.category + index}>
+      <img src={element.picture} alt={element.name} />
+      <div className="food-details">
+        <h2>{element.name}</h2>
+        <p className="price">
+          <span className="material-symbols-sharp">radio_button_checked</span>
+          Ksh {element.price}
+        </p>
+        <p className="category">{element.category}</p>
+
+        <div id="gIcon">
+          <span
+            className="material-symbols-sharp"
+            onClick={() => handleQuantityChange(element.id, 'subtract')}
+          >
+            remove
+          </span>
+          {quantities[element.id]}
+          <span
+            className="material-symbols-sharp"
+            onClick={() => handleQuantityChange(element.id, 'add')}
+          >
+            add
+          </span>
         </div>
-      )
-    })
 
-  //   const [subtotal, setSubtotal] = useState(0);
-  //   const serviceFee = 150; //  Define the service fee
-  // const total = subtotal + serviceFee; // Calculate the total
+        <button onClick={() => toggleShowTime(index)}>
+          {selectedFoodIndex === index && showTime ? 'Hide Time' : 'Show Time'}
+        </button>
+        {selectedFoodIndex === index && showTime && (
+          <p className="preparation-time">
+            Preparation Time: 20mins{element.preparationTime}
+          </p>
+        )}
+      </div>
+    </div>
+    </div>
+  ));
 
-
-  // const handleClickBurger = () => {
-  //   setSubtotal((prevSubtotal) => prevSubtotal + 1260);
-  //   // Here you can add more logic or update the state as needed.
-  // };
-
-  // const handleClickChips = () => {
-  //   setSubtotal((prevSubtotal) => prevSubtotal + 700);
-  //   // Here you can add more logic or update the state as needed.
-  // };
-  
   return (
     <div>
-      <NavC/>
-      {/* Start here */}
-        {/* <div class="mocart1">
-        <img class="img_def" src={burger} alt=""/>
-        <div className='mocontent'>
-            <p>Mango Masai <br /> Ksh 1260</p>
-            <p>no salt</p>
-            <button onClick={handleClickBurger}>
-            30 min
-            </button>
-        </div>
-        
-        </div>
-        <div class="mocart2">
-            <img class="img_def2" src={chips} alt=""/>
-            <div class ="modis">
-                <p>Chips <br /> Ksh 700</p>
-                <p>no salt</p>
-                <button className='motymbutton' onClick={handleClickChips}>
-                20 min
-                </button>
-            </div>
-            
-        </div>
-            <div className='mocon1'>Subtotal: Ksh {subtotal}</div>
-            <div className='mocon2'>Service Fee: {serviceFee}</div>
-            <div className='mocon3'>Total: Ksh {total}</div>
-            <button className='mocon4' type='submit' onClick={() => console.log('Proceed to Checkout')}>
-            Proceed to Checkout
-            </button> */}
-
-        
-        
+      <NavC />
+      {elements}
     </div>
-
   );
 }
