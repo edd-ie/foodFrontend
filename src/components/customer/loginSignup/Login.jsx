@@ -26,11 +26,34 @@ export default function CustomerSignUp({ user, setUser, setLogin, login }) {
 
     fetch('https://backendfood-co7z.onrender.com/customer/login',{
       method: 'POST',
-      headers: {'Content-type': 'application/json',}
+      headers: {"Accept": "*/*",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(set),
+      withCredentials: true,
+    }).then(res => res.json())
+    .then(data => {
+      console.log(data)
+      localStorage.getItem('foodChapUser') ? localStorage.removeItem('foodChapUser') : null
+      localStorage.getItem('foodChapSide') ? localStorage.removeItem('foodChapSide') : null
+
+      localStorage.setItem('foodChapUser', data.id)
+      localStorage.setItem('foodChapSide', 'cust')
+      let x = localStorage.getItem('foodChapUser')
+      setUser(data)
     })
-
-
+    .catch(err => console.log(err))
   };
+
+  // fetch('https://backendfood-co7z.onrender.com/me',{
+  //       method:'GET', 
+  //       headers: {"Accept": "*/*",
+  //         "Content-Type": "application/json"
+  //       },
+  //       withCredentials: true,
+  //     })
+  //     .then(res=>res.json())
+  //     .then(data=>console.log(data))
 
   const handleForgotPassword = () => {
     
