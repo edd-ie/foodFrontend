@@ -1,20 +1,15 @@
-#nMenuContainer {
-  width: 100vw;
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  overflow-y: scroll; 
-  overflow-x: hidden; /* Hide horizontal scrolling */
+#nMenuContainer{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  overflow-y: scroll; 
-  overflow-x: hidden;
-} 
+  {/*body {margin: 0;padding: 0;overflow-y: scroll; overflow-x: hidden;}*/}
   
-  #nHeader {
+#nHeader {
     background-color: #000;
     padding: 1px;
     margin: 10px;
@@ -143,7 +138,8 @@ body {
    border: 1px solid #ffa500;
    text-align: center;
    transition: transform 0.3s ease; 
-   width: 10%
+   width: 10%;
+   border-radius: 15px;
   }
 
 #nMenuCard:hover {

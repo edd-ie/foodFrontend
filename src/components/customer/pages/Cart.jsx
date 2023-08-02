@@ -3,10 +3,12 @@ import './cart.css';
 import burger from '../../../assets/burger.jpg';
 import orangecicle from '../../../assets/orangecircle.png';
 import chips from '../../../assets/chips.jpeg';
+import NavC from '../../utility/NavC';
 
 export default function Cart({ user, setUser, setLogin, login }) {
   return (
     <div>
+      <NavC/>
         <div class="mocart1">
         <img class="img_def" src={burger} alt=""/>
         <div className='mocontent'>
