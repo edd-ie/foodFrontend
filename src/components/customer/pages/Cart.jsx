@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './cart.css';
 import burger from '../../../assets/burger.jpg';
 import orangecicle from '../../../assets/orangecircle.png';
@@ -6,6 +6,20 @@ import chips from '../../../assets/chips.jpeg';
 import NavC from '../../utility/NavC';
 
 export default function Cart({ user, setUser, setLogin, login }) {
+    const  [ids, setIds] = React.useState([1,4,6,2])
+    const [food, setFood] = React.useState([])
+
+    useEffect(()=>{
+      ids.map((id)=>{
+        fetch(`https://backendfood-co7z.onrender.com/foods/${id}`)
+        .then((r)=> r.json())
+        .then((data)=>{
+          setFood(data)
+          console.log(data)
+        })
+      })
+    },[])
+
     const [subtotal, setSubtotal] = useState(0);
     const serviceFee = 150; //  Define the service fee
   const total = subtotal + serviceFee; // Calculate the total
@@ -20,9 +34,11 @@ export default function Cart({ user, setUser, setLogin, login }) {
     setSubtotal((prevSubtotal) => prevSubtotal + 700);
     // Here you can add more logic or update the state as needed.
   };
+  
   return (
     <div>
       <NavC/>
+      {/* Start here */}
         <div class="mocart1">
         <img class="img_def" src={burger} alt=""/>
         <div className='mocontent'>
