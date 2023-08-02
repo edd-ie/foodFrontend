@@ -44,9 +44,9 @@ export default function Cart({ user, setUser, setLogin, login }) {
             
         </div>
             <div className='mocon1'>Subtotal: Ksh {subtotal}</div>
-            <div className='mocon2'>Service Fee: Ksh 150 {serviceFee}</div>
+            <div className='mocon2'>Service Fee: {serviceFee}</div>
             <div className='mocon3'>Total: Ksh {total}</div>
-            <button className='mocon4' onClick={() => console.log('Proceed to Checkout')}>
+            <button className='mocon4' type='submit' onClick={() => console.log('Proceed to Checkout')}>
             Proceed to Checkout
             </button>
 
