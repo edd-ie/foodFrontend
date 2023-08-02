@@ -22,14 +22,24 @@ export default function Home({user, setUser, setLogin }) {
                         Mohamed
                     </button>
                 </Link>
-                <Link to='/customer/food'>
+                <Link to='/customer/reviews'>
                     <button>
                         Mark
                     </button>
                 </Link>
-                <Link to='/customer/homepage'>
+                <Link to='/customer/tracking'>
                     <button>
                         Glory
+                    </button>
+                </Link>
+                <Link to='/customer/profile'>
+                    <button>
+                        edd
+                    </button>
+                </Link>
+                <Link to='/restaurant/dashboard'>
+                    <button>
+                        edd2
                     </button>
                 </Link>
             </div>
