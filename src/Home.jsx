@@ -27,7 +27,7 @@ export default function Home({user, setUser, setLogin }) {
                         Mark
                     </button>
                 </Link>
-                <Link to='/restaurant/orders'>
+                <Link to='/customer/tracking'>
                     <button>
                         Glory
                     </button>
