@@ -10,36 +10,47 @@ export default function Cart({ user, setUser, setLogin, login }) {
     const [food, setFood] = React.useState([])
 
     useEffect(()=>{
-      ids.map((id)=>{
+      let all = []
+      for(let id of ids){
         fetch(`https://backendfood-co7z.onrender.com/foods/${id}`)
         .then((r)=> r.json())
         .then((data)=>{
-          setFood(data)
-          console.log(data)
+          all.push(data)
+          
+          setFood(all)
+          //console.log(data)
         })
-      })
+      }
     },[])
 
-    const [subtotal, setSubtotal] = useState(0);
-    const serviceFee = 150; //  Define the service fee
-  const total = subtotal + serviceFee; // Calculate the total
+    const elements = food.map((element, index) =>{
+      return(
+        <div className="gOrderMain" key={element.category+1}>
+
+        </div>
+      )
+    })
+
+  //   const [subtotal, setSubtotal] = useState(0);
+  //   const serviceFee = 150; //  Define the service fee
+  // const total = subtotal + serviceFee; // Calculate the total
 
 
-  const handleClickBurger = () => {
-    setSubtotal((prevSubtotal) => prevSubtotal + 1260);
-    // Here you can add more logic or update the state as needed.
-  };
+  // const handleClickBurger = () => {
+  //   setSubtotal((prevSubtotal) => prevSubtotal + 1260);
+  //   // Here you can add more logic or update the state as needed.
+  // };
 
-  const handleClickChips = () => {
-    setSubtotal((prevSubtotal) => prevSubtotal + 700);
-    // Here you can add more logic or update the state as needed.
-  };
+  // const handleClickChips = () => {
+  //   setSubtotal((prevSubtotal) => prevSubtotal + 700);
+  //   // Here you can add more logic or update the state as needed.
+  // };
   
   return (
     <div>
       <NavC/>
       {/* Start here */}
-        <div class="mocart1">
+        {/* <div class="mocart1">
         <img class="img_def" src={burger} alt=""/>
         <div className='mocontent'>
             <p>Mango Masai <br /> Ksh 1260</p>
@@ -66,7 +77,7 @@ export default function Cart({ user, setUser, setLogin, login }) {
             <div className='mocon3'>Total: Ksh {total}</div>
             <button className='mocon4' type='submit' onClick={() => console.log('Proceed to Checkout')}>
             Proceed to Checkout
-            </button>
+            </button> */}
 
         
         
