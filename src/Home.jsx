@@ -27,12 +27,12 @@ export default function Home({user, setUser, setLogin }) {
                         Mark
                     </button>
                 </Link>
-                <Link to='/customer/menu'>
+                <Link to='/customer/tracking'>
                     <button>
                         Glory
                     </button>
                 </Link>
-                <Link to='/navC'>
+                <Link to='/customer/profile'>
                     <button>
                         edd
                     </button>

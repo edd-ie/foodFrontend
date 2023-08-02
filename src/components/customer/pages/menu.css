@@ -4,15 +4,12 @@
     position: absolute;
     margin: 0;
     padding: 0;
+    overflow-y: scroll;
 }
 
-/* body {
-    margin: 0;
-    padding: 0;
-    overflow: scroll;
-  } */
+ 
   
-  #nHeader {
+#nHeader {
     background-color: #000;
     padding: 1px;
     margin: 10px;
@@ -68,7 +65,6 @@
     background-color: #31363a;
     margin-top: 6.5vh;
     display: flex;
-    /* Use flexbox to align content */
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap; /* Allow wrapping to the next row */
@@ -142,7 +138,8 @@
    border: 1px solid #ffa500;
    text-align: center;
    transition: transform 0.3s ease; 
-   width: 10%
+   width: 10%;
+   border-radius: 15px;
   }
 
 #nMenuCard:hover {
@@ -205,7 +202,7 @@
 #gfooterLogo img {
   height: 170px;
   position: absolute;
-  margin-top: 121%;
+  top: 3955px;
   left: 1px;
 }
 

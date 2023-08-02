@@ -69,6 +69,18 @@ function App() {
       {
         path: '/restaurant/staff',
         element: <Staff user={user}/>
+      },
+      {
+        path: '/customer/profile',
+        element: <ProfC user={user}/>
+      },
+      {
+        path: '/restaurant/orders',
+        element: <Orders user={user}/>
+      },
+      {
+        path: '/customer/tracking',
+        element: <OrderTracking user={user}/>
       }
     ]
   )
@@ -99,5 +111,8 @@ import NavR from './components/utility/NavR'
 import NavC from './components/utility/NavC'
 import Dashboard from './components/restaurant/Components/Dashboard'
 import Staff from './components/restaurant/Components/Staff'
+import ProfC from './components/utility/ProfC'
+import Orders from './components/restaurant/Components/orders'
+import OrderTracking from './components/customer/pages/OrderTracking'
 
 
