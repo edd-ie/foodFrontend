@@ -81,6 +81,10 @@ function App() {
       {
         path: '/customer/tracking',
         element: <OrderTracking user={user}/>
+      },
+      {
+        path: '/restaurant/inventory',
+        element: <Inventory user={user}/>
       }
     ]
   )
@@ -114,5 +118,5 @@ import Staff from './components/restaurant/Components/Staff'
 import ProfC from './components/utility/ProfC'
 import Orders from './components/restaurant/Components/orders'
 import OrderTracking from './components/customer/pages/OrderTracking'
-
+import Inventory from './components/restaurant/Components/Inventory'
 
