@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './review.css';
+import NavC from '../../utility/NavC';
 
 export default function Review({ user, resId }) {
   const [reviews, setReviews] = useState([]);
@@ -9,7 +10,7 @@ export default function Review({ user, resId }) {
 
   useEffect(() => {
     // Fetch reviews
-    fetch(`https://backendfood-co7z.onrender.com/restaurant/reviews/${resId}`)
+    fetch(`https://backendfood-co7z.onrender.com/restaurant/reviews/1`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Error fetching reviews: ${response.status} ${response.statusText}`);
@@ -63,6 +64,10 @@ export default function Review({ user, resId }) {
 
   return (
     <div className="reviews-page">
+      {/* Navigation bar */}
+      {/* <NavC /> */}
+      {/* Title of the page */}
+      
       <h1>Restaurant Reviews</h1>
       {/* Form for adding a new review */}
       <form onSubmit={handleAddReview}>
