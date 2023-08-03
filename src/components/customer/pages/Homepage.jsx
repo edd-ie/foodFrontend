@@ -3,6 +3,7 @@ import './homepage.css';
 import PICHA from '../../../assets/PICHA.jpg';
 import logo from '../../../assets/logo.svg';
 import burger from '../../../assets/burger.jpg';
+import NavC from '../../utility/NavC';
 
 
 export default function Homepage({ user, setUser, setLogin, login }) {
@@ -56,7 +57,7 @@ const handleLikeRestaurant = (restaurantId) => {
   return (
     <div id='gHomeContainer'>
       {/* Header */}
-      <header id="gHeader">
+      {/* <header id="gHeader">
       
         <nav>
           <img id='gLogo' src={logo} alt="logo" />
@@ -76,7 +77,8 @@ const handleLikeRestaurant = (restaurantId) => {
 
           </ul>
         </nav>
-      </header>
+      </header> */}
+      <NavC/>
 
       {/* Image with Customizable Text and Search Box */}
       <div id="gImage" style={{ position: 'relative' }}>

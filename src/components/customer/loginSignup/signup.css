@@ -1,113 +1,84 @@
-/* signup.css */
-
-* {
-    background-color: #000000;
+.gSIgnup{
+  width: 100vw;
+  position: absolute;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#gSignup {
-    width: 400px; /* Adjust the width as needed */
-    padding: 20px;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    background-color: #000000;
-  }
-  
-  #gSignup h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: white;
-    font-size: 30px;
-  }
-  
-  form {
-    display: grid;
-    gap: 10px;
-    color: #ffa500;
-  }
-  
-  #glabel1 {
-    display: block;
-    font-weight: bold;
-  }
+.gSIgnupForm{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: space-evenly;
+  width: 28%;
+  height: 60%;
+  padding-left: 5%;
+}
 
-  #glabel2 {
-    display: block;
-    font-weight: bold;
-  }
+.gFormLabel{
+  position: relative;
+  color: orange;
+  text-align: left;
+  margin-top: 4%;
+}
 
-  #glabel3 {
-    display: block;
-    font-weight: bold;
-  }
+.gSIgnupForm input{
+  position: relative;
+  width: 85%;
+  height: 430%;
+  border-radius: 6px;
+  border: 0px;
+}
 
-  #glabel4 {
-    display: block;
-    font-weight: bold;
-  }
-  
-  input[type='text'],
-  input[type='email'],
-  input[type='password'] {
-    width: 100%;
-    height: 40%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #000000;
-  }
-  
-  input[type='checkbox'] {
-    margin-right: 5px;
-  }
-  
-  button {
-    background-color: #ffa500;
-    color: #fff;
-    font-size: 100px;
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: #ffa413;
-  }
+.gSIgnupForm select{
+  position: relative;
+  width: 87%;
+}
 
-  #gCheckbox {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    color: #fff;
-    font-size: 20px;
-  }
-  
-  #gCheckbox glabel5 {
-    margin-left: 5px;
-  }
+.gSubFrmBtn{
+  width: 20px;
+  margin-top: 2%;
+}
 
-  #gLogin {
-    color: white;
-    margin-left: 80px;
-    align-items: center;
-    font-size: 20px;
-  }
+.gSIgnup h3{
+  padding: 0;
+  margin: 0;
+}
 
-  #gMain {
-    background-color: #000000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+#gPolicyText{
+  margin-top: 3%;
+}
 
-  #gLogo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+#gPolicyText, .gFormTransfer{
+  margin: 0;
+  margin-top: 5%;
+  font-size: small;
+  font-weight: 100;
+  background: transparent;
+}
 
-  
+#policy{
+  margin: 0;
+  padding: 0;
+  width: 6%;
+  margin-right: 2%;
+}
+
+#gSignLogo{
+  padding: 0;
+  margin: 0;
+  margin-top: 2%;
+}
+
+.gFormTransfer{
+  margin-left: 10%;
+}
+
+.gFormTransfer span{
+  color: rgb(0, 195, 255);
+  font-weight: 200;
+  cursor: pointer;
+}
