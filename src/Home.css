@@ -3,16 +3,36 @@
     height: 100vh;
     width: 100vw;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: rgb(19, 18, 18);
+    font-weight: 400;
+    justify-content: space-evenly;
+}
+
+
+.eHomeSide{
+    width: 20%;
+    height: 40%;
+    border: 0.5px solid white;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: black;
-    color: rgb(12, 223, 12);
+    border-radius: 8px;
+    color: gray;
+    cursor: pointer;
 }
 
-#eHomeButtons{
-    width: 40%;
-    height: 10%;
-    display: flex;
-    justify-content: space-evenly;
+.eHomeSide span{
+    font-size: 80px;
+}
+
+.eHomeSide:hover{
+    color: rgb(15, 15, 15);
+    background: rgb(248, 248, 248);
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
 }

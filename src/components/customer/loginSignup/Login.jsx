@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import './login.css';
-import logo from '../../../assets/logo.svg';
+import logo from '../../../assets/logo1.png';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
-export default function CustomerSignUp({ user, setUser, setLogin, login }) {
-
+export default function CustomerLogin({ user, setUser, setLogin, login }) {
+  
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -41,6 +42,7 @@ export default function CustomerSignUp({ user, setUser, setLogin, login }) {
       localStorage.setItem('foodChapSide', 'cust')
       let x = localStorage.getItem('foodChapUser')
       setUser(data)
+      setLogin(true)
     })
     .catch(err => console.log(err))
   };
@@ -63,7 +65,7 @@ export default function CustomerSignUp({ user, setUser, setLogin, login }) {
   return (
     <div id="maLand">
     <div id='maLogin'>
-    <img id='maLogo'  src={logo} alt="logo" />
+    <img id='maLogo'  src={logo} alt="logo"  style={{alignSelf: 'center', marginLeft:'20%', marginBottom:'5%'}}/>
       <h1>Login to your account</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -103,12 +105,15 @@ export default function CustomerSignUp({ user, setUser, setLogin, login }) {
       </form>
       <div id="markLogin">
       <p>
-          Don't have an account?  
+          Don't have an account?
           <span
             style={{ cursor: 'pointer', color: 'orange'}}
-            onClick={() => setLogin(!login)}
+            onClick={() => {
+              
+            }              
+            }
           >
-          Create account
+           Create account
           </span>
         </p>
       </div>
