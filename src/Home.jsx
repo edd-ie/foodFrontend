@@ -32,7 +32,7 @@ export default function Home({user, setUser, setLogin }) {
                         Glory
                     </button>
                 </Link>
-                <Link to='/customer/login'>
+                <Link to='/customer/signup'>
                     <button>
                         edd
                     </button>
