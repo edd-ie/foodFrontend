@@ -1,76 +1,69 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './signup.css';
-import logo from '../../../assets/logo.svg';
+import logo from '../../../assets/logo1.png';
 
 
 
+
+// id
+// name
+// email
+// phone
+// policy
+// pay_bill
+// acc_num
+// till_num
+// ambience
+// cuisine
+// price_range
+// latitude
+// longitude
+// ratings
+// picture
 
 export default function CustomerSignUp({ user, setUser, setLogin, login }) {
+  const [location, setLocation] = useState([])
+  console.log("file: SignUp.jsx:26 -> CustomerSignUp -> location:", location);
 
-  const [formData, setFormData] = useState({
-    name: '',
-    username: '',
-    email: '',
-    password: '',
-    agreeTerms: false,
-  });
-
-  const handleChange = (event) => {
-    const { name, value, type, checked } = event.target;
-    const newValue = type === 'checkbox' ? checked : value;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: newValue }));
-  };
-
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(formData);
-  };
+  useEffect(() => {
+    console.log("Start");
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      console.log("Latitude is :", position.coords.latitude);
+      console.log("Longitude is :", position.coords.longitude);
+      setLocation({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      });
+    },
+    (error) => {
+      console.log(error);
+    },
+    { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
+  );
+}, [])
 
   return (
-    <div id="gMain">
-    <div id='gSignup'>
-    <div id="gLogo">
-       <img id='logo'  src={logo} alt="logo" />
-     </div>
-      <h1>Create your account</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label id="glabel1" htmlFor='name'>Name:</label>
-          <input type='text' id='name' name='name' value={formData.name} onChange={handleChange}required />
-        </div>
-        <div>
-          <label id="glabel2" htmlFor='username'>Username:</label>
-          <input type='text' id='username' name='username' value={formData.username} onChange={handleChange} required/>
-        </div>
-        <div>
-          <label id="glabel3" htmlFor='email'>Your email:</label>
-          <input type='email' id='email' name='email' value={formData.email} onChange={handleChange} required />
-        </div>
-        <div>
-          <label id="glabel4" htmlFor='password'>Password:</label>
-          <input type='password' id='password' name='password' value={formData.password} onChange={handleChange} required />
-        </div>
-        <div id="gCheckbox">
-          <input type='checkbox' id='agreeTerms' name='agreeTerms' checked={formData.agreeTerms} onChange={handleChange} required />
-          <label id="glabel5" htmlFor='agreeTerms'>
-            Agree to all Term,Privacy Policies and Fees
-          </label>
-        </div>
-        <button type='submit'>Sign Up</button>
-      </form>
-      <div id="gLogin">
-      <p>
-        Have an account?
-        <span
-          style={{ cursor: 'pointer', color: 'orange' }}
-          onClick={() => setLogin(!login)}
-        >
-          {login ? 'Login' : 'Login'}
-        </span>
-      </p>
-      </div>
-    </div>
+    <div className="gSIgnup">
+      <img src={logo} alt="logo" id='gSignLogo'/>
+      <h3>Create account</h3>
+      <form action="submit" className="gSIgnupForm">
+        <label className="gFormLabel" htmlFor="email">Email</label>
+        <input type="email" placeholder="Email" name='email' required/>
+        
+        <label className="gFormLabel" htmlFor="phone">Phone:</label>
+        <input type="number" placeholder="phone" name='phone' required />
+          
+        <label className="gFormLabel" htmlFor="password">Password</label>
+        <input type="password" placeholder="password" name='password' required/>
+        
+        <p id='gPolicyText'>
+          <input type="checkbox" name="policy" id="policy" required/>
+          I agree to the terms and conditions</p>
+
+        <input type="submit" value="Sign Up" className="gSubFrmBtn" />
+        <p className="gFormTransfer">Already have an account? <span onClick={() => {}}>Login</span></p>
+        </form>
     </div>
   );
 }

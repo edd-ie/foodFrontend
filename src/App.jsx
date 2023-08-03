@@ -5,14 +5,16 @@ import './App.css'
 
 function App() {
   const [user, setUser] = useState({id:1})
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(true)
   const [resId, setResId] = useState([])
   const [foodId, setFoodId] = useState([])
+  const[side, setSide] = useState(false)
+
 
   const router = createBrowserRouter([
       {
         path: "/",
-        element: <Home user={user} setUser={setUser} setLogin={setLogin}/>
+        element:<Homepage user={user} setUser={setUser} login={login} setLogin={setLogin}/>
       },
       {
         path: "/customer/login",
@@ -92,7 +94,8 @@ function App() {
 
   return (
     <div className="App">
-      <RouterProvider router={router}/>
+      {login&&<RouterProvider router={router}/>}
+      {!login && <Home user={user} setUser={setUser} login={login} setLogin={setLogin}/>}
     </div>
   )
 }
