@@ -1,14 +1,18 @@
 /* Homepage.css */
 
 /* Reset default margin and padding for the whole page */
-body {
+/* body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-  }
+  } */
 #gHomeContainer{
+  position: absolute;
+  padding: 0;
+  margin: 0;
   width: 100vw;
   height: 100vh;
+  overflow-y: scroll;
 }
   
   /* Style the header */

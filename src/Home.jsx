@@ -2,47 +2,37 @@ import React from 'react';
 import './Home.css'
 import { Link } from 'react-router-dom';
 import logo from './assets/logo.svg'
+import CustomerLogin from './components/customer/loginSignup/Login';
+import RestaurantLogin from './components/restaurant/loginSignup/Login';
 
 
 export default function Home({user, setUser, setLogin }) {
+    const [optA, setOptA] = React.useState(false)
+    const [optB, setOptB] = React.useState(false)
 
     return(
-        <div id='eHome'>
-            <h1>Hey... how you doing?</h1>
-            <img src={logo} alt="logo" />
-            
-            <div id='eHomeButtons'>
-                <Link to='/customer/restaurant'>
-                    <button>
-                        Lizzie
-                    </button>
-                </Link>
-                <Link to='/customer/cart'>
-                    <button>
-                        Mohamed
-                    </button>
-                </Link>
-                <Link to='/restaurant/inventory'>
-                    <button>
-                        Mark
-                    </button>
-                </Link>
-                <Link to='/customer/tracking'>
-                    <button>
-                        Glory
-                    </button>
-                </Link>
-                <Link to='/customer/signup'>
-                    <button>
-                        edd
-                    </button>
-                </Link>
-                <Link to='/restaurant/dashboard'>
-                    <button>
-                        edd2
-                    </button>
-                </Link>
+        <>
+        {!optA && !optB &&<div id='eHome'>
+            <div className="eHomeSide" onClick={()=>setOptA(true)}>
+                <span className="material-symbols-sharp">
+                restaurant_menu
+                </span>
+                <p>Enter as a Customer</p>
             </div>
-        </div>
+
+            <div className="eHomeSide" onClick={()=>setOptB(true)}>
+                    <span className="material-symbols-sharp">
+                    storefront
+                    </span>
+                    <p>Enter as a restaurant</p>
+            </div>
+            </div>} 
+            {
+                optA && !optB && <CustomerLogin user={user} setUser={setUser} setLogin={setLogin} />
+            }
+            {
+                !optA && optB && <RestaurantLogin user={user} setUser={setUser} setLogin={setLogin} />
+            }
+        </>
     )
 }
