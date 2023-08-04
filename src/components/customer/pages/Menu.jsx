@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './menu.css';
+import NavC from "../../utility/NavC";
 import logo from '../../../assets/logo.svg';
 import pin from '../../../assets/pin.jpg';
 import rest from '../../../assets/rest.jpg';
@@ -47,19 +48,19 @@ export default function Menu({ user, setUser, setLogin, login }) {
         </nav>
       </header>
 
-      <section id="nGps">
-       <div>
+      <div class="grid-container">
+       <div class="grid-child purple">
         <img src={rest} alt="rest" />
         <p>Mama Rock Kitchen</p>
         <p>Open until 11:00p.m</p>
       </div>
 
-      <div id="img2">
+      <div id="grid-child green">
        <img src={pin} alt="pin" />
        <p>Burgers</p>
       </div>
        {/* Add more div elements as needed */}
-      </section>
+      </div>
 
       <section id="nFoods">
         <div id="nFoodItem">
