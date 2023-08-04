@@ -8,7 +8,7 @@ import NavC from '../../utility/NavC';
 
 export default function Homepage({ user, setUser, setLogin, login }) {
   // Mock user's current location
-  const currentLocation = "Ngong Road, NRB";
+  const currentLocation = "Ngong Road, NRB 📍";
   const restaurants = [
     {
         id: 1,
@@ -38,9 +38,23 @@ export default function Homepage({ user, setUser, setLogin, login }) {
 ];
 
   const display = restaurants.map((res, index)=>{
-    <div className="gTopHome">
-      div.
-    </div>
+    return(<div className="gTopHome">
+      <div className="gTopComp" key={index+res.name}>
+        <img className='gHomePic' src={burger} alt="" />
+      </div>
+      <div className="gBottomComp">
+        <div className="gBotLeft">
+          <h2>{res.name}</h2>
+          <p>Rating: <span>{res.rating}</span></p>
+          <p>Distance: <span>{res.estimatedDistance}</span></p>
+        </div>
+         <div className="gBotRight" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+          <span className="material-symbols-sharp"  style={{color:'white'}}>
+          favorite
+          </span>
+         </div>
+      </div>
+    </div>)
   })
 
 const handleLikeRestaurant = (restaurantId) => {
@@ -52,10 +66,26 @@ const handleLikeRestaurant = (restaurantId) => {
     <div id='gHomeContainer'>
       <NavC/>
       <div className="gHomeContent">
-        <div className="gHomeBanner"></div>
-        <div className="gHomeContent">
-          <div className="gHomePart"></div>
-          <div className="gHomePart"></div>
+        <div className="gHomeBanner">
+          <div id="eSearch">
+            <input id="eButton1" type="text" value={currentLocation} />
+            <input id="eButton2" type="text" placeholder="Search for a restaurant" />
+            <input id="eButton3" type='submit' value='search' />
+          </div>
+        </div>
+        <div className="gHomeMain">
+          <div className="gHomePart">
+            <h1 id="gH1" style={{textAlign:'center'}}>Featured Restaurants</h1>
+            <div className="gHomeTags">
+              {display}
+            </div>
+          </div>
+          <div className="gHomePart">
+            <h1 id="gH1" style={{textAlign:'center'}}>Featured Foods</h1>
+            <div className="gHomeTags">
+              {display}
+            </div>
+          </div>
         </div>
         <div className="gHomeFooter"></div>
       </div>
