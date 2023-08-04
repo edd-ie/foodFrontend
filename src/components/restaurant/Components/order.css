@@ -17,6 +17,7 @@
   border: 1px solid #000;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px -8px rgba(0, 0, 0, 0, 0.2);
   border-radius: 20px;
+  
 }
 
 #nHeader{
@@ -34,6 +35,7 @@
   text-align: right; /* Adjusted text alignment */
   border-bottom: 1px solid #31363a;
   text-align: center;
+  color: #fff;
 }
 
 #nTh {
@@ -49,6 +51,7 @@ tr {
   cursor: pointer;
   border-bottom: 1px solid #31363a;
   text-align: center;
+  
 }
 
 tr:hover {
