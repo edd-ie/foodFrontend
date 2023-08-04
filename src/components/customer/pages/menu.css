@@ -1,10 +1,11 @@
 #nMenuContainer{
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     position: absolute;
     margin: 0;
     padding: 0;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
  
@@ -59,6 +60,7 @@
     color: #ffa500;
   }
 
+
   #nGps {
     width: 100%;
     height: 40%;
@@ -72,17 +74,21 @@
   
   #nGps div {
     text-align: center;
-    width: 40%; /* Adjust the width of the image and text container as needed */
+    width: 40%;
     background-color: transparent;
-    margin-bottom: 20px; /* Add some space between each image and text container */
+    margin-bottom: 20px;
+    display: flex; /* Add this */
+    flex-direction: column; /* Add this */
+    align-items: center; /* Add this */
   }
   
   #nGps img {
     width: 100%;
-    height: 300px; /* Add a fixed height to ensure all images have the same height */
+    height: 400px; /* Add a fixed height to ensure all images have the same height */
     max-height: 300px;
     border: 1px solid #ffa500;
     border-radius: 5px;
+    object-fit: cover;
   }
   
   #nGps p {
@@ -108,6 +114,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
   }
   
   #nFoodItem img {
@@ -115,11 +122,19 @@
     height: 100px;
     object-fit: cover;
     border-radius: 50%;
+    
   }
+
+  #nFoodItem img:hover {
+    transform: scale(1.05);
+  }
+
+
   
   #nFoodItem p {
     margin-top: 10px;
     font-size: 16px;
+    color: #fff;
   }
 
    #nMenu {
@@ -131,24 +146,26 @@
 
   #nMenuCard {
    flex: 0 0 calc(33.33% - 20px); 
-   height: 50vh;
+   height: 46vh;
    max-width: 450px;
    margin: 20px;
    padding: 10px;
    border: 1px solid #ffa500;
    text-align: center;
-   transition: transform 0.3s ease; 
+   transition: transform 0.2s ease; 
    width: 10%;
    border-radius: 15px;
+   background-color: #000;
   }
 
 #nMenuCard:hover {
   transform: scale(1.05); 
+  box-shadow: 2px 2px 12px rgba(242, 135, 5, 0.862), -1px -1px -8px rgba(0, 0, 0, 0, 0.2);
 }
 
 #nMenuImage {
   width: 100%;
-  max-height: 150px;
+  max-height: 140px;
   margin-top: 0px;
 }
 
@@ -165,6 +182,7 @@
   margin-right: 320px;
   margin-left: 20px;
   margin-top: 230px;
+  color: #fff;
 }
 
 #nMenuCard p {
@@ -172,6 +190,7 @@
   font-size: 14px;
   margin-right: 300px;
   margin-bottom: 0px;
+  color: #fff;
 }
 
 #nMenuCard button {
@@ -200,10 +219,10 @@
 }
 
 #gfooterLogo img {
-  height: 170px;
+  height:250px;
   position: absolute;
-  top: 3955px;
-  left: 1px;
+  top: 2935px;
+  left: 35px;
 }
 
 #gfooterContent {
@@ -236,6 +255,38 @@
   width: 60px;
   color: #ffa500;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  background-color: #000;
+  color: #fff;
+}
+
+.grid-child img {
+  width: 100%;
+  height: 200px; /* Adjust the height as needed */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.grid-child p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #fff;
+  background-color: transparent;
+}
+
+.purple {
+  background-color: transparent;
+}
+
+.green {
+  background-color: transparent;
+}
+
+
 
 
 
