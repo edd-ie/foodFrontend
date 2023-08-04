@@ -8,17 +8,17 @@
   flex-direction: column;
   overflow-x: hidden;
   overflow-y: scroll;
+  background: rgb(34, 34, 34);
 }
 
 .gHomeContent{
   position: relative;
   width: 100vw;
-  height: 100vh ;
+  height: 200vh ;
   margin-top: 4.4%;
   background: rgb(7, 7, 7);
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
 }
 
 
@@ -35,17 +35,18 @@
   background-size: cover;
 }
 
-.gHomeContent{
+.gHomeMain{
   position: relative;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  background: rgba(128, 128, 128, 0);
-  min-height: 100%;
+  background: rgba(0, 0, 0, 0);
+  min-height: 90%;
 }
 
 .gHomeFooter{
-  position: static;
+  margin: 0;
+  position: relative;
   width: 100vw;
   display: flex;
   flex-direction: row;
@@ -53,6 +54,141 @@
   background: rgb(20, 20, 20);
 }
 
+.gHomePart{
+  margin: 0;
+  position: relative;
+  width: 100%;
+  height: 45%;
+  background: rgb(7, 7, 7);
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.gHomePart h1{
+  padding: 0;
+  margin: 0;
+  margin-top: 1%;
+}
+
+.gHomeTags{
+  position: relative;
+  width: 100%;
+  background: rgb(7, 7, 7);
+  height: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: none;
+  border: 8px;
+}
+
+.gTopHome{
+  position: relative;
+  height: 91%;
+  background: black;
+  width: 24%;
+  border-radius: 10px;
+}
+
+.gTopComp{
+  position: relative;
+  width: 100%;
+  height: 70%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.gHomePic{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.gBottomComp{
+  position: relative;
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: row;
+}
+
+.gBotLeft{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 70%;
+  padding-left: 2%;
+}
+
+.gBotLeft p, .gBotLeft h2{
+  padding: 0;
+  margin: 0;
+  margin-top: 2px;
+  margin-top: 2%;
+  color: orange;
+}
+
+.gBotLeft p span{
+  color: white;
+}
+
+#eSearch{
+  position: relative;
+  width: 60%;
+  height: 16%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+/* #gSearch input{
+  position: relative;
+  height: 100%;
+  border: none;
+  margin: 0;
+} */
+
+#eButton1{
+  position: relative;
+  width: 44%;
+  border: none;
+  border-right: 1px solid black;
+  height: 100%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  text-align: center;
+  font-size: large;
+  text-decoration: underline;
+  background: rgba(206, 205, 205, 0.616)
+  ;
+}
+
+#eButton2 {
+  position: relative;
+  width: 44%;
+  border: none;
+  border-right: 1px solid black;
+  height: 100%;
+  text-align: center;
+  font-size: large;
+  background: rgba(206, 205, 205, 0.616);
+}
+
+#eButton3 {
+  position: relative;
+  width: 12%;
+  border: none;
+  height: 105%;
+  color: rgba(255, 255, 255, 0.459);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  text-align: center;
+  font-size: large;
+  background: rgba(255, 166, 0, 0.637);
+}
 
 
 
@@ -73,12 +209,14 @@
 
 
 
+#gImage {
+  position: relative;
+  text-align: center;
+  height: 40vh;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.3);
 
-
-
-
-
-
+}
 
 
 
@@ -104,8 +242,8 @@
   background: black
 }
   
-  /* Style the header */
-  /* #gHeader {
+  Style the header
+#gHeader {
     background-color: #000;
     padding: 1px;
     margin: 10px;
@@ -170,15 +308,15 @@
   }
 
   #gImage h2 {
-    position: absolute; /* Set the text as an absolutely positioned element */
-    /* top: 20%; /* Adjust top position to center vertically */
-    /* left: 40%; Adjust left position to center horizontally */
-    /* transform: translate(-50%, -50%); /* Center the text precisely */
-    /* color: #fff;
+    position: absolute;
+    top: 20%; 
+    left: 40%; 
+    transform: translate(-50%, -50%); 
+    color: #fff;
     font-size: 90px;
-  } */ 
-/* 
-  #gButton {
+  } 
+
+ #gButton {
     position: absolute; 
     top: 70%;
     left: 40%;
@@ -235,7 +373,7 @@
     position: relative;
     justify-content: space-between;
     display: flex;
-    flex-direction: ;
+    flex-direction: column;
   }
 
   .gBody{
@@ -253,24 +391,24 @@
     width: 100%; 
     height: 50vh;
     flex-direction: column;
-  }
+  } */
 
 
   
-  /* Styles for the restaurant divs */
-  /* #gRestaurantCard {
+
+ /* #gRestaurantCard {
     position: relative;
     border: 1px solid #ffa500;
     border-radius: 20px;
     padding: 10px;
     margin: 100px;
-    flex: 0 0 calc(33% - 20px); Each restaurant div should take up 33.33% of the container width, minus the margins */
-    /* max-width: calc(33% - 20px); Set a maximum width for each div to maintain consistent spacing */
-    /* text-align: center;
+    flex: 0 0 calc(33% - 20px);
+     max-width: calc(33% - 20px); 
+     text-align: center;
     background-color: #000;
-  } */
+  } 
 
-  /* #gRestaurantDiscount {
+  #gRestaurantDiscount {
     position: absolute;
     top: 40px;
     right: 80px;
@@ -345,4 +483,131 @@
     border-color: #f75b13;
     border-width: 15px;
     max-width: 200px;
-  }*/
+  }
+
+
+   #gHeader {
+      background-color: #000;
+      padding: 1px;
+      margin: 10px;
+  
+    }
+  
+    #gHeader nav {
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+  
+  
+    }
+  
+    #gHeader ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+  
+  
+    }
+  
+    #gHeader li {
+      display: inline;
+      margin-right: 250px;
+  
+    }
+  
+    #gLogo {
+      height: 170px;
+      position: absolute;
+      top: 0px;
+      left: 1px;
+    }
+  
+    #gHeader li:last-child {
+      margin-right: 0;
+    }
+  
+    #gHeader a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 34px;
+    }
+  
+    #gHeader a:hover {
+      color: #555;
+    }
+  
+    #gImage {
+      position: relative;
+      text-align: center;
+      height: 40vh;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.3);
+  
+    }
+  
+    #gImage img {
+      width: 100%;
+      height: auto;
+    }
+  
+    #gImage h2 {
+      position: absolute;
+     top: 20%; 
+       left: 40%;
+       transform: translate(-50%, -50%); 
+       color: #fff;
+      font-size: 90px;
+    } */
+
+    /* #gButton {
+      position: absolute; 
+      top: 70%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background-color: #fff; 
+      padding: 10px;
+      border-radius: 8px;
+    }
+  
+    #gButton1 {
+      padding: 8px;
+       margin-right: 5px;
+        width: 350px;
+        text-align: center; 
+        font-size: 18px;
+        color: #000; 
+        background-color: transparent;
+        border: none;
+        
+        outline: none;
+    }
+  
+    #gButton2 {
+      padding: 8px;
+      margin-right: 5px;
+      width: 350px;
+      font-size: 18px;
+      color: #000;
+      background-color: transparent; 
+      border: none;
+      border-bottom: 2px solid #fff;
+      outline: none;
+    }
+  
+    #gButton3 {
+      padding: 8px 16px;
+      background-color: #ffa500;
+      color: #fff;
+      border: none; 
+      border-radius: 4px; 
+      cursor: pointer;
+    } */
+
+        /* #gH1 {
+          color: #fff;
+          display: flex;
+          justify-content: center;
+          font-size: 20px;
+    
+        } */
