@@ -9,11 +9,10 @@
   
 }
 
-.gOrderMain {
-  position: relative;
+.nOrderMain {
   display: flex;
-  width: 600px;
-  height: 200px;
+  width: 800px;
+  height: 400px;
   margin: auto; 
   padding: 15px;
   border: 1px solid #31363a;

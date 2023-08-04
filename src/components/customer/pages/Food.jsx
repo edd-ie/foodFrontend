@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import './food.css';
+import './cart.css';
 import NavC from '../../utility/NavC';
 
 export default function Cart({ user, setUser, setLogin, login }) {
-  const [ids, setIds] = useState([1]);
+  const [ids, setIds] = useState([1, 4, 6, 2]);
   const [food, setFood] = useState([]);
   const [quantities, setQuantities] = useState({});
   const [showTime, setShowTime] = useState(false);
@@ -13,7 +13,7 @@ export default function Cart({ user, setUser, setLogin, login }) {
     const fetchFoods = async () => {
       try {
         const allFoods = await Promise.all(ids.map(id =>
-          fetch(`https://backendfood-co7z.onrender.com/foods/1${id}`)
+          fetch(`https://backendfood-co7z.onrender.com/foods/${id}`)
             .then(response => response.json())
         ));
         setFood(allFoods);
@@ -49,18 +49,19 @@ export default function Cart({ user, setUser, setLogin, login }) {
   };
 
   const elements = food.map((element, index) => (
-    <div className="gCart-container">
-    <div className="gOrderMain" key={element.category + index}>
+    <div className="nCart-container">
+    <div className="nOrderMain" key={element.category + index}>
       <img src={element.picture} alt={element.name} />
-      <div className="food-details">
+      <div className="nFood-details">
         <h2>{element.name}</h2>
         <p className="price">
-          Ksh {element.price}
+          Ksh 
+          <span className="material-symbols-sharp">radio_button_checked</span>
+          {element.price}
         </p>
-        <p className="ingredients">{element.ingredients}</p>
         <p className="category">{element.category}</p>
 
-        <div id="gIcon">
+        <div id="nIcon">
           <span
             className="material-symbols-sharp"
             onClick={() => handleQuantityChange(element.id, 'subtract')}
@@ -84,7 +85,6 @@ export default function Cart({ user, setUser, setLogin, login }) {
             Preparation Time: 20mins{element.preparationTime}
           </p>
         )}
-        <button className="add-to-cart-button">Add to Cart</button>
       </div>
     </div>
     </div>
