@@ -265,7 +265,7 @@
 }
 
 .grid-child img {
-  width: 100%;
+  width: 90%;
   height: 200px; /* Adjust the height as needed */
   object-fit: cover;
   border-radius: 10px;
