@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import './dashboard.css'
 import NavR from "../../utility/NavR";
+import PieDisp from "./Pie";
+import Trasnsactions from "./transactions";
 
 export default function Dashboard({user, setUser, setLogin, login}) {
     
@@ -28,8 +30,16 @@ export default function Dashboard({user, setUser, setLogin, login}) {
 
                 {/* Graphics */}
                 <div id="eDashGraph">
-                    <div className="eMainGraph"></div>
-                    <div className="eMainGraph"></div>
+                    <div className="eMainGraph">
+                        <div className="eDivGraph"></div>
+                        <div className="eDivGraph"></div>
+                        <div className="eDivGraph">
+                            </div>
+                        <PieDisp/>
+                    </div>
+                    <div className="eMainGraph">
+                        <Trasnsactions/>
+                    </div>
                 </div>
             </div>
         </div>
