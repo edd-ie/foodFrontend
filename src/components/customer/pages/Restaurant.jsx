@@ -7,7 +7,8 @@ import PICHA from '../../../assets/PICHA.jpg';
 
 export default function Restaurant({ user, setUser, setLogin, login }) {
   const [restaurants, setRestaurants] = useState([]);
-  const currentLocation = "New York City, NY";
+  const currentLocation = 
+  "New York City, NY";
 
   useEffect(() => {
     fetch('https://backendfood-co7z.onrender.com/restaurants')
