@@ -1,0 +1,84 @@
+.gSIgnup{
+  width: 100vw;
+  position: absolute;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gSIgnupForm{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: space-evenly;
+  width: 28%;
+  height: 60%;
+  padding-left: 5%;
+}
+
+.gFormLabel{
+  position: relative;
+  color: orange;
+  text-align: left;
+  margin-top: 4%;
+}
+
+.gSIgnupForm input{
+  position: relative;
+  width: 85%;
+  height: 430%;
+  border-radius: 6px;
+  border: 0px;
+}
+
+.gSIgnupForm select{
+  position: relative;
+  width: 87%;
+}
+
+.gSubFrmBtn{
+  width: 20px;
+  margin-top: 2%;
+}
+
+.gSIgnup h3{
+  padding: 0;
+  margin: 0;
+}
+
+#gPolicyText{
+  margin-top: 3%;
+}
+
+#gPolicyText, .gFormTransfer{
+  margin: 0;
+  margin-top: 5%;
+  font-size: small;
+  font-weight: 100;
+  background: transparent;
+}
+
+#policy{
+  margin: 0;
+  padding: 0;
+  width: 6%;
+  margin-right: 2%;
+}
+
+#gSignLogo{
+  padding: 0;
+  margin: 0;
+  margin-top: 2%;
+}
+
+.gFormTransfer{
+  margin-left: 10%;
+}
+
+.gFormTransfer span{
+  color: rgb(0, 195, 255);
+  font-weight: 200;
+  cursor: pointer;
+}
