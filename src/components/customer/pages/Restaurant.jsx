@@ -80,10 +80,10 @@ export default function Restaurant({ user, setUser, setLogin, login }) {
         <div className="chweMainContent">
           <div id="gImage" style={{ position: 'relative', marginBottom: '20px' }}>
             <img id='PICHA' src={PICHA} alt="PICHA" />
-            <h2>Order your best food anytime</h2>
+            <h3 id='mHRes'>Order your best food anytime</h3>
 
             {/* Overlay for search */}
-            <div id="gButton">
+            {/* <div id="gButton">
               <div className="gLocation">
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
                 <input id="gButton1" type="text" value={currentLocation} />
@@ -94,6 +94,11 @@ export default function Restaurant({ user, setUser, setLogin, login }) {
                   <FontAwesomeIcon icon={faSearch} />
                 </button>
               </div>
+            </div> */}
+            <div id="mSearch">
+              <input id="mButton1" type="text" value="Ngong Road, NRB 📍" />
+              <input id="mButton2" type="text" placeholder="Search for a restaurant" />
+              <input id="mButton3" type='submit' value='search' />
             </div>
           </div>
           <div className="chweDisplayRes">{elements}</div>
