@@ -1,136 +1,124 @@
-/* General styles */
-body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-}
-
-/* Food details container */
-.food-details-container {
+.gCart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    overflow-y: scroll;
+    background: rgb(14, 13, 13);
+  }
+  
+  .gOrderMain {
+    display: flex;
+    width: 1500px;
+    height: 800px;
+    margin: auto; 
+    padding: 15px;
+    border: 1px solid #31363a;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 5%;
+    box-shadow: 4px 4px 2px #31363a;
+  }
+  
+  .gOrderMain:hover {
+    color: #31363a;
+  }
+  
+  .gOrderMain img {
+    max-width: 700px; 
+    height: auto;
+    margin-right: 10px; 
+    object-fit: cover;
+  }
+  
+  .food-details {
     display: flex;
     flex-direction: column;
-    /* Display content in a column */
-    align-items: center;
-    /* Center content horizontally */
-    max-width: 800px;
-    /* Limit the container width to avoid overflow */
-    margin: 20px auto;
-    /* Center the container on the page */
-}
-
-/* Food image container */
-.food-image-container {
-    width: 500px;
-    height: 300px;
-    object-fit: cover;
-}
-
-/* Food info container */
-.food-info-container {
-    padding: 0.02%;
-    max-width: 400px;
-    /* Limit the width to avoid overflow */
-    text-align: center;
-    /* Center text within the container */
-}
-
-/* Food name */
-.food-name {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-/* Food price */
-.food-price {
-    font-size: 18px;
-    margin-top: 5px;
-}
-
-/* Food ingredients */
-.food-ingredients {
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-/* Food category */
-.food-category {
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-/* Specific instructions text area */
-.specific-instructions {
-    width: 110%;
-    height: 100px;
-    margin-top: 10px;
-    padding: 5px;
+    justify-content: center;
+    flex: 1;
+  }
+  
+  /* Food name styling */
+  .food-details h2 {
+    font-size: 3.2em;
+    margin: 0 0 5px; /* Adjust bottom margin for spacing */
+    color: #fff;
+  }
+  
+  .food-details h2:hover {
+    font-size: 3.2em;
+    margin: 0 0 5px; /* Adjust bottom margin for spacing */
+    color: #31363a;
+  }
+  
+  /* Food paragraph styling */
+  .food-details p {
+    font-size: 3em;
+    margin: 5px 0;
+  }
+  
+  .food-details p.price {
+    font-size: 2em;
+    margin: 5px ;
+    margin-bottom: 20px;
+  }
+  
+  /* Food category styling */
+  .food-details p.category {
+    color: #ffa500;
+    margin-bottom: 20px; /* Add bottom margin to create space */
+  }
+  
+  /* Food ingredients styling */
+  .food-details p.ingredients {
+    font-size: 2em;
+    color: #fff;
+    margin-top: 20px; /* Add top margin to create space */
+  }
+          
+  /* Button styling */
+  .food-details button {
+    background-color: #ffa500;
     color: white;
-}
-
-/* Vegetarian checkbox */
-.vegetarian-checkbox {
-    display: flex;
-    align-items: center;
-    /* Align checkboxes horizontally */
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-/* Style the radio buttons and labels */
-input[type="radio"] {
-    margin-right: 20px;
-    transform: scale(0.4);
-    /* Reduce the size of the radio buttons */
-    cursor: pointer;
-}
-
-
-
-/* Quantity controls */
-.quantity-controls {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.minus-button,
-.plus-button {
-    width: 30px;
-    height: 30px;
     border: none;
-    border-radius: 50%;
-    color: white;
-    font-size: 20px;
-    background-color: orange;
+    padding: 8px 15px;
+    margin: 5px;
     cursor: pointer;
-}
-
-.quantity {
-    margin: 0 10px;
-    font-size: 18px;
-}
-
-/* Add to cart button */
-.add-to-cart-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: none;
     border-radius: 5px;
-    font-size: 18px;
-    background-color: orange;
-    color: white;
-    cursor: pointer;
-}
-
-/* Loading text */
-.food-details-container>div {
+    transition: background-color 0.3s;
+  }      
+  
+  .food-details button:hover {
+    background-color: #ff8120;
+  }
+  
+  /* Preparation time styling */
+  .preparation-time {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  #gIcon {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    
+    
+  }
+  
+  .gOrderMain:hover #gIcon {
+    opacity: 1; /* Show the icons when the cursor hovers over the .gOrderMain element */
+  }
+  
+  .material-symbols-sharp {
     font-size: 24px;
-    text-align: center;
-}
+    cursor: pointer;
+    margin: 0 6px;
+    color: #ffa500;
+  }
+  
+  .material-symbols-sharp:hover {
+    color: #ff8120; /* Change the color when the cursor hovers over the icon */
+  }
 
-/* Center content in the page */
-h1,
-.food-details-container {
-    margin: 0 auto;
-    max-width: 800px;
-}

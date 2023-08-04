@@ -1,25 +1,31 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './navC.css'
 
 export default function NavC({user, setLogin}) {
     const [count, setCount] = React.useState(1)
     const [show, setShow] = React.useState(false)
+    const navigate = useNavigate()
 
     function handleProfile() {
         setShow(!show)
     }
 
+    function handleHome() {
+        navigate('/customer/homepage')
+    }
+
     return(
         <div id="rootNav">
-            <div className="rLink rLogo">
-            </div>
+            <div className="rLink rLogo" onClick={handleHome}></div>
             <div className="rLink">Favorites</div>
             <div className="rLink">Restaurants</div>
-            <div className="rLink">Tracking</div>
+            <div className="rLink">
+                <Link to='/customer/tracking'>Tracking</Link>
+            </div>
             <div className="rLink">History</div>
             <div className="rLink rCart">
-                Cart 
+                <Link to='/customer/cart'>Cart</Link>
                 <span className="material-symbols-sharp">
                     shopping_cart
                 </span>
