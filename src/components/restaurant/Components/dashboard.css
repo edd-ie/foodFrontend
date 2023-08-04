@@ -40,10 +40,18 @@
 
 .eMainGraph{
     position: relative;
-    border: 1px solid white;
+    border: none;
     height: 49%;
-    background: rgba(138, 138, 138, 0.74);
-    border-radius: 15px;
+    /* background: rgba(235, 231, 231, 0.096); */
+    /* border-radius: 15px; */
+    display: flex;
+    justify-content: space-between;
+
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, .15);
+    
+        backdrop-filter: blur(10px);
 }
 
 .eDashBest{
@@ -55,6 +63,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
 }
 
 .eBestHeader{
@@ -73,8 +82,15 @@
     width: 100%;
     height: 85%;
     background: red;
-    border-top: 2px solid black;
+    border-top: 2px solid rgb(10, 10, 10);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+}
+
+.eDivGraph{
+    width: 30%;
+    position: relative;
+    border-left: 2px solid rgb(15, 14, 14);
+    height: 100%;
 }
 
