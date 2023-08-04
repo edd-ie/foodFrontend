@@ -8,8 +8,9 @@
 }
 
 .gOrderMain {
+  position: relative;
   display: flex;
-  width: 600px;
+  width: 60%;
   height: 200px;
   margin: auto; 
   padding: 15px;
