@@ -9,6 +9,7 @@ export default function NavC({user, setLogin}) {
 
     function handleProfile() {
         setShow(!show)
+        setLogin(false)
     }
 
     function handleHome() {
@@ -18,8 +19,13 @@ export default function NavC({user, setLogin}) {
     return(
         <div id="rootNav">
             <div className="rLink rLogo" onClick={handleHome}></div>
+            <div className="rLink">
+                <Link to='/blog'>Blog</Link>
+            </div>
             <div className="rLink">Favorites</div>
-            <div className="rLink">Restaurants</div>
+            <div className="rLink">
+                <Link to='/customer/restaurant'>Restaurants</Link>
+            </div>
             <div className="rLink">
                 <Link to='/customer/tracking'>Tracking</Link>
             </div>

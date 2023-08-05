@@ -75,7 +75,7 @@
   position: relative;
   width: 100%;
   background: rgb(7, 7, 7);
-  height: 70%;
+  height: 80%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -85,9 +85,9 @@
 
 .gTopHome{
   position: relative;
-  height: 91%;
+  height: 90%;
   background: black;
-  width: 24%;
+  width: 23%;
   border-radius: 10px;
 }
 
