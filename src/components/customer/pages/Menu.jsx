@@ -29,38 +29,36 @@ export default function Menu({ user, setUser, setLogin, login }) {
   return (
     <div id="nMenuContainer">
       <header id="nHeader">
-        <nav>
-          <img id="nLogo" src={logo} alt="logo" />
-          <ul>
-            <li>
-              <a href="#tracking">Tracking</a>
-            </li>
-            <li>
-              <a href="#restaurants">Restaurants</a>
-            </li>
-            <li>
-              <a href="#foodhistory">Food History</a>
-            </li>
-            <li>
-              <div id="gRestaurantDiscount">Login</div>
-            </li>
-          </ul>
-        </nav>
+        <NavC />
       </header>
 
-      <div class="grid-container">
-       <div class="grid-child purple">
-        <img src={rest} alt="rest" />
-        <p>Mama Rock Kitchen</p>
-        <p>Open until 11:00p.m</p>
+      <div id="nPhoros">
+        <div id="nPhoto">
+          <img src={rest} alt="rest" />
+        </div>
+
+        <div id="nPhoto1">
+        <img src={pin} alt="pin" />
+        </div>
+        <div id="nMama">
+        Mama Rock Kitchen
+        </div>
+        <div id="nOpen">
+        Open Until 11:00pm
+        </div>
+        <div id="nRating">
+        <span class="material-symbols-sharp">star</span>4.5
+        </div>
+        <div id="nBurger">
+        <span class="material-symbols-sharp">fiber_manual_record</span>Burgers
+        </div>
+        <div id="nBugers">
+        <span class="material-symbols-sharp">attach_money</span>Burgers
+        </div>
+
       </div>
 
-      <div id="grid-child green">
-       <img src={pin} alt="pin" />
-       <p>Burgers</p>
-      </div>
-       {/* Add more div elements as needed */}
-      </div>
+
 
       <section id="nFoods">
         <div id="nFoodItem">
