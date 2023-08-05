@@ -21,14 +21,18 @@ export default function NavR({user, setLogin}) {
         <div id="rootNav">
             <div className="rLink rLogo" onClick={handleHome}>
             </div>
-            <div className="rLink">Inventory</div>
+            <div className="rLink">
+                <Link to="/restaurant/inventory">Inventory</Link>
+                </div>
             <div className="rLink">
                 <Link to="/restaurant/staff">Staff</Link>
             </div>
             <div className="rLink">Menu</div>
-            <div className="rLink">History</div>
+            <div className="rLink">
+                History</div>
             <div className="rLink rCart">
-                Orders 
+                <Link to="/restaurant/orders">Orders</Link>
+                 
                 <span className="material-symbols-sharp">
                     restaurant_menu
                 </span>
