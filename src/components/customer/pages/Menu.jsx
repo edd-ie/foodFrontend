@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './menu.css';
 import NavC from "../../utility/NavC";
 import logo from '../../../assets/logo.svg';
-import pin from '../../../assets/pin.jpg';
-import rest from '../../../assets/rest.jpg';
+import directions from '../../../assets/directions.png';
+import truck from '../../../assets/truck.jpg';
 import chipo from '../../../assets/chipo.jpg';
 import drinks from '../../../assets/drinks.jpg';
 import fast from '../../../assets/fast.jpg';
@@ -34,11 +34,11 @@ export default function Menu({ user, setUser, setLogin, login }) {
 
       <div id="nPhoros">
         <div id="nPhoto">
-          <img src={rest} alt="rest" />
+          <img src={truck} alt="truck" />
         </div>
 
         <div id="nPhoto1">
-        <img src={pin} alt="pin" />
+        <img src={directions} alt="directions" />
         </div>
         <div id="nMama">
         Mama Rock Kitchen
