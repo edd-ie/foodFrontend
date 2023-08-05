@@ -46,7 +46,7 @@ export default function Blog() {
                 <div id="gBtn">
                     <button>
                         <a>
-                            View more
+                            View more...
                         </a>
                     </button>
                 </div>
