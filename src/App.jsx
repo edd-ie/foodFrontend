@@ -62,7 +62,7 @@ function App() {
       },
       {
         path: "/navC",
-        element: <NavC  user={user} setLogin={setLogin}/>
+        element: <NavC  user={user} setLogin={(e)=>setLogin(e)}/>
       },
       {
         path: "/restaurant/dashboard",
@@ -87,6 +87,14 @@ function App() {
       {
         path: '/restaurant/inventory',
         element: <Inventory user={user}/>
+      },
+      {
+        path: '/blog',
+        element: <Blog/>
+      },
+      {
+        path: '/blogPage',
+        element: <BlogPage/>
       }
     ]
   )
@@ -122,4 +130,5 @@ import ProfC from './components/utility/ProfC'
 import Orders from './components/restaurant/Components/orders'
 import OrderTracking from './components/customer/pages/OrderTracking'
 import Inventory from './components/restaurant/Components/Inventory'
-
+import Blog from './components/utility/Blog'
+import BlogPage from './components/utility/BlogPage'

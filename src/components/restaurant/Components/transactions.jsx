@@ -48,7 +48,7 @@ export default class Trasnsactions extends PureComponent {
               bottom: 0,
             }}
           >
-            <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid horizontal={false} vertical={false} />
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
