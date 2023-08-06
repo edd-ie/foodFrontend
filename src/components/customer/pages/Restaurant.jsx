@@ -1,149 +1,99 @@
-import React,{useState, useEffect} from 'react';
-import './restaurant.css'
+import React, { useState, useEffect } from 'react';
+import './restaurant.css';
 import NavC from '../../utility/NavC';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faHeart , faLocationDot} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import PICHA from '../../../assets/PICHA.jpg';
 
+export default function Restaurant({ user, setUser, setLogin, login }) {
+  const [restaurants, setRestaurants] = useState([]);
+  const currentLocation = "New York City, NY";
 
-// export default function Restaurant({user, setUser, setLogin, login}) {
-//     const [rest, setRest] = useState([])
-//     console.log("name");
+  useEffect(() => {
+    fetch('https://backendfood-co7z.onrender.com/restaurants')
+      .then((r) => r.json())
+      .then((data) => {
+        setRestaurants(data);
+      });
+  }, []);
 
-//     useEffect(()=>{
-//         fetch('https://backendfood-co7z.onrender.com/restaurants')
-//         .then((r)=> r.json())
-//         .then((data)=>{
-           
-//          setRest(data)
-//         })
-//     },[])
-//     console.log(rest);
-//     const elements = rest.map((element, index) =>{
-//         return (
-//             <div className="krest" key={"home"+index}>
-//                 <div className="ktopRest" key={"top"+index}>
-//                     <img className='kimg-rest' src={element.picture} alt="restaurant" />
-                
-//                 </div>
-//                 <div className="kbottomRest" key={"bottom"+index}>
-//                     <div className="kbottomnames" key={"rest-details" + index}>
-//                        <h2 className="rest-details">{element.name}</h2>
-//                        <h3 className="rest-ratings">Ratings: {element.ratings}</h3>
-//                        <h3 className="rest-time">30 - 40min</h3>
-//                        <h3 className="rest-distance"> <FontAwesomeIcon icon={faLocationDot} className='emoji-location' /> 2km</h3>
+  const handleLikeRestaurant = (restaurantId) => {
+    // Implement your logic for liking/unliking a restaurant here
+    // For example, you can update the liked property of the restaurant object in the state
+  };
 
-//                     </div>
-//                     <div className="emoji" key={"emoji-details" + index}>
-//                     <FontAwesomeIcon icon={faHeart} className='emoji-heart' />
-                        
-//                         </div>
-
-//                 </div>
-
-//             </div>
-//         )
-//     })
-
-//     return(
-//         <div id='krestauraunts'>
-//            {/* <div className="knavbar"></div> */}
-//            <div className="kmain">
-//             <div className="kleft-sidebar">
-//           <div className="koption">
-//           <label for="cars">Choose a car:</label>
-//   <select name="cars" id="cars">
-//     <option value="volvo">Volvo</option>
-//     <option value="saab">Saab</option>
-//     <option value="opel">Opel</option>
-//     <option value="audi">Audi</option>
-//   </select>
-//           </div>
-//             </div>
-//             <div className="kright-sidebar">{elements}</div>
-//            </div>
-//            <div className="kfooter"></div>
-//         </div>
-//     )
-// }
-
-export default function Restaurant({user, setUser, setLogin, login}) {
-    const [rest, setRest] = useState([])
-    
-    
-
-    useEffect(()=>{
-        fetch('https://backendfood-co7z.onrender.com/restaurants')
-        .then((r)=> r.json())
-        .then((data)=>{
-            setRest(data)
-        })
-    },[])
-
-    const elements = rest.map((element, index) =>{
-        return(
-            <div className="kResDisp" key={element.name+index}>
-                <div key={element.name+index+'a'} className="kResDispTop" style={{background: `url(${element.picture})`}}>
-                </div>
-                <div className="kResDipBot" key={element.name+index+'b'} >
-                    <div key={element.name+index+'c'}  className="kDispLeft">
-                        <div className="kDispTags">{element.name}</div>
-                        <div key={element.name+index+'f'} className="kDispTags">Ratings: {element.ratings}</div>
-                        <div key={element.name+index+'g'} className="kDispTags">Distance: {element.latitude}</div>
-                    </div>
-                    <div key={element.name+index+'d'}  className="kDispRight">
-                        <span className="material-symbols-sharp">
-                            favorite
-                        </span>
-                    </div>
-                </div>
-            </div>
-        )
-    })
-
-    return(
-        <div className="kResMain">
-            <NavC/>
-            <div className="kBodyCenter">
-                
-            </div>
-            <div className="kBodyRes">
-
-                <div className="kSidBarRes">
-                    <div className="kSideFilter">
-                        <div className="kFilterComp">Ambience
-                        </div>
-                        <div className="kFilterComp">Romantic</div>
-                        <div className="kFilterComp">Casual</div>
-                        <div className="kFilterComp">Fine Dining</div>
-                    </div>
-                    <div className="kSideFilter">
-                        <div className="kFilterComp">Cuisine</div>
-                        <div className="kFilterComp">Swahili</div>
-                        <div className="kFilterComp">Italian</div>
-                        <div className="kFilterComp">Chinese</div>
-                    </div>
-                    <div className="kSideFilter">
-                        <div className="kFilterComp">Price Range</div>
-                        <div className="kFilterComp">$</div>
-                        <div className="kFilterComp">$$</div>
-                        <div className="kFilterComp">$$$</div>
-                    </div>
-                </div>
-
-
-                <div className="kMainContent">
-                    <div className="kDisplayRes">
-                        {elements}
-                    </div>
-                </div>
-
-
-            </div>
-            <div className="kFooterRes">
-                <div className="kFootPart"></div>
-                <div className="kFootPart"></div>
-                <div className="kFootPart"></div>
-            </div>
+  const elements = restaurants.map((restaurant) => {
+    return (
+      <div className="chweResDisp" key={restaurant.id}>
+        <div
+          className="chweResDispTop"
+          style={{ background: `url(${restaurant.picture})`, backgroundSize: 'cover' }}
+        />
+        <div className="chweResDipBot">
+          <div className="chweDispLeft">
+            <div className="chweDispTags">{restaurant.name}</div>
+            <div className="chweDispTags">Ratings: {restaurant.ratings || 'N/A'}</div>
+            <div className="chweDispTags">Distance: {restaurant.latitude} kms</div>
+          </div>
+          <div className="chweDispRight">
+            <FontAwesomeIcon
+              icon={faHeart}
+              className={`chweHeart ${restaurant.liked ? 'liked' : ''}`}
+              onClick={() => handleLikeRestaurant(restaurant.id)}
+            />
+          </div>
         </div>
-    )
+      </div>
+    );
+  });
+
+  return (
+    <div className="chweResMain">
+      <NavC />
+      <div className="chweBodyRes">
+        <div className="chweSidBarRes">
+          <div className="chweSideFilter">
+            <div className="chweFilterCompHeader">Ambience</div>
+            <div className="chweFilterComp">Classy</div>
+            <div className="chweFilterComp">Romantic</div>
+            <div className="chweFilterComp">Urban</div>
+            <div className="chweFilterComp">Cafe/Bistro</div>
+          </div>
+          <div className="chweSideFilter">
+            <div className="chweFilterCompHeader">Cuisine</div>
+            <div className="chweFilterComp">Swahili</div>
+            <div className="chweFilterComp">Chinese</div>
+            <div className="chweFilterComp">Fast Food</div>
+            <div className="chweFilterComp">Italian</div>
+            <div className="chweFilterComp">Indian</div>
+            <div className="chweFilterComp">Other</div>
+          </div>
+          <div className="chweSideFilter">
+            <div className="chweFilterComp">Price Range</div>
+            <div className="chweFilterComp">$</div>
+            <div className="chweFilterComp">$$</div>
+            <div className="chweFilterComp">$$$</div>
+          </div>
+        </div>
+
+        <div className="chweMainContent">
+          <div id="gImage" style={{ position: 'relative', marginBottom: '20px' }}>
+            <img id='PICHA' src={PICHA} alt="PICHA" />
+            <h3 id='mHRes'>Order your best food anytime</h3>
+            <div id="mSearch">
+              <input id="mButton1" type="text" value="Ngong Road, NRB 📍" />
+              <input id="mButton2" type="text" placeholder="Search for a restaurant" />
+              <input id="mButton3" type='submit' value='search' />
+            </div>
+          </div>
+          <div className="chweDisplayRes">{elements}</div>
+        </div>
+      </div>
+      <div className="chweFooterRes">
+        <div className="chweFootPart" />
+        <div className="chweFootPart" />
+        <div className="chweFootPart" />
+      </div>
+    </div>
+  );
 }

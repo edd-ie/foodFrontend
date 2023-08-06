@@ -12,11 +12,23 @@
     text-align: center;
     color: white;
     font-size: 20px;
-    margin: 15px;
+    margin: 10px;
 
+}
+#maLogin form {
+    margin-top: 2%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#maLogin form div{
+    margin-top: 6%;
 }
 
 #maButton {
+    position: relative;
     background-color: #ffa500;
     color: white;
     padding: 10px;
@@ -24,7 +36,7 @@
     border-radius: 20px;
     cursor: pointer;
     font-size: 15px;
-    margin-top: 10px;
+    width: 100%;
 }
 
 #markLogin {
@@ -35,12 +47,12 @@
 
 #maUsername {
     color: orange;
-    margin: 10px;
+    margin: 5%;
 }
 
 #maPassword {
     color: orange;
-    margin: 10px;
+    margin: 5%;
 }
 
 #markusername {
@@ -64,5 +76,12 @@
 }
 
 #maForgot {
-    margin: 3px;
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+    font-size: small;
+}
+
+.moLogin{
+    margin-top: 2%;
 }

@@ -1,75 +1,98 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './cart.css';
-import burger from '../../../assets/burger.jpg';
-import orangecicle from '../../../assets/orangecircle.png';
-import chips from '../../../assets/chips.jpeg';
+import NavC from '../../utility/NavC';
 
 export default function Cart({ user, setUser, setLogin, login }) {
+  const [ids, setIds] = useState([1, 4, 6, 2]);
+  const [food, setFood] = useState([]);
+  const [quantities, setQuantities] = useState({});
+  const [showTime, setShowTime] = useState(false);
+  const [selectedFoodIndex, setSelectedFoodIndex] = useState(null);
+
+  useEffect(() => {
+    const fetchFoods = async () => {
+      try {
+        const allFoods = await Promise.all(ids.map(id =>
+          fetch(`https://backendfood-co7z.onrender.com/foods/${id}`)
+            .then(response => response.json())
+        ));
+        setFood(allFoods);
+
+        const initialQuantities = allFoods.reduce((acc, element) => {
+          acc[element.id] = 1; // Set initial quantity to 1 for each food item
+          return acc;
+        }, {});
+        setQuantities(initialQuantities);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchFoods();
+  }, []);
+
+  const toggleShowTime = (index) => {
+    setShowTime(!showTime);
+    setSelectedFoodIndex(index);
+  };
+
+  const handleQuantityChange = (foodId, action) => {
+    setQuantities(prevQuantities => {
+      const newQuantities = { ...prevQuantities };
+      if (action === 'add') {
+        newQuantities[foodId] = (newQuantities[foodId] || 0) + 1;
+      } else if (action === 'subtract' && newQuantities[foodId] > 1) {
+        newQuantities[foodId] -= 1;
+      }
+      return newQuantities;
+    });
+  };
+
+  const elements = food.map((element, index) => (
+    <div className="gCart-container">
+    <div className="gOrderMain" key={element.category + index}>
+      <img src={element.picture} alt={element.name} />
+      <div className="food-details">
+        <h2>{element.name}</h2>
+        <p className="price">
+          <span className="material-symbols-sharp">radio_button_checked</span>
+          Ksh {element.price}
+        </p>
+        <p className="category">{element.category}</p>
+
+        <div id="gIcon">
+          <span
+            className="material-symbols-sharp"
+            onClick={() => handleQuantityChange(element.id, 'subtract')}
+          >
+            remove
+          </span>
+          {quantities[element.id]}
+          <span
+            className="material-symbols-sharp"
+            onClick={() => handleQuantityChange(element.id, 'add')}
+          >
+            add
+          </span>
+        </div>
+
+        <button onClick={() => toggleShowTime(index)}>
+          {selectedFoodIndex === index && showTime ? 'Hide Time' : 'Show Time'}
+        </button>
+        {selectedFoodIndex === index && showTime && (
+          <p className="preparation-time">
+            Preparation Time: 20mins{element.preparationTime}
+          </p>
+        )}
+      </div>
+    </div>
+    </div>
+  ));
+
   return (
     <div>
-        <div class="mocart1">
-        <img class="img_def" src={burger} alt=""/>
-        <div className='mocontent'>
-            <p>Mango Masai <br /> Ksh 1260</p>
-            <p>no salt</p>
-            <button onClick={() => console.log('30 min')}>
-            30 min
-            </button>
-        </div>
-        
-        </div>
-        <div class="mocart2">
-            <img class="img_def2" src={chips} alt=""/>
-            <div class ="modis">
-                <p>Mango Masai <br /> Ksh 1260</p>
-                <p>no salt</p>
-                <button className='motymbutton' onClick={() => console.log('30 min')}>
-                30 min
-                </button>
-            </div>
-            
-        </div>
-            <div className='mocon1'>Subtotal: Ksh 1960</div>
-            <div className='mocon2'>Service Fee: Ksh 150</div>
-            <div className='mocon3'>Total: Ksh 2110</div>
-            <button className='mocon4' onClick={() => console.log('Proceed to Checkout')}>
-            Proceed to Checkout
-            </button>
-
-        
-        
+      <NavC />
+      {elements}
     </div>
-
   );
 }
-
-
-{/* <img class="img_def" src={burger} alt=""/>
-<span>Mango Masai</span>      
-<span>Ksh 1260</span>
-<br />
-<span>no salt</span>
-<br />
-<button onClick={() => console.log('30 min')}>
-30 min
-</button>
-</div>
-<div id="mocart2">
-<div id="mocart">
-<img src={chips} alt=""/>
-</div>
-<span>Chips</span>         
-<span>Ksh 1260</span>
-<br />
-<span>no salt</span>
-<br />
-<button onClick={() => console.log('20 min')}>
-20 min
-</button>
-</div>
-<div>Subtotal: Ksh 1960</div>
-<div>Service Fee: Ksh 150</div>
-<div>Total: Ksh 2110</div>
-<button onClick={() => console.log('Proceed to Checkout')}>
-Proceed to Checkout
-</button> */}

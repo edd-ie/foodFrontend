@@ -1,0 +1,245 @@
+.MarkInventory {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    /* Set a minimum height to expand the table */
+}
+
+.MarkInventoryContent {
+    width: 90%;
+    margin-top: 10%;
+    max-width: 1000px;
+    max-height: 800px;
+    overflow: auto;
+    padding: 20px;
+}
+
+.MarkInventoryTable {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+
+.MarkInventoryTable th,
+.MarkInventoryTable td {
+    border: 1px solid white;
+    padding: 10px;
+}
+
+.MarkInventoryTable th {
+    background-color: black;
+}
+
+.MarkInventoryTable td {
+    text-align: center;
+}
+
+.MarkInventoryTable td button {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.MarkInventoryTable td button.MarkEditButton.editing {
+    margin-right: 5px;
+    background-color: orange;
+
+}
+
+/* Style for the horizontal white lines in the table */
+.MarkInventoryTable tr:nth-child(even) {
+    background-color: #111;
+}
+
+.MarkInventoryTable tr:nth-child(odd) {
+    background-color: #333;
+}
+
+/* Style for the vertical white lines in the table */
+.MarkInventoryTable th:first-child,
+.MarkInventoryTable td:first-child {
+    border-left: none;
+}
+
+.MarkInventoryTable th:last-child,
+.MarkInventoryTable td:last-child {
+    border-right: none;
+}
+
+.MarkAddItemButtonContainer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.MarkAddItemButton {
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.MarkAddItemModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.MarkAddItemForm {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    width: 100%;
+    color: white;
+}
+
+.MarkAddItemForm label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.MarkAddItemForm input[type="text"],
+.MarkAddItemForm input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    background-color: #333;
+    border: none;
+    color: white;
+}
+
+.MarkAddItemForm button.MarkSubmitButton {
+    background-color: orange;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.MarkAddItemForm button.MarkCancelButton {
+    background-color: orange;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.MarkEditItemForm {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 100px;
+    width: 100%;
+    color: white;
+}
+
+.MarkEditItemForm input[type="text"],
+.MarkEditItemForm input[type="number"] {
+    width: 100%;
+    padding: 7px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background-color: #333;
+    border: none;
+    color: white;
+}
+
+.MarkEditItemForm button.MarkSaveButton {
+    background-color: orange;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.MarkDeletedItem {
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.MarkDeletedItem button {
+    background-color: orange;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+/* Style for the Cancel button in the Add Item modal */
+.MarkCancelButton {
+    background-color: orange;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style for the Delete Confirmation modal */
+.MarkDeleteModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.MarkDeleteModal p {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Style for the Yes button in the Delete Confirmation modal */
+.MarkConfirmButton {
+    background-color: orange;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+/* Style for the No button in the Delete Confirmation modal */
+.MarkCancelButton {
+    background-color: orange;
+    color: white;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+
+}

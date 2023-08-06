@@ -5,14 +5,16 @@ import './App.css'
 
 function App() {
   const [user, setUser] = useState({id:1})
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(true)
   const [resId, setResId] = useState([])
   const [foodId, setFoodId] = useState([])
+  const[side, setSide] = useState(false)
+
 
   const router = createBrowserRouter([
       {
         path: "/",
-        element: <Home user={user} setUser={setUser} setLogin={setLogin}/>
+        element:<Homepage user={user} setUser={setUser} login={login} setLogin={setLogin}/>
       },
       {
         path: "/customer/login",
@@ -69,6 +71,22 @@ function App() {
       {
         path: '/restaurant/staff',
         element: <Staff user={user}/>
+      },
+      {
+        path: '/customer/profile',
+        element: <ProfC user={user}/>
+      },
+      {
+        path: '/restaurant/orders',
+        element: <Orders user={user}/>
+      },
+      {
+        path: '/customer/tracking',
+        element: <OrderTracking user={user}/>
+      },
+      {
+        path: '/restaurant/inventory',
+        element: <Inventory user={user}/>
       }
     ]
   )
@@ -76,7 +94,8 @@ function App() {
 
   return (
     <div className="App">
-      <RouterProvider router={router}/>
+      {login&&<RouterProvider router={router}/>}
+      {!login && <Home user={user} setUser={setUser} login={login} setLogin={setLogin}/>}
     </div>
   )
 }
@@ -99,5 +118,8 @@ import NavR from './components/utility/NavR'
 import NavC from './components/utility/NavC'
 import Dashboard from './components/restaurant/Components/Dashboard'
 import Staff from './components/restaurant/Components/Staff'
-
+import ProfC from './components/utility/ProfC'
+import Orders from './components/restaurant/Components/orders'
+import OrderTracking from './components/customer/pages/OrderTracking'
+import Inventory from './components/restaurant/Components/Inventory'
 

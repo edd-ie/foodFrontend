@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import './Login.css';
-import logo from '../../../assets/logo.svg';
+import '../../customer/loginSignup/login.css';
+import logo from '../../../assets/logo1.png';
 
 export default function RestaurantLogin({ user, setUser, setLogin, login }) {
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: '',
   });
 
@@ -17,6 +17,27 @@ export default function RestaurantLogin({ user, setUser, setLogin, login }) {
     event.preventDefault();
     // Perform restaurant login logic using the formData
     console.log(formData);
+    let set = {email: formData.email, password: formData.password}
+    console.log(set);
+
+    fetch('https://backendfood-co7z.onrender.com/restaurant/login',{
+      method: 'POST',
+      headers: {"Accept": "*/*",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(set),
+      withCredentials: true,
+    }).then(res => res.json())
+    .then(data => {
+      console.log(data)
+      localStorage.getItem('foodChapUser') ? localStorage.removeItem('foodChapUser') : null
+      localStorage.getItem('foodChapSide') ? localStorage.removeItem('foodChapSide') : null
+      
+      localStorage.setItem('foodChapUser', data.id)
+      localStorage.setItem('foodChapSide', 'res')
+      setUser(data)
+    })
+    .catch(err => console.log(err))
   };
 
   const handleForgotPassword = () => {
@@ -24,58 +45,58 @@ export default function RestaurantLogin({ user, setUser, setLogin, login }) {
   };
 
   return (
-    <div id="moLand">
-      <div id='moLogin'>
-        <img id='moLogo' src={logo} alt="logo" />
-        <h1>Restaurant Login</h1>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label id='moUsername' htmlFor='username'>Username:</label>
-            <input 
-              type='text'
-              id='mohausername'
-              name='username'
-              value={formData.username}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label id='moPassword' htmlFor='password'>Password:</label>
-            <input
-              type='password'
-              id='mohapassword'
-              name='password'
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
+    <div id="maLand">
+    <div id='maLogin'>
+    <img id='maLogo'  src={logo} alt="logo"  style={{alignSelf: 'center', marginLeft:'20%', marginBottom:'5%'}}/>
+      <h1>Login to your account</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label id='maUsername' htmlFor='email'>Email:</label>
+          <input 
+            type='email'
+            id='markusername'
+            name='email'
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label id='maPassword' htmlFor='password'>Password:</label>
+          <input
+            type='password'
+            id='markpassword'
+            name='password'
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-          <div id='moForgot'>
-            <p>
-              <span
-                style={{ cursor: 'pointer', color: 'orange' }}
-                onClick={handleForgotPassword}
-              >
-                Forgot Password?
-              </span>
-            </p>
-          </div>
-          <button id='moButton' type='submit'>Login</button>
-        </form>
-        <div id="mohaLogin">
-          <p>
-            Don't have an account?  
+        <div id='maForgot'>
+        <p>
             <span
-              style={{ cursor: 'pointer', color: 'orange'}}
-              onClick={() => setLogin(!login)}
+              style={{ cursor: 'pointer', color: 'orange' }}
+              onClick={handleForgotPassword}
             >
-              Create account
+              Forgot Password?
             </span>
           </p>
         </div>
+        <button id='maButton' type='submit'>Login</button>
+      </form>
+      <div id="markLogin">
+      <p>
+          Don't have an account?
+          <span
+            style={{ cursor: 'pointer', color: 'orange'}}
+            onClick={() => setLogin(!login)}
+          >
+           Create account
+          </span>
+        </p>
       </div>
+    </div>
     </div>
   );
 }
