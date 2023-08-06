@@ -1,13 +1,17 @@
 /* Global Styles */
-body {
+/* body {
     margin: 0;
     padding: 0;
     background-color: black;
     color: white;
     font-family: Arial, sans-serif;
-}
+} */
 
 /* Navbar Styles */
+body *{
+    max-width: 100vw;
+}
+
 .chweNavContainer {
     display: flex;
     justify-content: space-between;
@@ -82,10 +86,17 @@ body {
 
 /* Restaurant Styles */
 .chweResMain {
+    background: #212121;
+    padding: 0;
+    margin: 0;
+    color: rgb(240, 236, 236);
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+    overflow-x: hidden;
+}  
+
 
 .chweBodyRes {
     display: flex;
@@ -93,6 +104,7 @@ body {
     width: 100%;
     height: 95%;
     margin-top: 5%;
+    overflow-x: hidden;
 }
 
 .chweSidBarRes {
@@ -133,6 +145,9 @@ body {
 }
 
 .chweDisplayRes {
+    position: relative;
+    max-width: 100vw;
+    overflow-x: hidden;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
