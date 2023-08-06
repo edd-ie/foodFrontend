@@ -4,6 +4,7 @@ import PICHA from '../../../assets/PICHA.jpg';
 import logo from '../../../assets/logo1.png';
 import burger from '../../../assets/burger.jpg';
 import NavC from '../../utility/NavC';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Homepage({ user, setUser, setLogin, login }) {
@@ -36,9 +37,13 @@ export default function Homepage({ user, setUser, setLogin, login }) {
         liked: true,
       }
 ];
+const nav = useNavigate()
+function move(){
+  nav('/customer/food')
+}
 
   const display = restaurants.map((res, index)=>{
-    return(<div className="gTopHome">
+    return(<div className="gTopHome" onClick={move}>
       <div className="gTopComp" key={index+res.name}>
         <img className='gHomePic' src={burger} alt="" />
       </div>
