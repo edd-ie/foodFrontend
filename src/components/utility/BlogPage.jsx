@@ -14,7 +14,7 @@ export default function Blog() {
 
             <div id="page">
                 <div className="text">
-                    <h1>The tale of the chef with no taste</h1>
+                    <h1>The tale of the chef with no sense of taste</h1>
                 </div>
                 <div className="imge">
                 <img src={truck} alt="" />
