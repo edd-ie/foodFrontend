@@ -3,6 +3,8 @@ import './blog.css';
 import Restaurant from '../customer/pages/Restaurant';
 import logo from '../../assets/logo1.png';
 import { useNavigate } from 'react-router-dom';
+import truck from '../../assets/truck.jpg';
+
 
 export default function Blog() {
 
@@ -10,7 +12,7 @@ export default function Blog() {
     console.log("file: Blog.jsx:8 -> Blog -> post:", post);
 
     let dataset={
-        image: '../../assets/background image.jpeg',
+        image: '../../assets/truck.jpg',
         restaurant: 'The Orient',
         description: 'Tale of a chef the lost his taste',
     }
@@ -28,7 +30,26 @@ export default function Blog() {
     const cards = post.map((card,index) =>{
         return(
             <div className="blogCard" key={index+card.restaurant}>
-                'Create the cards'
+                <div id="gImage-container">
+                <img src={truck} alt="" />
+                </div>
+                <div id="gCard-content">
+                <div id="gCard-title">
+                    <h1>The Orient</h1>
+                </div>
+                <div id="gCard-body">
+                    <p>Tale of a chef the lost his taste.Anyone who has ever suffered through a cold knows how unappealing food gets. </p>
+                </div>
+
+                </div>
+               
+                <div id="gBtn">
+                    <button>
+                        <a>
+                            View more...
+                        </a>
+                    </button>
+                </div>
             </div>
         )
     })
