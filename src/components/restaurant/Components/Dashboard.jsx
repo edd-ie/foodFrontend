@@ -18,7 +18,7 @@ export default function Dashboard({user, setUser, setLogin, login}) {
                 <div id="eDashSide">
                     <div className="eDashBest">
                         <div className="eBestHeader">
-                            <h3>Best Selling Categories</h3>
+                            {/* <h3>Best Selling Categories</h3> */}
                         </div>
                         <div className="eBestRank"></div>
                     </div>

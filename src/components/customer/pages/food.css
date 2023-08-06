@@ -7,118 +7,120 @@
     background: rgb(14, 13, 13);
   }
   
-  .gOrderMain {
-    display: flex;
-    width: 1500px;
-    height: 800px;
-    margin: auto; 
-    padding: 15px;
-    border: 1px solid #31363a;
-    border-radius: 5px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 5%;
-    box-shadow: 4px 4px 2px #31363a;
-  }
+
+.gOrderMain {
+  display: flex;
+  width: 1300px;
+  height: 500px;
+  margin: auto; 
+  padding: 15px;
+  border: 1px solid #31363a;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 5%;
+  box-shadow: 4px 4px 2px #31363a;
+}
+
+.gOrderMain:hover {
+  color: #31363a;
+}
+
+.gOrderMain img {
+  max-width: 700px; 
+  height: auto;
+  margin-right: 10px; 
+  object-fit: cover;
+}
+
+.food-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+/* Food name styling */
+.food-details h2 {
+  font-size: 3.2em;
+  margin: 0 0 5px; /* Adjust bottom margin for spacing */
+  color: #fff;
+}
+
+.food-details h2:hover {
+  font-size: 3.2em;
+  margin: 0 0 5px; /* Adjust bottom margin for spacing */
+  color: #31363a;
+}
+
+/* Food paragraph styling */
+.food-details p {
+  font-size: 3em;
+  margin: 5px 0;
+  color: #fff;
+}
+
+.food-details p.price {
+  font-size: 2em;
+  margin: 5px ;
+  margin-bottom: 20px;
+}
+
+/* Food category styling */
+.food-details p.category {
+  color: #ffa500;
+  margin-bottom: 20px; /* Add bottom margin to create space */
+}
+
+/* Food ingredients styling */
+.food-details p.ingredients {
+  font-size: 2em;
+  color: #fff;
+  margin-top: 20px; /* Add top margin to create space */
+}
+        
+/* Button styling */
+.food-details button {
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  padding: px 15px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}      
+
+.food-details button:hover {
+  background-color: #ff8120;
+}
+
+/* Preparation time styling */
+.preparation-time {
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 5px;
+}
+
+#gIcon {
+  display: flex;
+  align-items: center;
+  justify-content: left;
   
-  .gOrderMain:hover {
-    color: #31363a;
-  }
   
-  .gOrderMain img {
-    max-width: 700px; 
-    height: auto;
-    margin-right: 10px; 
-    object-fit: cover;
-  }
-  
-  .food-details {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
-  }
-  
-  /* Food name styling */
-  .food-details h2 {
-    font-size: 3.2em;
-    margin: 0 0 5px; /* Adjust bottom margin for spacing */
-    color: #fff;
-  }
-  
-  .food-details h2:hover {
-    font-size: 3.2em;
-    margin: 0 0 5px; /* Adjust bottom margin for spacing */
-    color: #31363a;
-  }
-  
-  /* Food paragraph styling */
-  .food-details p {
-    font-size: 3em;
-    margin: 5px 0;
-  }
-  
-  .food-details p.price {
-    font-size: 2em;
-    margin: 5px ;
-    margin-bottom: 20px;
-  }
-  
-  /* Food category styling */
-  .food-details p.category {
-    color: #ffa500;
-    margin-bottom: 20px; /* Add bottom margin to create space */
-  }
-  
-  /* Food ingredients styling */
-  .food-details p.ingredients {
-    font-size: 2em;
-    color: #fff;
-    margin-top: 20px; /* Add top margin to create space */
-  }
-          
-  /* Button styling */
-  .food-details button {
-    background-color: #ffa500;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    margin: 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }      
-  
-  .food-details button:hover {
-    background-color: #ff8120;
-  }
-  
-  /* Preparation time styling */
-  .preparation-time {
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 5px;
-  }
-  
-  #gIcon {
-    display: flex;
-    align-items: center;
-    justify-content: left;
-    
-    
-  }
-  
-  .gOrderMain:hover #gIcon {
-    opacity: 1; /* Show the icons when the cursor hovers over the .gOrderMain element */
-  }
-  
-  .material-symbols-sharp {
-    font-size: 24px;
-    cursor: pointer;
-    margin: 0 6px;
-    color: #ffa500;
-  }
-  
-  .material-symbols-sharp:hover {
-    color: #ff8120; /* Change the color when the cursor hovers over the icon */
-  }
+}
+
+.gOrderMain:hover #gIcon {
+  opacity: 1; /* Show the icons when the cursor hovers over the .gOrderMain element */
+}
+
+.material-symbols-sharp {
+  font-size: 24px;
+  cursor: pointer;
+  margin: 0 6px;
+  color: #ffa500;
+}
+
+.material-symbols-sharp:hover {
+  color: #ff8120; /* Change the color when the cursor hovers over the icon */
+}
 
