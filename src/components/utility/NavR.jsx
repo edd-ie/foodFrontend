@@ -16,6 +16,8 @@ export default function NavR({user, setLogin}) {
         navigate('/restaurant/dashboard')
     }
 
+    
+
 
     return(
         <div id="rootNav">
@@ -45,7 +47,7 @@ export default function NavR({user, setLogin}) {
             {
                 show && 
                 <div className="rProfSetting">
-                    <div className="rProfSettingItem" onClick={handleProfile}>
+                    <div className="rProfSettingItem" onClick={()=>{handleProfile(); navigate('/restaurant/profile')}}>
                         <span className="material-symbols-sharp">
                         account_circle
                         </span>
