@@ -1,18 +1,17 @@
-.nCart-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 20px;
-  /*overflow-y: scroll;*/
-  width: 100%;
-  height: 50%;
+.gCart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    overflow-y: scroll;
+    background: rgb(14, 13, 13);
+  }
   
-}
 
-.nOrderMain {
+.gOrderMain {
   display: flex;
-  width: 700px;
-  height: 200px;
+  width: 1300px;
+  height: 500px;
   margin: auto; 
   padding: 15px;
   border: 1px solid #31363a;
@@ -22,67 +21,73 @@
   box-shadow: 4px 4px 2px #31363a;
 }
 
-.nOrderMain:hover {
+.gOrderMain:hover {
   color: #31363a;
 }
 
-.nOrderMain img {
-  max-width: 400px; 
+.gOrderMain img {
+  max-width: 700px; 
   height: auto;
   margin-right: 10px; 
+  object-fit: cover;
 }
 
-.nFood-details {
+.food-details {
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex: 1;
-  margin-left: 10px;
 }
 
 /* Food name styling */
-.nFood-details h2 {
-  font-size: 2.2em;
-  margin: 0 0 15px; /* Adjust bottom margin for spacing */
-  color: #ffa500;
+.food-details h2 {
+  font-size: 3.2em;
+  margin: 0 0 5px; /* Adjust bottom margin for spacing */
+  color: #fff;
 }
 
-.nFood-details h2:hover {
-  font-size: 2.2em;
-  margin: 0 0 15px; /* Adjust bottom margin for spacing */
+.food-details h2:hover {
+  font-size: 3.2em;
+  margin: 0 0 5px; /* Adjust bottom margin for spacing */
   color: #31363a;
 }
 
 /* Food paragraph styling */
-.nFood-details p {
-  font-size: 2em;
-  margin: 5px 0 15px;
+.food-details p {
+  font-size: 3em;
+  margin: 5px 0;
+  color: #fff;
 }
 
-.nFood-details p.price {
+.food-details p.price {
   font-size: 2em;
-  margin: 5px 0 15px;
-  color: #fff;
+  margin: 5px ;
+  margin-bottom: 20px;
 }
 
 /* Food category styling */
-.nFood-details p.category {
+.food-details p.category {
+  color: #ffa500;
+  margin-bottom: 20px; /* Add bottom margin to create space */
+}
+
+/* Food ingredients styling */
+.food-details p.ingredients {
+  font-size: 2em;
   color: #fff;
-  margin-bottom: 15px; /* Add bottom margin to create space */
+  margin-top: 20px; /* Add top margin to create space */
 }
         
 /* Button styling */
-.nFood-details button {
+.food-details button {
   background-color: #ffa500;
   color: white;
-  font-size: 22px;
   border: none;
-  padding: 10px 5px;
-  margin: 20px 5px 10px;
+  padding: px 15px;
+  margin: 5px;
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s;
-  
 }      
 
 .food-details button:hover {
@@ -96,12 +101,16 @@
   margin-top: 5px;
 }
 
-#nIcon {
+#gIcon {
   display: flex;
   align-items: center;
   justify-content: left;
-  color: #fff;
-  font-size: 1.5em;
+  
+  
+}
+
+.gOrderMain:hover #gIcon {
+  opacity: 1; /* Show the icons when the cursor hovers over the .gOrderMain element */
 }
 
 .material-symbols-sharp {
@@ -114,3 +123,4 @@
 .material-symbols-sharp:hover {
   color: #ff8120; /* Change the color when the cursor hovers over the icon */
 }
+

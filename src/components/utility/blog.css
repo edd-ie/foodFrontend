@@ -29,8 +29,12 @@
     border-radius: 50%;
 }
 
+.blogHead {
+    margin-top: 30px;
+}
+
 .blogDisplay{
-    background: rgb(255, 166, 0);
+    background: #727a81;
     position: relative;
     width: 100%;
     overflow-y: auto;
@@ -43,7 +47,54 @@
 }
 
 .blogCard{
-    background: black;
-    width: 20%;
+    background: white;
+    width: 15%;
     height: 44%;
+    box-shadow: 0px 0px 15px -5px #31363a;
+    transition: 0.3s;
+    animation: ease-in-out;
+    color: #000;
+}
+
+.blogCard:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px 0px #31363a;
+}
+
+#gImage-container img{
+    overflow: hidden;
+    height: 200px;
+    width: 100%;
+}
+
+#gCard-content {
+    margin: 1rem;
+    margin-top: 0.5rem;
+}
+
+h1,p {
+    margin: 0;
+    padding: 0;
+}
+
+#gCard-title {
+    margin-bottom: 0.5rem;
+}
+
+#gBtn {
+    display: flex;
+    justify-content: center;
+    margin: 0.5 rem;
+}
+
+#gBtn button {
+    padding: 0.5rem;
+    background-color: #ffa500;
+    border: none;
+    transition: 0.2s;
+    color: #fff;
+}
+
+#gBtn button:hover {
+    background-color: #31363a;
 }
