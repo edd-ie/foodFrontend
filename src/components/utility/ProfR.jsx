@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import './ProfR.css';
+import './profR.css';
 import logo from '../../assets/logo1.png';
 import { useNavigate } from "react-router-dom";
 
