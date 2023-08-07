@@ -5,57 +5,49 @@ import { useNavigate } from "react-router-dom";
 
 export default function ProfR({ user }) {
     const [res, setRes] = useState({});
-    const [editedPicture, setEditedPicture] = useState("");
     const [editing, setEditing] = useState(false);
-    const [editedName, setEditedName] = useState("");
-    const [editedEmail, setEditedEmail] = useState("");
-    const [editedPhone, setEditedPhone] = useState("");
-    const [editedPolicy, setEditedPolicy] = useState(false);
-    const [editedTillNum, setEditedTillNum] = useState("");
-    const [editedAmbience, setEditedAmbience] = useState("");
-    const [editedCuisine, setEditedCuisine] = useState("");
-    const [editedPriceRange, setEditedPriceRange] = useState("");
-    const [editedRatings, setEditedRatings] = useState("");
+    const [editedCompanyName, setEditedCompanyName] = useState("");
+    const [editedUsername, setEditedUsername] = useState("");
+    const [editedFirstName, setEditedFirstName] = useState("");
+    const [editedLastName, setEditedLastName] = useState("");
+    const [editedAddress, setEditedAddress] = useState("");
+    const [editedCity, setEditedCity] = useState("");
+    const [editedCountry, setEditedCountry] = useState("");
+    const [editedPostalCode, setEditedPostalCode] = useState("");
+    const [editedAbout, setEditedAbout] = useState("");
+    const [editedQuote, setEditedQuote] = useState("");
 
     useEffect(() => {
-        // Fetch data for profile details
         fetch('https://backendfood-co7z.onrender.com/restaurants/1')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                return response.json();
-            })
+            .then(response => response.json())
             .then(data => {
                 setRes(data);
-                setEditedPicture(data.picture);
-                setEditedName(data.name);
-                setEditedEmail(data.email);
-                setEditedPhone(data.phone.toString());
-                setEditedPolicy(data.policy);
-                setEditedTillNum(data.till_num.toString());
-                setEditedAmbience(data.ambience);
-                setEditedCuisine(data.cuisine);
-                setEditedPriceRange(data.price_range);
-                setEditedRatings(data.ratings.toString());
+                setEditedCompanyName(data.name);
+                setEditedUsername(user.username);
+                setEditedFirstName(user.firstName);
+                setEditedLastName(user.lastName);
+                setEditedAddress(data.ambience);
+                setEditedCity(data.latitude.toString());
+                setEditedCountry(data.longitude.toString());
+                setEditedPostalCode(data.till_num.toString());
+                setEditedAbout(data.cuisine);
+                setEditedQuote(data.ratings.toString());
             })
             .catch(error => {
                 console.error("Error fetching data:", error);
             });
-    }, []);
+    }, [user.username, user.firstName, user.lastName]);
 
     const handleEditSubmit = () => {
+ 
         const updatedData = {
-            picture: editedPicture,
-            name: editedName,
-            email: editedEmail,
-            phone: parseInt(editedPhone),
-            policy: editedPolicy,
-            till_num: parseInt(editedTillNum),
-            ambience: editedAmbience,
-            cuisine: editedCuisine,
-            price_range: editedPriceRange,
-            ratings: parseFloat(editedRatings),
+            name: editedCompanyName,
+            ambience: editedAddress,
+            latitude: parseFloat(editedCity),
+            longitude: parseFloat(editedCountry),
+            till_num: parseInt(editedPostalCode),
+            cuisine: editedAbout,
+            ratings: parseFloat(editedQuote),
         };
 
         fetch('https://backendfood-co7z.onrender.com/restaurants/1', {
@@ -65,24 +57,17 @@ export default function ProfR({ user }) {
             },
             body: JSON.stringify(updatedData),
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
+            
             setRes(data);
-            setEditedPicture(data.picture);
-            setEditedName(data.name);
-            setEditedEmail(data.email);
-            setEditedPhone(data.phone.toString());
-            setEditedPolicy(data.policy);
-            setEditedTillNum(data.till_num.toString());
-            setEditedAmbience(data.ambience);
-            setEditedCuisine(data.cuisine);
-            setEditedPriceRange(data.price_range);
-            setEditedRatings(data.ratings.toString());
+            setEditedCompanyName(data.name);
+            setEditedAddress(data.ambience);
+            setEditedCity(data.latitude.toString());
+            setEditedCountry(data.longitude.toString());
+            setEditedPostalCode(data.till_num.toString());
+            setEditedAbout(data.cuisine);
+            setEditedQuote(data.ratings.toString());
         })
         .catch(error => {
             console.error("Error updating data:", error);
@@ -95,86 +80,71 @@ export default function ProfR({ user }) {
     const nav = useNavigate();
 
     return (
-        <div className="Chwey-profile-container">
-            <div className="Chwey-profile-header">
-                <img src={logo} alt="logo" className="Chwey-profile-logo" onClick={() => nav('/restaurant/dashboard')} />
+        <div className="ChweyreProf">
+            <div className="ChweyresProfHead">
+                <img src={logo} alt="logo" className="ChweyresProfLogo" onClick={() => nav('/restaurant/dashboard')} />
             </div>
-            <div className="Chwey-profile-main">
-                <div className="Chwey-profile-display">
-                    <div className="Chwey-profile-details">
+            <div className="ChweyresProfMain">
+                <div className="ChweyresProfDisplay">
+                    <div className="ChweyresCompany">
                         <h2>{res.name}</h2>
-                        <div className="Chwey-profile-picture">
-                            {editing ? (
-                                <input type="url" value={editedPicture} onChange={(e) => setEditedPicture(e.target.value)} />
-                            ) : (
-                                <img src={editedPicture} alt="Profile" className="Chwey-profile-profile-image" />
-                            )}
-                        </div>
                         {editing ? (
-                            <input type="text" value={editedName} onChange={(e) => setEditedName(e.target.value)} />
+                            <input type="text" value={editedUsername} onChange={(e) => setEditedUsername(e.target.value)} />
                         ) : (
-                            <p>Name: {editedName}</p>
+                            <p>Username: {user.username}</p>
                         )}
-                        {editing ? (
-                            <input type="email" value={editedEmail} onChange={(e) => setEditedEmail(e.target.value)} />
-                        ) : (
-                            <p>Email: {editedEmail}</p>
-                        )}  
-                        {editing ? (
-                            <input type="tel" value={editedPhone} onChange={(e) => setEditedPhone(e.target.value)} />
-                        ) : (
-                            <p>Phone: {editedPhone}</p>
-                        )}
-                        {editing ? (
-                            <label>
-                                Policy: <input type="checkbox" checked={editedPolicy} onChange={() => setEditedPolicy(!editedPolicy)} />
-                            </label>
-                        ) : (
-                            <p>Policy: {editedPolicy ? "Yes" : "No"}</p>
-                        )}
-                        {editing ? (
-                            <input type="number" value={editedTillNum} onChange={(e) => setEditedTillNum(e.target.value)} />
-                        ) : (
-                            <p>Till Number: {editedTillNum}</p>
-                        )}
+                        <p>Email: {res.email}</p>
+                        <p>Owner: {res.owner}</p>
                     </div>
-                    <div className="Chwey-profile-address">
+                    {/* <div className="ChweyresNames">
                         {editing ? (
-                            <input type="text" value={editedAmbience} onChange={(e) => setEditedAmbience(e.target.value)} />
+                            <input type="text" value={editedFirstName} onChange={(e) => setEditedFirstName(e.target.value)} />
                         ) : (
-                            <p>Ambience: {editedAmbience}</p>
+                            <p>First Name: {user.firstName}</p>
                         )}
-                    </div>
-                    <div className="Chwey-profile-cuisine">
                         {editing ? (
-                            <input type="text" value={editedCuisine} onChange={(e) => setEditedCuisine(e.target.value)} />
+                            <input type="text" value={editedLastName} onChange={(e) => setEditedLastName(e.target.value)} />
                         ) : (
-                            <p>Cuisine: {editedCuisine}</p>
-                        )}
-                    </div>
-                    <div className="Chwey-profile-price-range">
-                        {editing ? (
-                            <input type="text" value={editedPriceRange} onChange={(e) => setEditedPriceRange(e.target.value)} />
-                        ) : (
-                            <p>Price Range: {editedPriceRange}</p>
-                        )}
-                    </div>
-                    {/* <div className="Chwey-profile-ratings">
-                        {editing ? (
-                            <input type="number" step="0.1" value={editedRatings} onChange={(e) => setEditedRatings(e.target.value)} />
-                        ) : (
-                            <p>Rating: {editedRatings}</p>
+                            <p>Last Name: {user.lastName}</p>
                         )}
                     </div> */}
-                    <div className="Chwey-profile-buttons">
+                    <div className="ChweyresAddress">
                         {editing ? (
-                            <button className="Chwey-profile-save-button" onClick={handleEditSubmit}>Save</button>
+                            <input type="text" value={editedAddress} onChange={(e) => setEditedAddress(e.target.value)} />
                         ) : (
-                            <button className="Chwey-profile-edit-button" onClick={() => setEditing(true)}>Edit</button>
+                            <p>Address: {res.ambience}</p>
+                        )}
+                    </div>
+                    <div className="ChweyresLocation">
+                        <p>City: {editing ? <input type="text" value={editedCity} onChange={(e) => setEditedCity(e.target.value)} /> : res.latitude}</p>
+                        <p>Country: {editing ? <input type="text" value={editedCountry} onChange={(e) => setEditedCountry(e.target.value)} /> : res.longitude}</p>
+                        <p>Postal Code: {editing ? <input type="text" value={editedPostalCode} onChange={(e) => setEditedPostalCode(e.target.value)} /> : res.till_num}</p>
+                    </div>
+                    <div className="ChweyresAbout">
+                        {editing ? (
+                            <textarea value={editedAbout} onChange={(e) => setEditedAbout(e.target.value)} />
+                        ) : (
+                            <p>About Me: {res.cuisine}</p>
+                        )}
+                    </div>
+                    {editing ? (
+                        <button className="ChweyresSaveButton" onClick={handleEditSubmit}>Save</button>
+                    ) : (
+                        <button className="ChweyresEditButton" onClick={() => setEditing(true)}>Edit</button>
+                    )}
+                </div>
+                <div className="ChweyresProfile">
+                    <img src={res.picture} alt="Profile" className="ChweyresProfileImage" />
+                    <h3>{res.owner}</h3>
+                    <p>CEO/Co-founder</p>
+                    <div>
+                        {editing ? (
+                            <textarea value={editedQuote} onChange={(e) => setEditedQuote(e.target.value)} />
+                        ) : (
+                            <p>Quote: {res.ratings}</p>
                         )}
                     </div>
                 </div>
-                
             </div>
         </div>
     );
