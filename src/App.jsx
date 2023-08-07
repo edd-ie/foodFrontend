@@ -77,6 +77,10 @@ function App() {
         element: <ProfC user={user}/>
       },
       {
+        path: '/restaurant/profile',
+        element: <ProfR user={user}/>
+      },
+      {
         path: '/restaurant/orders',
         element: <Orders user={user}/>
       },
@@ -127,6 +131,7 @@ import NavC from './components/utility/NavC'
 import Dashboard from './components/restaurant/Components/Dashboard'
 import Staff from './components/restaurant/Components/Staff'
 import ProfC from './components/utility/ProfC'
+import ProfR from './components/utility/ProfR'
 import Orders from './components/restaurant/Components/orders'
 import OrderTracking from './components/customer/pages/OrderTracking'
 import Inventory from './components/restaurant/Components/Inventory'
