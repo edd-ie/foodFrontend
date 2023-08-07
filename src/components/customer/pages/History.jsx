@@ -30,6 +30,7 @@ function History() {
   return (
     <div className='khistory'>
         <NavC/>
+        <h2 className='kCaption'>Your Order History</h2>
         <div className="kMain">
         <table className="ktable">
             <thead>

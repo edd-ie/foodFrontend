@@ -5,6 +5,7 @@
     align-items: center;
     height: 100vh;
     justify-content: center;
+    flex-direction: column;
 }
 
 .kMain{
@@ -16,6 +17,7 @@
     padding: 20px;
     justify-content: center;
     height: 60%;
+    overflow: hidden;
 }
 .ktable{
   
@@ -29,4 +31,10 @@
     font-size: 24px;
     border: 1.3px solid orange;
 
+}
+.kCaption{
+    color: white;
+    
+    text-align: center;
+    font-size: 40px;
 }
