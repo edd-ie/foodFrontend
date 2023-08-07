@@ -67,6 +67,7 @@ export default function Payment() {
         <div className='ePayment'>
             <div className="eMpesa">
                 <img src={Mpesa} alt="mpesa"  className='eMpesaLogo'/>
+                <h1 className='kText'>Lipa na Mpesa</h1>
                 <form action="submit" className='eMpesaForm' onSubmit={handleSubmit}> 
                 <input type="text" name='name' placeholder='Elizabeth Kerubo' className='eMpesaInputs' required />
                 <input type="number" name='number' placeholder='0746909001' className='eMpesaInputs' required />

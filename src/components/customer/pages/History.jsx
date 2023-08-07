@@ -26,7 +26,7 @@ function History() {
   console.log(records)
 
   return (
-    <div></div>
+    <div>table</div>
   )
 }
 

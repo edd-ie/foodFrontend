@@ -24,6 +24,7 @@
 .eMpesaLogo{
     width: 200px;
     height: 200px;
+    margin-top: 50px;
 }
 .eMpesaForm{
     display: flex;
@@ -59,15 +60,35 @@ margin: 0;
 
 .eMpesaButton{
     cursor: pointer;
-    width: 20%;
-    height: 10%;
+    width: 40%;
+    height: 13%;
     border: none;
     border-radius: 15px;
-    font-size: 20px;
+    font-size: 30px;
+    text-align: center;
+
 
     
 }
 .eMpesaButton:hover{
     background-color: orange;
+    color: white;
+}
+
+.eMpesaConfirm{
+    width: 40%;
+    height: 7%;
+    border-radius: 20px;
+    border: none;
+    font-size: 30px;
+    text-align: center;
+}
+
+.eMpesaConfirm:hover{
+    background-color: orange;
+    color: white;
+
+}
+.kText{
     color: white;
 }
