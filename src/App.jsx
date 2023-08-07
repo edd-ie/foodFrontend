@@ -1,14 +1,25 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import './App.css'
 
 
 function App() {
   const [user, setUser] = useState({id:1})
-  const [login, setLogin] = useState(true)
+  const [login, setLogin] = useState(false)
   const [resId, setResId] = useState([])
   const [foodId, setFoodId] = useState([])
   const[side, setSide] = useState(false)
+
+  useEffect(()=>{
+    localStorage.getItem('foodChapUser') ? setLogin(true) : setLogin(false)
+    let id = localStorage.getItem('foodChapUser')
+    
+    setSide(localStorage.getItem('foodChapSide'))
+    
+    if(side === 'cust'){
+      fetch('https://backendfood-co7z.onrender.com/customers/')
+    }
+  },[])
 
 
   const router = createBrowserRouter([
@@ -62,7 +73,7 @@ function App() {
       },
       {
         path: "/navC",
-        element: <NavC  user={user} setLogin={(e)=>setLogin(e)}/>
+        element: <NavC  user={user} setLogin={setLogin}/>
       },
       {
         path: "/restaurant/dashboard",

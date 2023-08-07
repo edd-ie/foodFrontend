@@ -47,16 +47,6 @@ export default function CustomerLogin({ user, setUser, setLogin, login }) {
     .catch(err => console.log(err))
   };
 
-  // fetch('https://backendfood-co7z.onrender.com/me',{
-  //       method:'GET', 
-  //       headers: {"Accept": "*/*",
-  //         "Content-Type": "application/json"
-  //       },
-  //       withCredentials: true,
-  //     })
-  //     .then(res=>res.json())
-  //     .then(data=>console.log(data))
-
   const handleForgotPassword = () => {
     
     console.log("Forgot Password clicked!");
@@ -64,60 +54,60 @@ export default function CustomerLogin({ user, setUser, setLogin, login }) {
 
   return (
     <div id="maLand">
-    <div id='maLogin'>
-    <img id='maLogo'  src={logo} alt="logo"  style={{alignSelf: 'center', marginLeft:'20%', marginBottom:'5%'}}/>
-      <h1>Login to your account</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label id='maUsername' htmlFor='email'>Email:</label>
-          <input 
-            type='email'
-            id='markusername'
-            name='email'
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label id='maPassword' htmlFor='password'>Password:</label>
-          <input
-            type='password'
-            id='markpassword'
-            name='password'
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
+      <div id='maLogin'>
+        <img id='maLogo'  src={logo} alt="logo"  style={{alignSelf: 'center', marginLeft:'20%', marginBottom:'5%'}}/>
+          <h1>Login to your account</h1>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label id='maUsername' htmlFor='email'>Email:</label>
+              <input 
+                type='email'
+                id='markusername'
+                name='email'
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div>
+              <label id='maPassword' htmlFor='password'>Password:</label>
+              <input
+                type='password'
+                id='markpassword'
+                name='password'
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-        <div id='maForgot'>
-        <p>
-            <span
-              style={{ cursor: 'pointer', color: 'orange' }}
-              onClick={handleForgotPassword}
-            >
-              Forgot Password?
-            </span>
-          </p>
-        </div>
-        <button id='maButton' type='submit'>Login</button>
-      </form>
-      <div id="markLogin">
-      <p>
-          Don't have an account?
-          <span
-            style={{ cursor: 'pointer', color: 'orange'}}
-            onClick={() => {
-              
-            }              
-            }
-          >
-           Create account
-          </span>
-        </p>
+            <div id='maForgot'>
+            <p>
+                <span
+                  style={{ cursor: 'pointer', color: 'orange' }}
+                  onClick={handleForgotPassword}
+                >
+                  Forgot Password?
+                </span>
+              </p>
+            </div>
+            <button id='maButton' type='submit'>Login</button>
+          </form>
+          <div id="markLogin">
+          <p>
+              Don't have an account?
+              <span
+                style={{ cursor: 'pointer', color: 'orange'}}
+                onClick={() => {
+                  
+                }              
+                }
+              >
+              Create account
+              </span>
+            </p>
+          </div>
       </div>
-    </div>
     </div>
   );
 }
