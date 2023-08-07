@@ -1,4 +1,6 @@
 import React, { useEffect,useState } from 'react'
+import "./history.css"
+import NavC from '../../utility/NavC'
 
 function History() {
 
@@ -12,7 +14,7 @@ function History() {
         let format = []
          for (let x of data){
             let set = {
-                foods: x.items.join(','),
+                foods: x.items.join(' , '),
                 restaurant: x.restaurant.name,
                 total: x.total
             }
@@ -26,7 +28,33 @@ function History() {
   console.log(records)
 
   return (
-    <div>table</div>
+    <div className='khistory'>
+        <NavC/>
+        <div className="kMain">
+        <table className="ktable">
+            <thead>
+               <tr>
+               <th>Foods</th>
+                <th>Restaraunt Name</th>
+                <th>Total</th>
+               </tr>
+            </thead>
+            <tbody>
+                {records.map(item =>(
+                    <tr key={item.id}>
+                        <td>{item.foods}</td>
+                        <td>{item.restaurant}</td>
+                        <td>{item.total}</td>
+                    </tr>
+                ))}
+
+            </tbody>
+        </table>
+
+        </div>
+        
+    </div>
+  
   )
 }
 
