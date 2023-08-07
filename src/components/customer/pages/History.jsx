@@ -29,22 +29,22 @@ function History() {
 
   return (
     <div className='khistory'>
-        <NavC/>
+        <NavC/> 
         <h2 className='kCaption'>Your Order History</h2>
         <div className="kMain">
         <table className="ktable">
             <thead>
                <tr>
+               <th>Restaraunt Name</th>
                <th>Foods</th>
-                <th>Restaraunt Name</th>
                 <th>Total</th>
                </tr>
             </thead>
             <tbody>
                 {records.map(item =>(
                     <tr key={item.id}>
-                        <td>{item.foods}</td>
                         <td>{item.restaurant}</td>
+                        <td>{item.foods}</td>
                         <td>{item.total}</td>
                     </tr>
                 ))}

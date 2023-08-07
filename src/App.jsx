@@ -118,6 +118,10 @@ function App() {
       {
         path: '/customer/history',
         element: <History/>
+      },
+      {
+        path: '/restaurant/history',
+        element: <RestHistory/>
       }
     ]
   )
@@ -158,3 +162,5 @@ import Blog from './components/utility/Blog'
 import BlogPage from './components/utility/BlogPage'
 import Payment from './components/customer/pages/Payment'
 import History from './components/customer/pages/History'
+import RestHistory from './components/restaurant/Components/RestHistory'
+
