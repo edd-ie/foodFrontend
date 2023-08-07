@@ -44,7 +44,7 @@ export default function Blog() {
                 </div>
                
                 <div id="gBtn">
-                    <button>
+                    <button onClick={()=>nav('/blogpage')}>
                         <a>
                             View more...
                         </a>

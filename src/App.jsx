@@ -5,7 +5,7 @@ import './App.css'
 
 function App() {
   const [user, setUser] = useState({id:1})
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(true)
   const [resId, setResId] = useState([])
   const [foodId, setFoodId] = useState([])
   const[side, setSide] = useState(false)
@@ -110,6 +110,10 @@ function App() {
       {
         path: '/blogPage',
         element: <BlogPage/>
+      },
+      {
+        path: '/contact',
+        element: <Contact user={user}/>
       }
     ]
   )
@@ -148,3 +152,5 @@ import OrderTracking from './components/customer/pages/OrderTracking'
 import Inventory from './components/restaurant/Components/Inventory'
 import Blog from './components/utility/Blog'
 import BlogPage from './components/utility/BlogPage'
+
+import Contact from './components/utility/contact'
