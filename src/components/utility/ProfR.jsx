@@ -119,7 +119,7 @@ export default function ProfR({ user }) {
                             <input type="email" value={editedEmail} onChange={(e) => setEditedEmail(e.target.value)} />
                         ) : (
                             <p>Email: {editedEmail}</p>
-                        )}
+                        )}  
                         {editing ? (
                             <input type="tel" value={editedPhone} onChange={(e) => setEditedPhone(e.target.value)} />
                         ) : (
