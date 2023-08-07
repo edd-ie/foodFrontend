@@ -110,6 +110,10 @@ function App() {
       {
         path: '/blogPage',
         element: <BlogPage/>
+      },
+      {
+        path: '/customer/payment',
+        element: <Payment/>
       }
     ]
   )
@@ -148,3 +152,4 @@ import OrderTracking from './components/customer/pages/OrderTracking'
 import Inventory from './components/restaurant/Components/Inventory'
 import Blog from './components/utility/Blog'
 import BlogPage from './components/utility/BlogPage'
+import Payment from './components/customer/pages/Payment'
