@@ -9,11 +9,16 @@ export default function NavC({user, setLogin}) {
 
     function handleProfile() {
         setShow(!show)
-        setLogin(false)
     }
 
     function handleHome() {
         navigate('/customer/homepage')
+    }
+
+    function handleLogOff() {
+        handleProfile() 
+        localStorage.removeItem('foodChapUser')
+        navigate('/')
     }
 
     return(
@@ -49,11 +54,11 @@ export default function NavC({user, setLogin}) {
                         </span>
                         <p>Account</p> 
                     </div> 
-                    <div className="rProfSettingItem" onClick={handleProfile}>
-                        <span className="material-symbols-sharp">
+                    <div className="rProfSettingItem" onClick={handleLogOff}>
+                        <span className="material-symbols-sharp"  onClick={handleLogOff}>
                         logout
                         </span> 
-                        <p>Logout</p>    
+                        <p  onClick={handleLogOff}>Logout</p>    
                     </div>   
                 </div>
             }

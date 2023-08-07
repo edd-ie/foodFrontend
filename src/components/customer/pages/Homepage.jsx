@@ -39,11 +39,33 @@ export default function Homepage({ user, setUser, setLogin, login }) {
 ];
 const nav = useNavigate()
 function move(){
+  nav('/customer/menu')
+}
+function move2(){
   nav('/customer/food')
 }
 
   const display = restaurants.map((res, index)=>{
     return(<div className="gTopHome" onClick={move}>
+      <div className="gTopComp" key={index+res.name}>
+        <img className='gHomePic' src={burger} alt="" />
+      </div>
+      <div className="gBottomComp">
+        <div className="gBotLeft">
+          <h2>{res.name}</h2>
+          <p>Rating: <span>{res.rating}</span></p>
+          <p>Distance: <span>{res.estimatedDistance}</span></p>
+        </div>
+         <div className="gBotRight" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+          <span className="material-symbols-sharp"  style={{color:'white'}}>
+          favorite
+          </span>
+         </div>
+      </div>
+    </div>)
+  })
+  const foods = restaurants.map((res, index)=>{
+    return(<div className="gTopHome" onClick={move2}>
       <div className="gTopComp" key={index+res.name}>
         <img className='gHomePic' src={burger} alt="" />
       </div>
@@ -88,7 +110,7 @@ const handleLikeRestaurant = (restaurantId) => {
           <div className="gHomePart">
             <h1 id="gH1" style={{textAlign:'center'}}>Featured Foods</h1>
             <div className="gHomeTags">
-              {display}
+              {foods}
             </div>
           </div>
         </div>
