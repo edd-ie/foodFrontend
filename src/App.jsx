@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import './App.css'
 
@@ -9,6 +9,17 @@ function App() {
   const [resId, setResId] = useState([])
   const [foodId, setFoodId] = useState([])
   const[side, setSide] = useState(false)
+
+  useEffect(()=>{
+    localStorage.getItem('foodChapUser') ? setLogin(true) : setLogin(false)
+    let id = localStorage.getItem('foodChapUser')
+    
+    setSide(localStorage.getItem('foodChapSide'))
+    
+    if(side === 'cust'){
+      fetch('https://backendfood-co7z.onrender.com/customers/')
+    }
+  },[])
 
 
   const router = createBrowserRouter([
@@ -62,7 +73,7 @@ function App() {
       },
       {
         path: "/navC",
-        element: <NavC  user={user} setLogin={(e)=>setLogin(e)}/>
+        element: <NavC  user={user} setLogin={setLogin}/>
       },
       {
         path: "/restaurant/dashboard",
@@ -75,6 +86,10 @@ function App() {
       {
         path: '/customer/profile',
         element: <ProfC user={user}/>
+      },
+      {
+        path: '/restaurant/profile',
+        element: <ProfR user={user}/>
       },
       {
         path: '/restaurant/orders',
@@ -95,6 +110,10 @@ function App() {
       {
         path: '/blogPage',
         element: <BlogPage/>
+      },
+      {
+        path: '/contact',
+        element: <Contact user={user}/>
       }
     ]
   )
@@ -127,8 +146,11 @@ import NavC from './components/utility/NavC'
 import Dashboard from './components/restaurant/Components/Dashboard'
 import Staff from './components/restaurant/Components/Staff'
 import ProfC from './components/utility/ProfC'
+import ProfR from './components/utility/ProfR'
 import Orders from './components/restaurant/Components/orders'
 import OrderTracking from './components/customer/pages/OrderTracking'
 import Inventory from './components/restaurant/Components/Inventory'
 import Blog from './components/utility/Blog'
 import BlogPage from './components/utility/BlogPage'
+
+import Contact from './components/utility/contact'

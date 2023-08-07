@@ -81,20 +81,6 @@ export default function Restaurant({ user, setUser, setLogin, login }) {
           <div id="gImage" style={{ position: 'relative', marginBottom: '20px' }}>
             <img id='PICHA' src={PICHA} alt="PICHA" />
             <h3 id='mHRes'>Order your best food anytime</h3>
-
-            {/* Overlay for search */}
-            {/* <div id="gButton">
-              <div className="gLocation">
-                <FontAwesomeIcon icon={faMapMarkerAlt} />
-                <input id="gButton1" type="text" value={currentLocation} />
-              </div>
-              <div className="gSearch">
-                <input id="gButton2" type="text" placeholder="Search restaurant, cuisine, dishes" />
-                <button id="gButton3">
-                  <FontAwesomeIcon icon={faSearch} />
-                </button>
-              </div>
-            </div> */}
             <div id="mSearch">
               <input id="mButton1" type="text" value="Ngong Road, NRB 📍" />
               <input id="mButton2" type="text" placeholder="Search for a restaurant" />
