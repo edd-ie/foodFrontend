@@ -75,7 +75,7 @@ export default function Payment() {
 
 
                 </form>
-                <button onClick={checkPayment} >Confirm</button>
+                <button onClick={checkPayment} className='eMpesaConfirm'>Confirm</button>
 
             </div>
 
