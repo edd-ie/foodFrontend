@@ -26,10 +26,9 @@ export default function Blog() {
         setPost(data)
     },[])
 
-
     const cards = post.map((card,index) =>{
         return(
-            <div className="blogCard" key={index+card.restaurant}>
+            <div className="blogCard card1" key={index+card.restaurant}>
                 <div id="gImage-container">
                 <img src={truck} alt="" />
                 </div>
@@ -51,6 +50,7 @@ export default function Blog() {
                     </button>
                 </div>
             </div>
+            
         )
     })
 
@@ -60,8 +60,10 @@ export default function Blog() {
             <div className="blogHeader">
                 <img src={logo} alt="logo" className="blogLogo"  onClick={()=>nav('/customer/homePage')}/>
                 <h1 className="blogHead">The connoisseur</h1>
-                <div className="blogProf"></div>
+                <div className="blogProf">
+                </div>
             </div>
+          
             <div className="blogDisplay">
                 {cards}
             </div>
