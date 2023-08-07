@@ -19,7 +19,7 @@ export default function Cart({ user, setUser, setLogin, login }) {
         setFood(allFoods);
 
         const initialQuantities = allFoods.reduce((acc, element) => {
-          acc[element.id] = 1; // Set initial quantity to 1 for each food item
+          acc[element.id] = 1; 
           return acc;
         }, {});
         setQuantities(initialQuantities);
@@ -29,6 +29,11 @@ export default function Cart({ user, setUser, setLogin, login }) {
     };
 
     fetchFoods();
+  }, []);
+
+  useEffect(() => {
+    const deletedFoodIds = JSON.parse(localStorage.getItem('deletedFoodIds')) || [];
+    setFood(prevFood => prevFood.filter(item => !deletedFoodIds.includes(item.id)));
   }, []);
 
   const toggleShowTime = (index) => {
@@ -48,10 +53,27 @@ export default function Cart({ user, setUser, setLogin, login }) {
     });
   };
 
+  const handleRemoveClick = async (foodId) => {
+    try {
+      await fetch(`https://backendfood-co7z.onrender.com/foods/${foodId}`, {
+        method: 'DELETE',
+      });
+
+      setFood(prevFood => prevFood.filter(item => item.id !== foodId));
+      const deletedFoodIds = JSON.parse(localStorage.getItem('deletedFoodIds')) || [];
+      localStorage.setItem('deletedFoodIds', JSON.stringify([...deletedFoodIds, foodId]));
+    } catch (error) {
+      console.error('Error deleting food item:', error);
+    }
+  };
+
   const elements = food.map((element, index) => (
     <div className="nCart-container">
+
     <div className="nOrderMain" key={element.category + index}>
+
       <img src={element.picture} alt={element.name} />
+
       <div className="nFood-details">
         <h2>{element.name}</h2>
         <p className="price">
@@ -61,7 +83,9 @@ export default function Cart({ user, setUser, setLogin, login }) {
         </p>
         <p className="category">{element.category}</p>
 
-        <div id="nIcon">
+      <div className="bottom">
+        
+       <div className="nIcon">
           <span
             className="material-symbols-sharp"
             onClick={() => handleQuantityChange(element.id, 'subtract')}
@@ -76,15 +100,12 @@ export default function Cart({ user, setUser, setLogin, login }) {
             add
           </span>
         </div>
-
-        <button onClick={() => toggleShowTime(index)}>
-          {selectedFoodIndex === index && showTime ? 'Hide Time' : 'Show Time'}
-        </button>
-        {selectedFoodIndex === index && showTime && (
-          <p className="preparation-time">
-            Preparation Time: 20mins{element.preparationTime}
-          </p>
-        )}
+        
+        <div className="nRemove" onClick={() => handleRemoveClick(element.id)}>
+        <span class="material-symbols-sharp">delete</span>Remove
+        </div>
+        
+        </div>
       </div>
     </div>
     </div>

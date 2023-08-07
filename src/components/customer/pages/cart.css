@@ -6,7 +6,7 @@
   /*overflow-y: scroll;*/
   width: 100%;
   height: 50%;
-  
+  background-color: #000;
 }
 
 .nOrderMain {
@@ -27,9 +27,10 @@
 }
 
 .nOrderMain img {
-  max-width: 400px; 
-  height: auto;
-  margin-right: 10px; 
+  max-width: 50%; 
+  height: 100%;
+  margin-right: 10px;
+  object-fit: cover;
 }
 
 .nFood-details {
@@ -44,7 +45,9 @@
 .nFood-details h2 {
   font-size: 2.2em;
   margin: 0 0 15px; /* Adjust bottom margin for spacing */
-  color: #ffa500;
+  color: #fff;
+  text-decoration-line: underline;
+  text-align: center;
 }
 
 .nFood-details h2:hover {
@@ -71,38 +74,7 @@
   margin-bottom: 15px; /* Add bottom margin to create space */
 }
         
-/* Button styling */
-.nFood-details button {
-  background-color: #ffa500;
-  color: white;
-  font-size: 22px;
-  border: none;
-  padding: 10px 5px;
-  margin: 20px 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-  
-}      
 
-.food-details button:hover {
-  background-color: #ff8120;
-}
-
-/* Preparation time styling */
-.preparation-time {
-  font-size: 0.9em;
-  color: #666;
-  margin-top: 5px;
-}
-
-#nIcon {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-  color: #fff;
-  font-size: 1.5em;
-}
 
 
 
@@ -110,9 +82,36 @@
   font-size: 24px;
   cursor: pointer;
   margin: 0 6px;
-  color: #ffa500;
+  color: #31363a;
 }
 
 .material-symbols-sharp:hover {
-  color: #ff8120; /* Change the color when the cursor hovers over the icon */
+  color: #31363a; /* Change the color when the cursor hovers over the icon */
 }
+
+.bottom {
+  margin-top: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.nRemove{
+  color: #fff;
+  font-size: 1.2em; 
+}
+
+/*.nIcon {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  color: #fff;
+  font-size: 1.5em;
+}*/
+
+.nIcon {
+  font-size: 1.5em;
+  color: #fff;
+}
+
