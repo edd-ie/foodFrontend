@@ -19,6 +19,7 @@ export default function CustomerLogin({ user, setUser, setLogin, login }) {
     setFormData((prevFormData) => ({ ...prevFormData, [name]: newValue }));
   };
 
+  //const nav = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +44,7 @@ export default function CustomerLogin({ user, setUser, setLogin, login }) {
       let x = localStorage.getItem('foodChapUser')
       setUser(data)
       setLogin(true)
+
     })
     .catch(err => console.log(err))
   };
