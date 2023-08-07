@@ -1,0 +1,125 @@
+/* profR.css */
+
+.Chwey-profile-container {
+    background-color: black;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.Chwey-profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+
+.Chwey-profile-logo {
+    cursor: pointer;
+}
+
+.Chwey-profile-main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Chwey-profile-display {
+    background-color: grey;
+    border-radius: 8px;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    padding: 20px;
+    width: 60%;
+    margin-left: 175px;
+}
+
+.Chwey-profile-details p,
+/* .Chwey-profile-ratings p, */
+.Chwey-profile-price-range p,
+.Chwey-profile-cuisine p,
+.Chwey-profile-address p,
+.Chwey-profile-ratings p {
+    margin-left : 300px;
+    color: white;
+    padding: 9px;
+}
+
+.Chwey-profile-details input {
+    width: 40%;
+    padding: 8px;
+    margin: 9px ;
+ 
+   
+ 
+    
+}
+
+/* .Chwey-profile-address p,
+.Chwey-profile-location p {
+    margin: 8px 0;
+    color: white;
+} */
+
+.Chwey-profile-address input,
+.Chwey-profile-location input,
+.Chwey-profile-cuisine input,
+.Chwey-profile-price-range input,
+.Chwey-profile-ratings input {
+    width: 40%;
+    
+    padding: 8px;
+    margin: 9px ;
+    
+}
+
+.Chwey-profile-buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.Chwey-profile-edit-button,
+.Chwey-profile-save-button {
+    background-color: orange;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    /* transition: background-color 0.3s ease; */
+}  
+
+/* .Chwey-profile-edit-button:hover,
+.Chwey-profile-save-button:hover {
+    background-color: orange;
+} */
+
+/* .Chwey-profile-sidebar {
+    width: 35%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+} */
+
+.Chwey-profile-picture img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    margin-left: 345px;
+}
+
+/* .Chwey-profile-ratings h3 {
+    margin: 0;
+   
+} */
+
+.Chwey-profile-ratings p {
+    margin: 5px 0;
+    color: white;
+}
+
+.Chwey-profile-ratings-textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    resize: vertical;
+}

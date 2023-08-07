@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./Staff.css"
 import NavR from "../../utility/NavR";
-//import {BsFillTrashFill, BsFillPencilFill} from 'react-icons/bs'
+import './Inventory.css';
 
-
-
-
-//{id: 1, name: 'Jeeves', title: 'manager', restaurant_id: 1, active: true}
-
-export default function Staff({user}) {
-    const [inventoryData, setInventoryData] = useState([]);
+export default function Inventory({ user }) {
+  const [inventoryData, setInventoryData] = useState([]);
   const [showAddItemModal, setShowAddItemModal] = useState(false);
   const [newItem, setNewItem] = useState({ item: '', quantity: '' });
   const [editedItem, setEditedItem] = useState(null);
@@ -19,7 +13,7 @@ export default function Staff({user}) {
   const [restoreTimer, setRestoreTimer] = useState(null);
 
   useEffect(() => {
-    fetch('https://backendfood-co7z.onrender.com/restaurant/staff/1')
+    fetch('https://backendfood-co7z.onrender.com/restaurant/inventory/1')
       .then(response => response.json())
       .then(data => setInventoryData(data));
   }, []);
@@ -51,8 +45,8 @@ export default function Staff({user}) {
 
   const handleEditClick = (item) => {
     setEditedItem(item);
-    setEditedItemName(item.name);
-    setEditedItemQuantity(item.title);
+    setEditedItemName(item.item);
+    setEditedItemQuantity(item.quantity);
   }
 
   const handleEditSubmit = () => {
@@ -62,8 +56,8 @@ export default function Staff({user}) {
         item.id === editedItem.id
           ? {
               ...item,
-              item: editedItemName !== item.name ? editedItemName : item.name,
-              quantity: editedItemQuantity !== item.title ? editedItemQuantity : item.title,
+              item: editedItemName !== item.item ? editedItemName : item.item,
+              quantity: editedItemQuantity !== item.quantity ? editedItemQuantity : item.quantity,
             }
           : item
       )
@@ -83,16 +77,15 @@ export default function Staff({user}) {
     setDeletedItem(null);
   }
 
-    
-    return(
-        <div className="MarkInventory">
+  return (
+    <div className="MarkInventory">
       <NavR />
       <div className="MarkInventoryContent">
         <table className="MarkInventoryTable">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Title</th>
+              <th>Item</th>
+              <th>Quantity</th>
               <th>Edit</th>
               <th>Delete</th>
             </tr>
@@ -110,7 +103,7 @@ export default function Staff({user}) {
                       />
                     </div>
                   ) : (
-                    item.name
+                    item.item
                   )}
                 </td>
                 <td style={{ color: 'white' }}>
@@ -123,7 +116,7 @@ export default function Staff({user}) {
                       />
                     </div>
                   ) : (
-                    item.title
+                    item.quantity
                   )}
                 </td>
                 <td>
@@ -175,60 +168,5 @@ export default function Staff({user}) {
         </div>
       )}
     </div>
-    )
+  );
 }
-
-
-// const [staff, setStaff] = useState([])
-
-//     useEffect(() => {
-//         fetch(`https://backendfood-co7z.onrender.com/restaurant/staff/${user.id}`)
-//         .then(res => res.json())
-//         .then(data => {
-//             setStaff(data)
-//         })
-//     },[])
-
-//     const staffList = staff.map(staff => {
-//         let side = staff.active ? 'label-live' : 'label-off'
-//         return(
-//             <tr  key={staff.id+ staff.name} className=".eTableRow">
-//                 <td key={staff.id+ staff.name+0} className="staffName" data-id={staff.id}>{staff.name}</td>
-//                 <td key={staff.id+ staff.name+1}>{staff.title}</td>
-//                 <td className={`label ${side}`} key={staff.id+ staff.name+2}>{staff.active ? 'Yes' : 'No'}</td>
-//                 <td  key={staff.id+ staff.name+3}>
-//                     <span className="actions">
-//                         <span className="material-symbols-sharp editIcon">
-//                         edit
-//                         </span>
-//                         <span className="material-symbols-sharp eDeleteIcon">
-//                         delete
-//                         </span>
-//                     </span>
-//                 </td>
-//             </tr>
-//         )
-//     })
-
-
-        // <div id="eStaffContainer">
-        //     <NavR />            
-        //     <div className="eStaffContent">
-        //         {/* <div className="eStaffBar">
-
-        //         </div> */}
-        //         <table className="eTable">
-        //             <thead>
-        //                 <tr>
-        //                     <th className="expand">Name</th>
-        //                     <th>Title</th>
-        //                     <th>Active</th>
-        //                     <th>Actions</th>
-        //                 </tr>
-        //             </thead>
-        //             <tbody>
-        //                 {staffList}
-        //             </tbody>
-        //         </table>
-        //     </div>
-        // </div>
