@@ -174,6 +174,7 @@ export default function ProfR({ user }) {
                         )}
                     </div>
                 </div>
+                
             </div>
         </div>
     );
