@@ -1,96 +1,69 @@
 #nMenuContainer{
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     position: absolute;
     margin: 0;
     padding: 0;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
- 
-  
-#nHeader {
-    background-color: #000;
-    padding: 1px;
-    margin: 10px;
-    
-  }
-  
-  #nHeader nav {
-    display: flex;
-    justify-content: center;
-    padding: 30px;
-    
-    
-  }
-  
-  #nHeader ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    
-    
-  }
-  
-  #nHeader li {
-    display: inline;
-    margin-right: 250px;
-    
-  }
+#nPhoros {
+  background-color: #31363a;
+  height: 50%;
+}
 
-  #nLogo {
-    height: 170px;
-    position: absolute;
-    top:  0px;
-    left: 1px;
-  }
-  
-  #nHeader li:last-child {
-    margin-right: 0;
-  }
-  
-  #nHeader a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 34px;
-  }
-  
-  #nHeader a:hover {
-    color: #ffa500;
-  }
+#nPhoto {
+  background-color: transparent;
+  height: 75%;
+  width: 50%;
+  float: left;
+  display: flex;
+  align-items: flex-end;
+}
 
-  #nGps {
-    width: 100%;
-    height: 40%;
-    background-color: #31363a;
-    margin-top: 6.5vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping to the next row */
-  }
-  
-  #nGps div {
-    text-align: center;
-    width: 40%; /* Adjust the width of the image and text container as needed */
-    background-color: transparent;
-    margin-bottom: 20px; /* Add some space between each image and text container */
-  }
-  
-  #nGps img {
-    width: 100%;
-    height: 300px; /* Add a fixed height to ensure all images have the same height */
-    max-height: 300px;
-    border: 1px solid #ffa500;
-    border-radius: 5px;
-  }
-  
-  #nGps p {
-    margin-top: 10px;
-    font-size: 18px;
-    color: #fff;
-    background-color: transparent;
-  }
+#nPhoto img {
+  background-color: transparent;
+  height: 100%;
+  width: 95%;
+  float: left;
+  object-fit: cover;
+}
+
+#nPhoto1 {
+  background-color: transparent;
+  height: 75%;
+  width: 50%;
+  float: right;
+  display: flex;
+  align-items: flex-end;
+}
+
+#nPhoto1 img {
+  background-color: transparent;
+  height: 100%;
+  width: 95%;
+  float: left;
+}
+
+#nMama {
+  font-size: 26px;
+}
+
+#nRating {
+  margin-left: 30%;
+  font-size: 26px;
+}
+
+#nBurger {
+  margin-left: 60%;
+  font-size: 26px;
+}
+
+#nBugers {
+  margin-left: 90%;
+  font-size: 26px;
+}
 
    #nFoods {
     width: 100%;
@@ -108,6 +81,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
   }
   
   #nFoodItem img {
@@ -115,11 +89,19 @@
     height: 100px;
     object-fit: cover;
     border-radius: 50%;
+    
   }
+
+  #nFoodItem img:hover {
+    transform: scale(1.05);
+  }
+
+
   
   #nFoodItem p {
     margin-top: 10px;
     font-size: 16px;
+    color: #fff;
   }
 
    #nMenu {
@@ -131,24 +113,26 @@
 
   #nMenuCard {
    flex: 0 0 calc(33.33% - 20px); 
-   height: 50vh;
+   height: 46vh;
    max-width: 450px;
    margin: 20px;
    padding: 10px;
    border: 1px solid #ffa500;
    text-align: center;
-   transition: transform 0.3s ease; 
+   transition: transform 0.2s ease; 
    width: 10%;
    border-radius: 15px;
+   background-color: #000;
   }
 
 #nMenuCard:hover {
   transform: scale(1.05); 
+  box-shadow: 2px 2px 12px rgba(242, 135, 5, 0.862), -1px -1px -8px rgba(0, 0, 0, 0, 0.2);
 }
 
 #nMenuImage {
   width: 100%;
-  max-height: 150px;
+  max-height: 140px;
   margin-top: 0px;
 }
 
@@ -165,6 +149,7 @@
   margin-right: 320px;
   margin-left: 20px;
   margin-top: 230px;
+  color: #fff;
 }
 
 #nMenuCard p {
@@ -172,6 +157,7 @@
   font-size: 14px;
   margin-right: 300px;
   margin-bottom: 0px;
+  color: #fff;
 }
 
 #nMenuCard button {
@@ -200,10 +186,10 @@
 }
 
 #gfooterLogo img {
-  height: 170px;
+  height:250px;
   position: absolute;
-  top: 3955px;
-  left: 1px;
+  top: 2935px;
+  left: 35px;
 }
 
 #gfooterContent {
@@ -236,6 +222,10 @@
   width: 60px;
   color: #ffa500;
 }
+
+
+
+
 
 
 

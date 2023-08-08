@@ -92,8 +92,8 @@ export default function Review({ user, resId }) {
             </div>
             <div className="review-message">{review.comment}</div>
             <div className="action-buttons">
-              <button>Helpful</button>
-              <button>Report</button>
+              <button>like</button>
+              <button>dislike</button>
             </div>
           </div>
         ))}

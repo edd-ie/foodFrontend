@@ -1,18 +1,31 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import './App.css'
 
 
 function App() {
   const [user, setUser] = useState({id:1})
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(true)
   const [resId, setResId] = useState([])
   const [foodId, setFoodId] = useState([])
+  const[side, setSide] = useState(false)
+
+  useEffect(()=>{
+    localStorage.getItem('foodChapUser') ? setLogin(true) : setLogin(false)
+    let id = localStorage.getItem('foodChapUser')
+    
+    setSide(localStorage.getItem('foodChapSide'))
+    
+    if(side === 'cust'){
+      fetch('https://backendfood-co7z.onrender.com/customers/')
+    }
+  },[])
+
 
   const router = createBrowserRouter([
       {
         path: "/",
-        element: <Home user={user} setUser={setUser} setLogin={setLogin}/>
+        element:<Homepage user={user} setUser={setUser} login={login} setLogin={setLogin}/>
       },
       {
         path: "/customer/login",
@@ -75,12 +88,32 @@ function App() {
         element: <ProfC user={user}/>
       },
       {
+        path: '/restaurant/profile',
+        element: <ProfR user={user}/>
+      },
+      {
         path: '/restaurant/orders',
         element: <Orders user={user}/>
       },
       {
         path: '/customer/tracking',
         element: <OrderTracking user={user}/>
+      },
+      {
+        path: '/restaurant/inventory',
+        element: <Inventory user={user}/>
+      },
+      {
+        path: '/blog',
+        element: <Blog/>
+      },
+      {
+        path: '/blogPage',
+        element: <BlogPage/>
+      },
+      {
+        path: '/contact',
+        element: <Contact user={user}/>
       }
     ]
   )
@@ -88,7 +121,8 @@ function App() {
 
   return (
     <div className="App">
-      <RouterProvider router={router}/>
+      {login&&<RouterProvider router={router}/>}
+      {!login && <Home user={user} setUser={setUser} login={login} setLogin={setLogin}/>}
     </div>
   )
 }
@@ -112,7 +146,11 @@ import NavC from './components/utility/NavC'
 import Dashboard from './components/restaurant/Components/Dashboard'
 import Staff from './components/restaurant/Components/Staff'
 import ProfC from './components/utility/ProfC'
+import ProfR from './components/utility/ProfR'
 import Orders from './components/restaurant/Components/orders'
 import OrderTracking from './components/customer/pages/OrderTracking'
+import Inventory from './components/restaurant/Components/Inventory'
+import Blog from './components/utility/Blog'
+import BlogPage from './components/utility/BlogPage'
 
-
+import Contact from './components/utility/contact'

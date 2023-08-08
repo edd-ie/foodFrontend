@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './menu.css';
+import NavC from "../../utility/NavC";
 import logo from '../../../assets/logo.svg';
-import pin from '../../../assets/pin.jpg';
-import rest from '../../../assets/rest.jpg';
+import directions from '../../../assets/directions.png';
+import truck from '../../../assets/truck.jpg';
 import chipo from '../../../assets/chipo.jpg';
 import drinks from '../../../assets/drinks.jpg';
 import fast from '../../../assets/fast.jpg';
@@ -28,38 +29,36 @@ export default function Menu({ user, setUser, setLogin, login }) {
   return (
     <div id="nMenuContainer">
       <header id="nHeader">
-        <nav>
-          <img id="nLogo" src={logo} alt="logo" />
-          <ul>
-            <li>
-              <a href="#tracking">Tracking</a>
-            </li>
-            <li>
-              <a href="#restaurants">Restaurants</a>
-            </li>
-            <li>
-              <a href="#foodhistory">Food History</a>
-            </li>
-            <li>
-              <div id="gRestaurantDiscount">Login</div>
-            </li>
-          </ul>
-        </nav>
+        <NavC />
       </header>
 
-      <section id="nGps">
-       <div>
-        <img src={rest} alt="rest" />
-        <p>Mama Rock Kitchen</p>
-        <p>Open until 11:00p.m</p>
+      <div id="nPhoros">
+        <div id="nPhoto">
+          <img src={truck} alt="truck" />
+        </div>
+
+        <div id="nPhoto1">
+        <img src={directions} alt="directions" />
+        </div>
+        <div id="nMama">
+        Mama Rock Kitchen
+        </div>
+        <div id="nOpen">
+        Open Until 11:00pm
+        </div>
+        <div id="nRating">
+        <span class="material-symbols-sharp">star</span>4.5
+        </div>
+        <div id="nBurger">
+        <span class="material-symbols-sharp">fiber_manual_record</span>Burgers
+        </div>
+        <div id="nBugers">
+        <span class="material-symbols-sharp">attach_money</span>Burgers
+        </div>
+
       </div>
 
-      <div id="img2">
-       <img src={pin} alt="pin" />
-       <p>Burgers</p>
-      </div>
-       {/* Add more div elements as needed */}
-      </section>
+
 
       <section id="nFoods">
         <div id="nFoodItem">

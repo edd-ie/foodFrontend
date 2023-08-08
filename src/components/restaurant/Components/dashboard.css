@@ -10,10 +10,10 @@
 
 #eDashContent{
     position: relative;
-    background: rgb(0, 0, 0);
+    background: rgb(24, 23, 23);
     width: 100vw;
     height: 95%;
-    margin-top: 5%;
+    margin-top: 4%;
     display: flex;
     justify-content: space-around;
     padding-top: 0.5%;
@@ -36,31 +36,43 @@
     flex-direction: column;
     justify-content: space-around;
     background: transparent;
+    border-radius: 15px;
+    border: none;
+    color: rgb(238, 236, 236);
 }
+
+
 
 .eMainGraph{
     position: relative;
-    border: 1px solid white;
+    border: none;
     height: 49%;
-    background: rgba(138, 138, 138, 0.74);
+    /* background: rgba(235, 231, 231, 0.096); */
+    /* border-radius: 15px; */
+    display: flex;
+    justify-content: space-between;
     border-radius: 15px;
+
+    background-color: rgb(8, 8, 8);
 }
 
 .eDashBest{
     position: relative;
-    background: rgba(138, 138, 138, 0.74);
+    background-color: rgb(8, 8, 8);
+    color: rgb(238, 236, 236);
     width: 100%;
     height: 48%;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    
 }
 
 .eBestHeader{
     position: relative;
     width: 100%;
-    background: green;
+    /* background: green; */
     height: 15%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -72,9 +84,25 @@
     position: relative;
     width: 100%;
     height: 85%;
-    background: red;
-    border-top: 2px solid black;
+    /* background: red; */
+    border-top: 1px solid rgb(167, 166, 166);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+}
+
+.eDivGraph{
+    border-radius: 15px;
+    width: 42%;
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.eDivGraph1{
+    border-radius: 15px;
+    width: 29%;
+    position: relative;
+    height: 100%;
 }
 
