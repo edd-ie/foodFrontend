@@ -21,15 +21,15 @@ export default function Blog() {
                 <img src={blog} alt="" />
                 </div>
                 <div className="prgh">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec ante eget justo tristique interdum. Nulla facilisi. Donec euismod, justo id tincidunt placerat, tellus nunc tincidunt enim, sed cursus nisl leo in ex.
-                    <br></br> Fusce ut malesuada eros. Quisque vel elementum mi. Praesent ac consectetur velit. In lacinia fermentum justo, et mattis ligula finibus a. Cras nec tellus vel libero congue congue nec vitae ex. Maecenas viverra urna eget tortor volutpat, vel ultrices dui suscipit. Integer eget ipsum vitae velit lacinia venenatis. Vivamus nec nisi efficitur, convallis mi eget, bibendum nulla.</p>
+                    <p>"I lived my whole life in the kitchen," he says. "Not only that, but it's the passion, it's the love for cooking and food. It's dictated my entire life — every aspect of it. So, in some ways, the thought of not being able to do that anymore radically affects your life."
+                    <br></br> Achatz found a clinical trial at the University of Chicago that agreed to treat him with radiation and chemotherapy. The radiation treatments burned his tongue, shed the lining of his esophagus — and completely destroyed his taste buds.</p>
                 </div>
                 <div className="imge">
                 <img src={blog1} alt="" />
                 </div>
                 <div className="prgh">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec ante eget justo tristique interdum. Nulla facilisi. Donec euismod, justo id tincidunt placerat, tellus nunc tincidunt enim, sed cursus nisl leo in ex.
-                    Fusce ut malesuada eros. Quisque vel elementum mi. Praesent ac consectetur velit. In lacinia fermentum justo, et mattis ligula finibus a. Cras nec tellus vel libero congue congue nec vitae ex. Maecenas viverra urna eget tortor volutpat, vel ultrices dui suscipit. Integer eget ipsum vitae velit lacinia venenatis. Vivamus nec nisi efficitur, convallis mi eget, bibendum nulla.</p>
+                    <p>"It was very strange to not be able to discern any flavor at all," he says. "It's funny because, clearly, you know you have to eat to live. But even knowing that, for me, there was no reason to eat. I had no interest in eating whatsoever. I would put something in my mouth — say a vanilla milkshake — and it tasted like nothing."
+                    Achatz's cancer is now in remission. After his treatment ended, his ability to taste came back — but slowly. His perception of different flavor combinations — sweet, salty, bitter — came back one flavor at a time.</p>
                 </div>
 
             </div>
