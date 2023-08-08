@@ -3,11 +3,34 @@ import './cart.css';
 import NavC from '../../utility/NavC';
 
 export default function Cart({ user, setUser, setLogin, login }) {
-  const [ids, setIds] = useState([1, 4, 6, 2]);
+  const [ids, setIds] = useState([1,3,2,4,5]);
   const [food, setFood] = useState([]);
   const [quantities, setQuantities] = useState({});
+  console.log("file: Cart.jsx:9 -> Cart -> quantities:", quantities);
   const [showTime, setShowTime] = useState(false);
   const [selectedFoodIndex, setSelectedFoodIndex] = useState(null);
+  const [items, setItems] = useState([]);
+  const [cost, setCost] = useState(0);
+  console.log("file: Cart.jsx:13 -> Cart -> items:", items);
+
+  useEffect(() => {
+    let data = []
+    let totalCost = 0
+
+    for (let x of food){
+      console.log(x.name, quantities[x.id], quantities[x.id] * x.price)
+      data.push({
+        id: x.id,
+        name: x.name,
+        quantities: quantities[x.id],
+        totalPrice: quantities[x.id] * x.price
+      })
+      totalCost += (x.price * quantities[x.id])
+    }
+    setCost(totalCost)
+    console.log(data)
+    setItems(data);
+  },[quantities])
 
   useEffect(() => {
     const fetchFoods = async () => {
@@ -28,7 +51,8 @@ export default function Cart({ user, setUser, setLogin, login }) {
       }
     };
 
-    fetchFoods();
+    ids? fetchFoods(): null;
+
   }, []);
 
   useEffect(() => {
@@ -53,30 +77,37 @@ export default function Cart({ user, setUser, setLogin, login }) {
     });
   };
 
-  const handleRemoveClick = async (foodId) => {
-    try {
-      await fetch(`https://backendfood-co7z.onrender.com/foods/${foodId}`, {
-        method: 'DELETE',
-      });
-
-      setFood(prevFood => prevFood.filter(item => item.id !== foodId));
-      const deletedFoodIds = JSON.parse(localStorage.getItem('deletedFoodIds')) || [];
-      localStorage.setItem('deletedFoodIds', JSON.stringify([...deletedFoodIds, foodId]));
-    } catch (error) {
-      console.error('Error deleting food item:', error);
-    }
+  const handleRemoveClick = (foodId) => {
+    let newIds = ids.filter(id => id !== foodId);
+    setIds(newIds);
+    let foods = food.filter(item => item.id !== foodId);
+    setFood(foods);
+    let item = items.filter(item => item.id !== foodId);
+    setItems(item);
   };
+
+  const viewItems = items.map((x, i)=>{
+    return(
+      <tr className='tabRow'>
+        <td className='tabRow1'>{x.name}</td>
+        <td className='tabRow2'>{x.quantities}</td>
+        <td className='tabRow2'>{x.totalPrice}</td>
+        <td className='tabRow3'>
+          <button onClick={() => handleRemoveClick(x.id)}>remove</button>
+        </td>
+      </tr>
+    )
+  }
+  )
 
   const elements = food.map((element, index) => (
     <div className="nCart-container">
     <div className="nOrderMain" key={element.category + index}>
-      <img src={element.picture} alt={element.name} />
+      <img className='nCartImg' src={element.picture} alt={element.name} />
       <div className="nFood-details">
         <h2>{element.name}</h2>
-        <p className="price">
-          Ksh 
-          <span className="material-symbols-sharp">radio_button_checked</span>
-          {element.price}
+        <p className="price">Price :
+           <span>{element.price} Ksh</span>
         </p>
         <p className="category">{element.category}</p>
       <div className="bottom">
@@ -107,9 +138,39 @@ export default function Cart({ user, setUser, setLogin, login }) {
   ));
 
   return (
-    <div>
+    <div id='eCartMain'>
       <NavC />
-      {elements}
+      <div className="eCartContainer">
+        <div className="eCartCheckout">
+          <div className="eCartSummary">
+              <div className="sumTop">
+                <h1>Receipt</h1>
+              </div>
+              <div className="sumMid">
+                <table className="sumTable"> 
+                  <thead  className="sumTabH">
+                    <th>
+                      <td >Food</td>
+                      <td >Quantity</td>
+                      <td >Price</td>
+                      <td >Remove</td>
+                    </th>
+                  </thead>
+                  <tbody>
+                    {viewItems}
+                  </tbody>
+                </table>
+                <h1>Total: {cost}</h1>
+              </div>
+              <div className="sumBot">
+                <div className="cartCheckOut">Checkout</div>
+              </div>
+          </div>
+        </div>
+        <div className="cartHousing">
+          {elements}
+        </div>
+      </div>
     </div>
   );
 }
