@@ -1,115 +1,228 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import './menu.css';
 import NavC from "../../utility/NavC";
-import logo from '../../../assets/logo.svg';
-import directions from '../../../assets/directions.png';
-import truck from '../../../assets/truck.jpg';
-import chipo from '../../../assets/chipo.jpg';
-import drinks from '../../../assets/drinks.jpg';
-import fast from '../../../assets/fast.jpg';
-import offers from '../../../assets/offers.jpg';
-import burger from '../../../assets/burger.jpg';
-//import {FaFavoriteBorderOutlinedIcon} from 'react-icons'
+
+import {
+  useLoadScript,
+  useJsApiLoader,
+  GoogleMap,
+  Marker,
+  Autocomplete,
+  DirectionsRenderer,
+} from '@react-google-maps/api'
+
+
 
 export default function Menu({ user, setUser, setLogin, login }) {
   const [menuItems, setMenuItems] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+
+  const [restaurant, setRestaurant] = useState([])
+  console.log("file: Menu.jsx:21 -> Menu -> restaurant:", restaurant);
+
+  const googleAPi = 'AIzaSyB9S_inJIdpDV4MOXLAO62T1wTDX3YSpmA'
+
+  const libraries = ['places'];
+
+const { isLoaded } = useLoadScript({
+  googleMapsApiKey: googleAPi,
+  libraries: libraries,
+});
+
 
   useEffect(() => {
-   
     fetch('https://backendfood-co7z.onrender.com/restaurant/menu/1')
       .then((response) => response.json())
-      .then((data) => setMenuItems(data))
+      .then((data) => {
+        setFiltered(data);
+        setMenuItems(data)
+      })
       .catch((error) => console.error('Error fetching menu items:', error));
+
+    fetch('https://backendfood-co7z.onrender.com/restaurants/1')
+      .then((response) => response.json())
+      .then((data) => {
+        setRestaurant([data])
+      })
   }, []);
 
-  const handleAddToCart = () => {
-    
-  };
+  function filter(category){
+    if(category === 'all'){
+      setFiltered([])
+      setFiltered(menuItems)
+    }
+    else if(category === 'other'){
+      let dataset = menuItems.filter((e)=>
+        e.category == null
+      )
+      setFiltered(dataset)
+    }
+    else if(category === 'allergen'){
+      let dataset = menuItems.filter((e)=> !e.allergen)
+      setFiltered(dataset)
+    }
+    else if(category === 'vegetarian'){
+      setFiltered([])
+      let dataset = menuItems.filter((e)=> e.vegetarian)
+      setFiltered(dataset)
+    }
+    else{
+      setFiltered([])
+      let dataset = menuItems.filter((e)=>e.category === category)
+      setFiltered(dataset)
+    }
+  }
+
+  const elements = filtered.map((e, i)=>{
+    return(
+    <div className="menuContainer">
+      <div className="menuPicDiv" key={i+e.name}
+        style={{background: `url(${e.picture})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }}
+      >
+      </div>
+      <div className="menuCont" key={"menu"+e.price+i}>
+        <h1 key={"menu0"+e.price+i+2}>{e.name}</h1>
+        <p key={"menu1"+e.price+i+2}>{e.ingredients}</p>
+        <p key={"menu2"+e.price+i+3}>Vegetarian: {e.vegetarian ? 'Yes' : 'No'}</p>
+        <p key={"menu3"+e.price+i+4}>Allergen: {e.allergen ? 'Yes' : 'No'}</p>
+        <p key={"menu4"+e.price+i+5}>Price: {e.price}</p>
+        <div className="botMenu">
+          <button>view</button>
+          <button>Add to cart</button>
+        </div>
+      </div>
+    </div>)
+  })
+
+  const showRestaurant = restaurant.map((e, i)=>{
+    return(
+      <div key={i+e.name} className="eResMenu">
+        <div className="eResBanner"
+          style={{ background: `url(${e.picture})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          width: '100%',
+          height: '85%',
+        }}
+        ></div>
+        <div key={i+e.name+1} className="eResDetails">
+          <p key={i+e.name+2}>Name: {e.name}</p>
+          <p key={i+e.name+3}>Ratings: {e.ratings}</p>
+          <p key={i+e.name+4}>Ambience: {e.ambience}</p>
+        </div>
+      </div>
+    )
+  })
 
   return (
-    <div id="nMenuContainer">
-      <header id="nHeader">
-        <NavC />
-      </header>
-
-      <div id="nPhoros">
-        <div id="nPhoto">
-          <img src={truck} alt="truck" />
-        </div>
-
-        <div id="nPhoto1">
-        <img src={directions} alt="directions" />
-        </div>
-        <div id="nMama">
-        Mama Rock Kitchen
-        </div>
-        <div id="nOpen">
-        Open Until 11:00pm
-        </div>
-        <div id="nRating">
-        <span class="material-symbols-sharp">star</span>4.5
-        </div>
-        <div id="nBurger">
-        <span class="material-symbols-sharp">fiber_manual_record</span>Burgers
-        </div>
-        <div id="nBugers">
-        <span class="material-symbols-sharp">attach_money</span>Burgers
-        </div>
-
-      </div>
-
-
-
-      <section id="nFoods">
-        <div id="nFoodItem">
-          <img src={chipo} alt="chipo" />
-          <p>Chips</p>
-        </div>
-        <div id="nFoodItem">
-          <img src={fast} alt="fast" />
-          <p>Fast foods</p>
-        </div>
-        <div id="nFoodItem">
-          <img src={drinks} alt="drinks" />
-          <p>Drinks</p>
-        </div>
-        <div id="nFoodItem">
-          <img src={burger} alt="burger" />
-          <p>Burger</p>
-        </div>
-        <div id="nFoodItem">
-          <img src={offers} alt="offers" />
-          <p>Offers</p>
-        </div>
-        </section>
-     
-        <section id="nMenu">
-        
-        {menuItems.map((menu) => (
-          <div key={menu.id} id="nMenuCard">
-            <div id="nMenuImage">
-              <img src={burger} alt="burger" />
-            </div>
-            <h3>{menu.name}</h3>
-            <p>Price: ${menu.price}</p>
-            {/*<FaFavoriteBorderOutlinedIcon id="icons"/>*/}
-            <button onClick={handleAddToCart}>Add to Cart</button>
+    <div className='menu'>
+      <NavC/>
+      <div className='bodyMenu'>
+        <div className="menuBanner">
+          <div className="banner1">
+            {showRestaurant}
           </div>
-        ))}
-      </section>
-
-      <footer id="gFooter">
-      <div id="gfooterLogo">
-        <img src={logo} alt="logo" />
+          <div className="map">
+            {!isLoaded && <div>Loading...</div>}
+            {isLoaded && 
+              <Map>
+                <Marker position={{ lat: -1.299825, lng: 36.787446 }} />
+              </Map>
+            }
+          </div>
+        </div>
+        <div className='filter'>
+          <div className="choice" onClick={()=>filter('all')}>all</div>
+          <div className="choice" onClick={()=>filter('Fries')}>Fries</div>
+          <div className="choice" onClick={()=>filter('allergen')}>Non-Allergen</div>
+          <div className="choice" onClick={()=>filter('vegetarian')}>vegetarian</div>
+          <div className="choice" onClick={()=>filter('Sides')}>Sides</div>
+          <div className="choice" onClick={()=>filter('Main')}>Main</div>
+          <div className="choice" onClick={()=>filter('Desserts')}>Desserts</div>
+          <div className="choice" onClick={()=>filter('Burgers')}>Burgers</div>
+          <div className="choice" onClick={()=>filter('other')}>others</div>
+        </div>
+        <div className="menuContent">
+          {elements}
+        </div>
       </div>
-      <div id="gfooterContent">
-        <p>Contact us at: FoodChapchap@FoodChapchap.com</p>
-        <p>123 Street, New York City, NY 10001</p>
-      </div>
-      <div id="gfooterYear">
-        <p>&copy; {new Date().getFullYear()} Your Company Name. All rights reserved.</p>
-      </div>
-    </footer>
     </div>
   );
+}
+
+
+// function Map(){
+
+//   let lat = 0
+//   let lng = 0
+
+//   navigator.geolocation.getCurrentPosition((position)=> {
+//     lat = position.coords.latitude
+//     lng = position.coords.longitude
+//     console.log(lat, lng)
+//   })
+
+//   console.log(lat, lng)
+
+  
+//   const center = useMemo(() => ({ lat: -1.299825, lng: 36.787446 }), [])
+
+  
+
+//   return(
+//     <div>
+//       {/* <div className="places-container">
+//         <PlacesAutocomplete setSelected={setSelected} />
+//       </div> */}
+
+//       <GoogleMap
+//         zoom={16}
+//         center={center}
+//         mapContainerClassName="mapDisp"
+//       >
+//         <Marker position={{ lat: -1.299825, lng: 36.787446 }} />
+//       </GoogleMap>
+//     </div>
+//   )
+
+// }
+
+function Map() {
+
+  let lat = 0
+  let lng = 0
+
+  const [center, setCenter] = useState({ lat: -1.299825, lng: 36.787446 })
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      lat = position.coords.latitude
+      lng = position.coords.longitude
+      setCenter({ lat, lng })
+    })
+  }, [])
+
+  console.log(lat, lng)
+
+  
+
+  return(
+    <div>
+      {/* <div className="places-container">
+        <PlacesAutocomplete setSelected={setSelected} />
+      </div> */}
+
+      <GoogleMap
+        zoom={16}
+        center={center}
+        mapContainerClassName="mapDisp"
+      >
+        
+      </GoogleMap>
+    </div>
+  )
+
 }
