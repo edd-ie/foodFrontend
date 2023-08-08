@@ -4,6 +4,7 @@ import NavR from "../../utility/NavR";
 
 export default function Orders({ user }) {
   const [orders, setOrders] = useState([]);
+  console.log("file: orders.jsx:7 -> Orders -> orders:", orders);
   const [editingOrderId, setEditingOrderId] = useState(null);
   const [editedChefId, setEditedChefId] = useState("");
   const [editedStatus, setEditedStatus] = useState("");

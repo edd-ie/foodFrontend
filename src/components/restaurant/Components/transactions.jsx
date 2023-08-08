@@ -3,31 +3,31 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 const data = [
   {
-    name: 'Page A',
+    name: '07/31',
     uv: 3000
   },
   {
-    name: 'Page B',
+    name: '07/31',
     uv: 3000
   },
   {
-    name: 'Page C',
+    name: '07/31',
     uv: 2000
   },
   {
-    name: 'Page D',
+    name: '07/31',
     uv: 2780
   },
   {
-    name: 'Page E',
+    name: '08/01',
     uv: 1890
   },
   {
-    name: 'Page F',
+    name: '08/01',
     uv: 2390
   },
   {
-    name: 'Page G',
+    name: '08/01',
     uv: 3490
   },
 ];
@@ -42,7 +42,7 @@ export default class Trasnsactions extends PureComponent {
           <AreaChart
             data={data}
             margin={{
-              top: 10,
+              top: 30,
               right: 30,
               left: 0,
               bottom: 0,
@@ -52,7 +52,7 @@ export default class Trasnsactions extends PureComponent {
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
-            <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+            <Area type="monotone" dataKey="uv" stroke="#ff9900 " fill="#ff9900" />
           </AreaChart>
         </ResponsiveContainer>
       </div>
