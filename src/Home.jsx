@@ -15,7 +15,7 @@ export default function Home({user, setUser, setLogin }) {
         {!optA && !optB &&<div id='eHome'>
             <div className="eHomeSide" onClick={()=>setOptA(true)}>
                 <span className="material-symbols-sharp">
-                restaurant_menu
+                restaurant
                 </span>
                 <p>Enter as a Customer</p>
             </div>

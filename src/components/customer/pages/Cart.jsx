@@ -69,11 +69,8 @@ export default function Cart({ user, setUser, setLogin, login }) {
 
   const elements = food.map((element, index) => (
     <div className="nCart-container">
-
     <div className="nOrderMain" key={element.category + index}>
-
       <img src={element.picture} alt={element.name} />
-
       <div className="nFood-details">
         <h2>{element.name}</h2>
         <p className="price">
@@ -82,9 +79,7 @@ export default function Cart({ user, setUser, setLogin, login }) {
           {element.price}
         </p>
         <p className="category">{element.category}</p>
-
       <div className="bottom">
-        
        <div className="nIcon">
           <span
             className="material-symbols-sharp"
