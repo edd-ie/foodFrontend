@@ -20,8 +20,7 @@ export default function Favourites({ user }) {
     }, []);
 
     function handleDelete(id) {
-        // Delete the restaurant from the database
-        fetch(`https://backendfood-co7z.onrender.com/customer/favRes/1${id}`, {
+        fetch(`https://backendfood-co7z.onrender.com/customer/favRes/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -30,6 +29,7 @@ export default function Favourites({ user }) {
 
         const newFavRes = favRes.filter((item) => item.id !== id);
         setFavRes(newFavRes);
+        e.preventDefault();
     }
 
     return (
@@ -70,5 +70,5 @@ export default function Favourites({ user }) {
         </div>
     );
 
-  
+
 }
