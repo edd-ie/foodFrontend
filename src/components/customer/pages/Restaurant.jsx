@@ -4,6 +4,7 @@ import NavC from '../../utility/NavC';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faSearch, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import PICHA from '../../../assets/PICHA.jpg';
+import { useNavigate } from 'react-router-dom';
 
 export default function Restaurant({ user, setUser, setLogin, login }) {
   const [restaurants, setRestaurants] = useState([]);
@@ -73,9 +74,17 @@ export default function Restaurant({ user, setUser, setLogin, login }) {
     }
   }
 
+  const nav = useNavigate()
+
+  function move(id){
+    localStorage.getItem('restaurantId')?localStorage.removeItem('restaurantId'):null
+    localStorage.setItem('restaurantId', id)
+    nav('/customer/menu')
+  }
+
   const elements = filteredRestaurants.map((restaurant) => {
     return (
-      <div className="chweResDisp" key={restaurant.id}>
+      <div className="chweResDisp" key={restaurant.id} onClick={()=>move(restaurant.id)}>
         <div
           className="chweResDispTop"
           style={{ background: `url(${restaurant.picture})`, backgroundSize: 'cover' }}
@@ -128,9 +137,9 @@ export default function Restaurant({ user, setUser, setLogin, login }) {
           <div className="chweSideFilter">
             <div className="chweFilterCompHeader">Price Range</div>
             <div className="chweFilterComp" onClick={()=>filterC('all')}>All</div>
-            <div className="chweFilterComp" onClick={()=>filterC('$')}>$</div>
-            <div className="chweFilterComp" onClick={()=>filterC('$$')}>$$</div>
-            <div className="chweFilterComp" onClick={()=>filterC('$$$')}>$$$</div>
+            <div className="chweFilterComp" onClick={()=>filterC('$')}>Affordable</div>
+            <div className="chweFilterComp" onClick={()=>filterC('$$')}>Mid range</div>
+            <div className="chweFilterComp" onClick={()=>filterC('$$$')}>High</div>
           </div>
         </div>
 

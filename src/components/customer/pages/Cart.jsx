@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './cart.css';
 import NavC from '../../utility/NavC';
 
-export default function Cart({ user, setUser, setLogin, login }) {
-  const [ids, setIds] = useState([1,3,2,4,5]);
+export default function Cart({ user, setUser, setLogin, login, cart, setCart }) {
+  let myArrayString = localStorage.getItem("cartList");
+  let list = JSON.parse(myArrayString);
+    
+  const [ids, setIds] = useState(list);
   const [food, setFood] = useState([]);
   const [quantities, setQuantities] = useState({});
   console.log("file: Cart.jsx:9 -> Cart -> quantities:", quantities);
@@ -14,8 +17,15 @@ export default function Cart({ user, setUser, setLogin, login }) {
   console.log("file: Cart.jsx:13 -> Cart -> items:", items);
 
   useEffect(() => {
+    let myArrayString = localStorage.getItem("cartList");
+    let list = JSON.parse(myArrayString);
+    setIds(list);
+  },[5])
+
+  useEffect(() => {
     let data = []
     let totalCost = 0
+
 
     for (let x of food){
       console.log(x.name, quantities[x.id], quantities[x.id] * x.price)
@@ -78,6 +88,13 @@ export default function Cart({ user, setUser, setLogin, login }) {
   };
 
   const handleRemoveClick = (foodId) => {
+    let myArrayString = localStorage.getItem("cartList");
+    let list = JSON.parse(myArrayString);
+    let newList = list.filter(x=> x!=foodId)
+
+    let myArray = JSON.stringify(newList);
+    localStorage.setItem("cartList", myArray);
+
     let newIds = ids.filter(id => id !== foodId);
     setIds(newIds);
     let foods = food.filter(item => item.id !== foodId);

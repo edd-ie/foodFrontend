@@ -10,10 +10,11 @@ import {
   Autocomplete,
   DirectionsRenderer,
 } from '@react-google-maps/api'
+import { useNavigate } from 'react-router-dom';
 
 
 
-export default function Menu({ user, setUser, setLogin, login }) {
+export default function Menu({ user, setUser, setLogin, login, setCartIds, cart }) {
   const [menuItems, setMenuItems] = useState([]);
   const [filtered, setFiltered] = useState([]);
 
@@ -31,15 +32,16 @@ const { isLoaded } = useLoadScript({
 
 
   useEffect(() => {
-    fetch('https://backendfood-co7z.onrender.com/restaurant/menu/1')
+    let id = localStorage.getItem('restaurantId')
+    fetch(`https://backendfood-co7z.onrender.com/restaurant/menu/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        setFiltered(data);
         setMenuItems(data)
+        setFiltered(data);
       })
       .catch((error) => console.error('Error fetching menu items:', error));
 
-    fetch('https://backendfood-co7z.onrender.com/restaurants/1')
+    fetch(`https://backendfood-co7z.onrender.com/restaurants/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setRestaurant([data])
@@ -73,6 +75,31 @@ const { isLoaded } = useLoadScript({
     }
   }
 
+  const nav = useNavigate()
+  function move2(id){
+    localStorage.getItem('foodId')?localStorage.removeItem('restaurantId'):null
+    localStorage.setItem('foodId', id)
+    nav('/customer/food')
+  }
+
+  let [cartItems, setCartItems] = useState([])
+  console.log("file: Menu.jsx:86 -> Menu -> cartItems:", cartItems);
+  
+  function addToCart(id){
+    let n = true
+    cartItems.map(x=>{
+      x == id? n=false : null
+    })
+    let x = [...cartItems]
+    n ? x.push(id) : null
+    setCartItems(x)
+    setCartIds(x.length)
+    cart(x)
+    let myArrayString = JSON.stringify(x);
+    localStorage.setItem("cartList", myArrayString);
+  }
+
+
   const elements = filtered.map((e, i)=>{
     return(
     <div className="menuContainer">
@@ -90,8 +117,8 @@ const { isLoaded } = useLoadScript({
         <p key={"menu3"+e.price+i+4}>Allergen: {e.allergen ? 'Yes' : 'No'}</p>
         <p key={"menu4"+e.price+i+5}>Price: {e.price}</p>
         <div className="botMenu">
-          <button>view</button>
-          <button>Add to cart</button>
+          <button onClick={()=>move2(e.id)}>view</button>
+          <button onClick={()=>addToCart(e.id)}>Add to cart</button>
         </div>
       </div>
     </div>)

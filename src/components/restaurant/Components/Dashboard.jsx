@@ -4,6 +4,7 @@ import NavR from "../../utility/NavR";
 import PieDisp from "./Pie";
 import Trasnsactions from "./transactions";
 import RadarGraph from "./Radar";
+import exportFromJSON from "export-from-json";
 
 export let dataset = []
 
@@ -14,6 +15,8 @@ export default function Dashboard({user, setUser, setLogin, login}) {
     console.log("file: Dashboard.jsx:11 -> Dashboard -> rankings:", rankings);
     const [ratings, setRatings] = useState([])
     const [restaurant, setRestaurant] = useState([])
+    const [orders, setOrders] = useState([])
+    const [inventory, setInventory] = useState([])
 
     useEffect(()=>{
 
@@ -32,9 +35,21 @@ export default function Dashboard({user, setUser, setLogin, login}) {
         fetch('https://backendfood-co7z.onrender.com/restaurant/rankings/1')
             .then(response => response.json())
             .then(data =>{dataset = data; setRankings(data)});
-        fetch('https://backendfood-co7z.onrender.com/restaurant/transactions/1')
+        
+            fetch('https://backendfood-co7z.onrender.com/restaurant/transactions/1')
             .then(response => response.json())
             .then(data => setTransactions(data));
+        
+            fetch('https://backendfood-co7z.onrender.com/restaurant/inventory/1')
+            .then(response => response.json())
+            .then(data => setInventory(data));
+        
+            fetch('https://backendfood-co7z.onrender.com/restaurant/orders/1')
+            .then(response => response.json())
+            .then(data => {
+                let set = []
+                data.map(x=>set.push(x.order))
+                setOrders(set)});
 
     },[])
 
@@ -62,6 +77,21 @@ export default function Dashboard({user, setUser, setLogin, login}) {
             <li className="catList" key={item[0]+index}>{item[0]}</li>
         )
     })
+
+    function exportData (type){
+        let data = []
+        if(type == 'Transactions-report'){
+            data = transactions.all
+        }else if(type == 'Sales-report'){
+            data = orders
+        }else if(type == 'Inventory-report'){
+            data = inventory
+        }
+        let fileName = type
+        const exportType = exportFromJSON.types.csv
+
+        exportFromJSON({data, fileName, exportType})
+    }
 
     return(
         <div className="eDashboard">
@@ -127,6 +157,27 @@ export default function Dashboard({user, setUser, setLogin, login}) {
                                 }} 
                             >
                                 <h3>Ratings: {ratings}</h3>
+                            </div>
+                            <div className="exports">
+                                <h3>Generate reports csv</h3>
+                                <div className="report" onClick={()=>exportData("Transactions-report")}>
+                                    <span className="material-symbols-sharp">
+                                        download
+                                    </span>
+                                    Transactions report
+                                </div>  
+                                <div className="report" onClick={()=>exportData("Sales-report")}>
+                                    <span className="material-symbols-sharp">
+                                        download
+                                    </span>
+                                     Sales report 
+                                </div>  
+                                <div className="report" onClick={()=>exportData("Inventory-report")}>
+                                    <span className="material-symbols-sharp">
+                                        download
+                                    </span>
+                                     Inventory report
+                                </div>  
                             </div>
                         </div>
                         <div className="eDivGraph1"
