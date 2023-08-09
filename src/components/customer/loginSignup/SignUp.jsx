@@ -3,24 +3,6 @@ import './signup.css';
 import logo from '../../../assets/logo1.png';
 
 
-
-
-// id
-// name
-// email
-// phone
-// policy
-// pay_bill
-// acc_num
-// till_num
-// ambience
-// cuisine
-// price_range
-// latitude
-// longitude
-// ratings
-// picture
-
 export default function CustomerSignUp({setChange, user, setUser, setLogin, login }) {
   const [location, setLocation] = useState([])
   const [image, setImage] = useState('')
