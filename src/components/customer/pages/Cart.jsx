@@ -60,10 +60,7 @@ export default function Cart({ user, setUser, setLogin, login }) {
     setFood(prevFood => prevFood.filter(item => !deletedFoodIds.includes(item.id)));
   }, []);
 
-  const toggleShowTime = (index) => {
-    setShowTime(!showTime);
-    setSelectedFoodIndex(index);
-  };
+
 
   const handleQuantityChange = (foodId, action) => {
     setQuantities(prevQuantities => {
