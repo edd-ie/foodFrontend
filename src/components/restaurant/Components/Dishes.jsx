@@ -4,9 +4,10 @@ import NavR from "../../utility/NavR";
 
 export default function Dishes({user}) {
 
+    const [resId, setResId] = useState(1)
     const [foods, setFoods] = useState([])
     const [filtered, setFiltered] = useState([])
-    const [category, setCategory] = useState([])
+    const category = ["All",'Burgers', 'Fries', "Breakfast",'Main', "Sides", "Desserts", "fastFood"]
     const [addFood, setAddFood] = useState(false)
 
 
@@ -18,17 +19,6 @@ export default function Dishes({user}) {
             setFoods(data)
             setFiltered(data)
         })
-
-        fetch('https://backendfood-co7z.onrender.com/restaurant/rankings/1')
-        .then(res=>res.json())
-        .then(data=>{
-            let set = ['All']
-            for (let x in data.categories){
-                set.push(x)
-            }
-            setCategory(set)
-        })
-
     },[])
 
     function sortFood (x){
@@ -84,6 +74,64 @@ export default function Dishes({user}) {
     })
 
     const [picUrl, setPicUrl] = useState('')
+    const [image, setImage] = useState('')
+
+    function handleImage(e) {
+        let file = e.target.files[0]
+        let form = new FormData()
+
+        setPicUrl(URL.createObjectURL(file))
+        
+        form.append('file', file)
+        form.append('upload_preset', 'testCase')
+        setImage(form)
+    }
+
+    function handleSubmit(e){
+        e.preventDefault()
+        let form = e.target
+
+        let formData = new FormData(form)
+    
+        //Image submission
+        const cloudName = "https://api.cloudinary.com/v1_1/dmv2gp5qf"
+        fetch(`${cloudName}/image/upload`, {
+        method: 'POST',
+        body: image
+        }).then(res => {
+        return res.json()
+        })
+        .then(data => {      
+        // Data submission
+            form.reset()
+            let set = {
+                name: formData.get('name'),
+                ingredients: formData.get('ingredients'),
+                vegetarian: formData.get('vegetarian') == "true"?true:false,
+                allergen: formData.get('allergen')== "true"?true:false,
+                price: parseInt(formData.get('price')),
+                category: formData.get('category'),
+                restaurant_id: parseInt(resId),
+                picture: data.secure_url,
+                discount: 0
+            }
+            console.log("file: SignUp.jsx:59 -> handleSignUp -> set:", set);
+
+            fetch('https://backendfood-co7z.onrender.com/foods',{
+                method: 'POST',
+                headers: {"Accept": "*/*", 
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(set),
+                credentials: 'include'
+            }).then(res=>res.json())
+            .then(data=>{
+                console.log("file: SignUp.jsx:59 -> handleSignUp -> data:", data);
+                setFiltered([...filtered, data])
+                setAddFood(false)
+            })
+        })
+    }
     
     return(
         <div className="dishes">
@@ -112,30 +160,48 @@ export default function Dishes({user}) {
                             alignItems: 'center',
                         }}
                     >
-                        {picUrl && <img src={picUrl} alt="pic"/>}
+                        {picUrl && <img id="preView" src={picUrl} alt="pic"/>}
                         {!picUrl && <h2>No image selected</h2>}
                     </div>
                     <div className="addSide">
-                        <form action="submit" id="addForm">
+                        <form action="submit" id="addForm" onSubmit={handleSubmit}>
                             <label htmlFor="name">Name</label>
-                            <input placeholder="Pizza" type="text" id="name" name="name" required/>
+                            <input className="addVal" placeholder="Pizza" type="text"  name="name" required/>
+                            
                             <label htmlFor="ingredients">Description</label>
-                            <textarea name="ingredients" id="ingredients" cols="40" rows="6"/>
+                            <textarea className="addVal" name="ingredients" 
+                            placeholder="Pizza with tomato sauce, cheese, and pepperoni"
+                            id="ingredients" cols="40" rows="6"/>
+                            
                             <label htmlFor="vegetarian">Vegetarian</label>
                             <select name="vegetarian" id="vegetarian">
                                 <option value="true">Yes</option>
                                 <option value="false">No</option>
                             </select>
+                            
                             <label htmlFor="allergen">Allergen</label>
                             <select name="allergen" id="allergen">
                                 <option value="true">Yes</option>
                                 <option value="false">No</option>
                             </select>
+                            
+                            <label htmlFor="category">Category</label>
+                            <select name="category" id="category">
+                                <option value="Burgers">Burgers</option>
+                                <option value="Sides">Sides</option>
+                                <option value="Main">Main</option>
+                                <option value="Desserts">Desserts</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Fries">Fries</option>
+                                <option value="fastFood">Fast food</option>
+                            </select>
+                            
                             <label htmlFor="price">price</label>
-                            <input placeholder="250.00" type="number" step="0.01" min="0" max="20000" id="price" name="price" required/>
+                            <input className="addVal" placeholder="250" type="number" step="1" min="1" max="20000" id="price" name="price" required/>
                             
-                            <input type="file" id="name" name="foodPic" required/>
+                            <input type="file" name="foodPic" required onChange={handleImage}/>
                             
+                            <input type="submit" value="Submit" id="addSubBTN"/>
                             
                         </form>
                     </div>

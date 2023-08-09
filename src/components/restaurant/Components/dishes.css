@@ -27,8 +27,8 @@
 }
 
 #dishBTN{
-    margin-right: 7%;
-    margin-left: 8%;
+    margin-right: 5%;
+    margin-left: 3%;
     height: 60%;
     width: 10%;
     font-size: large;
@@ -151,8 +151,8 @@
 }
 
 .addMain{
-    width: 65%;
-    height: 65%;
+    width: 70%;
+    height: 75%;
     border: none;
     background: black;
     border-radius: 9px;
@@ -198,6 +198,7 @@
     color: white;
     display: flex;
     flex-direction: column;
+    padding-left: 4%;
 }
 
 #addForm label{
@@ -205,5 +206,25 @@
 }
 #addForm select{
     margin-top: 5px;
-    width: 15%;
+    width: 20%;
+}
+
+#addForm .addVal{
+    position: relative;
+    width: 90%;
+    margin-top: 5px;
+}
+
+#addForm #addSubBTN{
+    position: relative;
+    width: 130px;
+    height: 22px;
+    margin-top: 4%;
+    margin-left: 30%;
+}
+
+#preView{
+    height: 100%;
+    position: relative;
+    width: 100%;
 }
