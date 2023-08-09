@@ -4,4 +4,39 @@
     height: 100vh;
     margin: 0;
     padding: 0;
+    background: #000;
 }
+
+
+  
+  #favRes {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 150px;
+  }
+  
+  #favHeader th {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #31363A;
+    color: #ffa500;
+  }
+  
+  #favRes td {
+    padding: 10px;
+    border-bottom: 1px solid #31363A;
+    color: #ddd;
+  }
+  
+ /* #favRes tbody tr:hover {
+    background-color: #f2f2f2;
+  }*/
+  
+  #favRes img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
