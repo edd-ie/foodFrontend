@@ -9,6 +9,9 @@ function App() {
   const [login, setLogin] = useState(true)
   const [resId, setResId] = useState([])
   const [foodId, setFoodId] = useState([])
+  const [cartIds, setCartIds] = useState(0)
+  const [cartList, setCartList] = useState([])
+  console.log("file: App.jsx:13 -> App -> cartIds:", cartIds);
 
   useEffect(()=>{
     localStorage.getItem('foodChapUser') ? setLogin(true) : setLogin(false)
@@ -46,7 +49,7 @@ function App() {
       },
       {
         path: "/customer/cart",
-        element: <Cart user={user} setUser={setUser} login={login} setLogin={setLogin}/>
+        element: <Cart cart={cartList}  setCart={(e)=>setCartList(e)} user={user} setUser={setUser} login={login} setLogin={setLogin}/>
       },
       {
         path: "/customer/food",
@@ -62,7 +65,7 @@ function App() {
       },
       {
         path: "/customer/menu",
-        element: <Menu user={user} setUser={setUser} login={login} setLogin={setLogin}/>
+        element: <Menu cart={(e)=>setCartList(e)} user={user} setUser={setUser} login={login} setLogin={setLogin} setCartIds={(e)=>setCartIds(e)}/>
       },
       {
         path: "/customer/reviews",
@@ -74,7 +77,7 @@ function App() {
       },
       {
         path: "/navC",
-        element: <NavC  user={user} setLogin={setLogin}/>
+        element: <NavC cart={cartIds}  user={user} setLogin={setLogin}/>
       },
       {
         path: "/restaurant/dashboard",

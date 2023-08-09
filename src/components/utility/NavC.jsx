@@ -2,10 +2,16 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import './navC.css'
 
-export default function NavC({user, setLogin}) {
-    const [count, setCount] = React.useState(1)
+export default function NavC({cart, user, setLogin}) {
     const [show, setShow] = React.useState(false)
     const navigate = useNavigate()
+    const [count, setCount] = React.useState(0)
+    
+    React.useEffect(() => {
+        let num = cart
+        setCount(num)
+    
+    },[cart])
 
     function handleProfile() {
         setShow(!show)
@@ -43,7 +49,7 @@ export default function NavC({user, setLogin}) {
                     shopping_cart
                 </span>
                 <div className="cartCount">
-                    {count}
+                    {cart}
                 </div>
             </div>
             <div className="rLink rProf" onClick={()=>{handleProfile();  nav('/profile')}}></div>
