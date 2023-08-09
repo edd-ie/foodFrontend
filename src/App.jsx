@@ -115,6 +115,10 @@ function App() {
       {
         path: '/contact',
         element: <Contact user={user}/>
+      },
+      {
+        path : '/Favourites',
+        element : <Favourites user={user}/>
       }
     ]
   )
@@ -153,5 +157,5 @@ import OrderTracking from './components/customer/pages/OrderTracking'
 import Inventory from './components/restaurant/Components/Inventory'
 import Blog from './components/utility/Blog'
 import BlogPage from './components/utility/BlogPage'
-
+import Favourites from './components/customer/pages/Favourites';
 import Contact from './components/utility/contact'
