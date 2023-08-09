@@ -4,21 +4,22 @@ import './App.css'
 
 
 function App() {
-  const [user, setUser] = useState({id:1})
+  const [user, setUser] = useState([])
+  console.log("file: App.jsx:8 -> App -> user:", user);
   const [login, setLogin] = useState(true)
   const [resId, setResId] = useState([])
   const [foodId, setFoodId] = useState([])
-  const[side, setSide] = useState(false)
 
   useEffect(()=>{
     localStorage.getItem('foodChapUser') ? setLogin(true) : setLogin(false)
     let id = localStorage.getItem('foodChapUser')
+    let page = localStorage.getItem('foodChapSide') == 'cust' ? 'customers' : 'restaurants'
     
-    setSide(localStorage.getItem('foodChapSide'))
-    
-    if(side === 'cust'){
-      fetch('https://backendfood-co7z.onrender.com/customers/')
-    }
+    fetch(`https://backendfood-co7z.onrender.com/${page}/${id}`)
+    .then(res=>res.json())
+    .then(data=>setUser(data))
+
+
   },[])
 
 
