@@ -27,9 +27,11 @@ export default function NavC({user, setLogin}) {
             <div className="rLink">
                 <Link to='/blog'>Blog</Link>
             </div>
-            <div className="rLink">Favorites</div>
             <div className="rLink">
-                <Link to='/customer/restaurant'>Restaurants</Link>
+                <Link to='/Favourites'>Favourites</Link>
+            </div>
+            <div className="rLink">
+                <Link to='/customer/restaurant'>Restaurant</Link>
             </div>
             <div className="rLink">
                 <Link to='/customer/tracking'>Tracking</Link>
