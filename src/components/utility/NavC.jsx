@@ -44,7 +44,7 @@ export default function NavC({user, setLogin}) {
                     {count}
                 </div>
             </div>
-            <div className="rLink rProf" onClick={handleProfile}></div>
+            <div className="rLink rProf" onClick={()=>{handleProfile();  nav('/profile')}}></div>
 
             {show && 
                 <div className="rProfSetting">

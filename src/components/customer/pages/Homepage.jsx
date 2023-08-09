@@ -56,11 +56,11 @@ function move2(){
           <p>Rating: <span>{res.rating}</span></p>
           <p>Distance: <span>{res.estimatedDistance}</span></p>
         </div>
-         <div className="gBotRight" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
-          <span className="material-symbols-sharp"  style={{color:'white'}}>
+         {/* <div className="gBotRight" style={{display:'flex', flexDirection:'column', alignItems:'right', justifyContent:'center'}}>
+          <span className="material-symbols-sharp"  style={{color:'white', fontSize:'40px'}}>
           favorite
           </span>
-         </div>
+         </div> */}
       </div>
     </div>)
   })
@@ -75,11 +75,11 @@ function move2(){
           <p>Rating: <span>{res.rating}</span></p>
           <p>Distance: <span>{res.estimatedDistance}</span></p>
         </div>
-         <div className="gBotRight" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+         {/* <div className="gBotRight" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
           <span className="material-symbols-sharp"  style={{color:'white'}}>
           favorite
           </span>
-         </div>
+         </div> */}
       </div>
     </div>)
   })
