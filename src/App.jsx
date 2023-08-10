@@ -133,7 +133,7 @@ function App() {
       },
       {
         path: '/checkEmail',
-        element: <checkEmail user={user}/>
+        element: <CheckEmail user={user}/>
       }      
     ]
   )
@@ -175,5 +175,5 @@ import BlogPage from './components/utility/BlogPage'
 import Favourites from './components/customer/pages/Favourites';
 import Contact from './components/utility/contact'
 import Dishes from './components/restaurant/Components/Dishes';
-import Verify from './components/utility/verfication';
-import checkEmail from './components/utility/checkEmail';
+import Verify from './components/utility/verification';
+import CheckEmail from './components/utility/checkEmail';
