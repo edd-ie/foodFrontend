@@ -25,16 +25,20 @@ function RestHistory() {
  },[])
  console.log(records)
 
+ function searchForm(){
+    return
+ }
+
   return (
     <div className='khistory'>
         <NavR/>
         <div className="searchHeading">
-            <div className="kSearchDiv">
-            <input type="text"  name='search' placeholder='Search Orders' className='kSearchBar'/><button className="kSearchBtn"></button>
-            </div>
-            
+        <form action="submit" className='ksearchForm'>
+          <input type="text" name='search' placeholder='Search Orders' className='kSearchBar' />
+          <button className="kSearchBtn">Search</button>
+        </form>
         <h2 className='kCaption'>Your Order History</h2>
-        </div>
+      </div>
         <div className="kMain">
         <table className="ktable">
             <thead>
