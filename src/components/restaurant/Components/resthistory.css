@@ -1,0 +1,94 @@
+.khistory{
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.kMain{
+    width: 90%;
+    /* margin-top: 10%;
+    max-width: 1000px;
+    max-height: 800px; */
+   display: flex;
+    padding: 20px;
+    justify-content: center;
+    height: 70%;
+    overflow: hidden;
+    align-items: center;
+}
+.ktable{
+  
+    width: 80%;
+    height: 100%;
+    border-collapse: collapse;
+    
+}
+.ktable th,.ktable td{
+    
+    padding: 20px;
+    font-size: 24px;
+    border: 1.3px solid orange;
+
+}
+
+.kCaption{
+    color: white;
+    
+    text-align: center;
+    font-size: 10px;
+}
+.kFoodsTD{
+    width: 20%;
+}
+
+.kFoodsID{
+    width: 10%;
+}
+
+.searchHeading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #062444;
+    width: 50%;
+  }
+  
+  .kSearchBar {
+    flex: 1; /* Let the search bar take available space */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px; /* Add some right margin to separate from the button */
+}
+
+.kSearchBtn {
+    /* Keep a flexible width based on content */
+    border: none;
+    background-color: #ffa600;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100px;
+    /* Remove fixed width and margin-bottom */
+    height: 40px;
+}
+
+  
+  .kCaption {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    padding-right: 40%;
+  }
+  .ksearchForm {
+    display: flex; /* Use flex to align the items horizontally */
+    align-items: center; /* Align items vertically within the container */
+    /* margin-bottom: 5%; This can be adjusted as needed */
+  }

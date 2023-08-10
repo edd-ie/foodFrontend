@@ -6,6 +6,7 @@
     height: 100vh;
     justify-content: center;
     flex-direction: column;
+    
 }
 
 .kMain{
@@ -16,7 +17,7 @@
     overflow: auto;
     padding: 20px;
     justify-content: center;
-    height: 60%;
+    height: 70%;
     overflow: hidden;
 }
 .ktable{
@@ -24,6 +25,7 @@
     width: 100%;
     height: 100%;
     border-collapse: collapse;
+    
 }
 .ktable th,.ktable td{
     
@@ -32,6 +34,7 @@
     border: 1.3px solid orange;
 
 }
+.ktable td
 .kCaption{
     color: white;
     
