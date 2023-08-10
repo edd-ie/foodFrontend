@@ -126,7 +126,15 @@ function App() {
       {
         path: '/restaurant/dishes',
         element: <Dishes user={user}/>
-      }
+      },
+      {
+        path: '/verify',
+        element: <Verify user={user}/>
+      },
+      {
+        path: '/checkEmail',
+        element: <checkEmail user={user}/>
+      }      
     ]
   )
 
@@ -167,3 +175,5 @@ import BlogPage from './components/utility/BlogPage'
 import Favourites from './components/customer/pages/Favourites';
 import Contact from './components/utility/contact'
 import Dishes from './components/restaurant/Components/Dishes';
+import Verify from './components/utility/verfication';
+import checkEmail from './components/utility/checkEmail';
