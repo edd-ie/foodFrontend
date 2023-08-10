@@ -43,7 +43,7 @@ export default function NavC({cart, user, setLogin}) {
             <div className="rLink">
                 <Link to='/customer/tracking'>Ordered Foods</Link>
             </div>
-            <div className="rLink">History</div>
+            <div className="rLink"> <Link to='/customer/history'>History</Link></div>
             <div className="rLink rCart">
                 <Link to='/customer/cart'>Cart</Link>
                 <span className="material-symbols-sharp">

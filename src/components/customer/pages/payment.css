@@ -32,7 +32,7 @@
     justify-content: space-evenly;
     
     position: relative;
-    width:100% ;
+    width:80% ;
     height: 50%;
     align-items: center;
 }
@@ -60,7 +60,7 @@ margin: 0;
 
 .eMpesaButton{
     cursor: pointer;
-    width: 40%;
+    width: 60%;
     height: 13%;
     border: none;
     border-radius: 15px;
@@ -76,7 +76,7 @@ margin: 0;
 }
 
 .eMpesaConfirm{
-    width: 40%;
+    width: 48%;
     height: 7%;
     border-radius: 20px;
     border: none;

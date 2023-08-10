@@ -39,4 +39,16 @@
     object-fit: cover;
     border-radius: 50%;
   }
+
+  .faveResButton {
+    background-color: #ffa500;
+    padding: 10px;
+    border-radius: 10px;
+    color: #000;
+  }
   
+  .faveResButton:hover {
+    background-color: #31363A;
+    color: #ddd;
+    box-shadow: 1px 1px 1px 1px #31363a
+  }
