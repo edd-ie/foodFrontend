@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+   
 }
 
 .dishMain{
@@ -15,6 +16,7 @@
     height: 96%;
     display: flex;
     flex-direction: column;
+ 
 }
 
 .dishEdit{
@@ -24,6 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    background: rgb(19, 19, 19);
 }
 
 #dishBTN{
@@ -35,10 +38,14 @@
     border-radius: 5px;
     cursor: pointer;
     border: none;
+    color: white;
+    background: #FF702A;
 }
 
 #dishBTN:hover{
-    background: rgb(190, 190, 190);
+    color: white;
+    background: none;
+    border: 1px solid #FF702A;
 }
 
 .options{
@@ -48,15 +55,16 @@
     font-size: large;
     border-radius: 8px;
     cursor: pointer;
-    background: rgb(26, 26, 26);
+    background: #FF702A;
     border: 1px solid white;
     color: white;
+    border: none;
 
 }
 
 .options:hover{
-    background: rgb(190, 190, 190);
-    color: black;
+    background: none;
+    border: 1px solid #FF702A;
 }
 
 .dishFoods{
@@ -66,25 +74,29 @@
     display: flex;
     flex-wrap: wrap;
     overflow-y: auto;
+    background: rgb(12, 12, 12);
 }
 
 .dishContainer {
-    background: white;
+    background: rgb(0, 0, 0);
     width: 45%;
-    font-size: 13px;
+    font-size: 16px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     height: 38%;
     margin: 2%;
     border: none;
+    color: white;
 }
 
 .menuPicDiv {
     position: relative;
     width: 50%;
-    border-right: 1.5px solid black;
+    border-right: 1.5px solid #FF702A;
     height: 100%;
+    border-radius: 10%;
+    margin-right: 2%;
 }
 
 .eMenuImg {
@@ -97,11 +109,12 @@
     position: relative;
     width: 50%;
     word-wrap: normal;
+    background: black;
 }
 
 .menuCont h1 {
-    margin-top: 2%;
-    margin-bottom: 5%;
+    margin-top: 4%;
+    margin-bottom: 3%;
     text-align: center;
     text-decoration: underline;
 }
@@ -111,6 +124,7 @@
     margin-bottom: 2%;
     text-align: left;
     margin-left: 2%;
+    font-size: 120%;
 }
 
 .botMenu {
@@ -118,15 +132,23 @@
     display: flex;
     width: 100%;
     justify-content: space-evenly;
-    margin-top: 5%;
-    height: 15%;
+    margin-top: 15%;
+    height: 18%;
+   
+   
+    
 }
 
 .botMenu button{
-    width: 25%;
+    width: 30%;
     height: 80%;
-    border-radius: 3px;
-    background: rgb(180, 177, 177);
+    border-radius: 5%;
+    background: #FF702A ;
+    font-size: 150%;
+    color: white;
+    border: none;
+    
+   
 }
 
 .botMenu :nth-child(1):hover{
@@ -228,3 +250,4 @@
     position: relative;
     width: 100%;
 }
+
