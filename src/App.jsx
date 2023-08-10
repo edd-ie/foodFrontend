@@ -127,7 +127,7 @@ function App() {
         path: '/restaurant/history',
         element: <RestHistory/>
       },
-      }
+      {
         path: '/contact',
         element: <Contact user={user}/>
       },
