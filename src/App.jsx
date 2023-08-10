@@ -122,6 +122,10 @@ function App() {
       {
         path : '/Favourites',
         element : <Favourites user={user}/>
+      },
+      {
+        path: '/restaurant/dishes',
+        element: <Dishes user={user}/>
       }
     ]
   )
@@ -162,3 +166,4 @@ import Blog from './components/utility/Blog'
 import BlogPage from './components/utility/BlogPage'
 import Favourites from './components/customer/pages/Favourites';
 import Contact from './components/utility/contact'
+import Dishes from './components/restaurant/Components/Dishes';
