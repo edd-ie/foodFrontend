@@ -1,117 +1,255 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import './menu.css';
 import NavC from "../../utility/NavC";
-import logo from '../../../assets/logo.svg';
-import pin from '../../../assets/pin.jpg';
-import rest from '../../../assets/rest.jpg';
-import chipo from '../../../assets/chipo.jpg';
-import drinks from '../../../assets/drinks.jpg';
-import fast from '../../../assets/fast.jpg';
-import offers from '../../../assets/offers.jpg';
-import burger from '../../../assets/burger.jpg';
-//import {FaFavoriteBorderOutlinedIcon} from 'react-icons'
 
-export default function Menu({ user, setUser, setLogin, login }) {
+import {
+  useLoadScript,
+  useJsApiLoader,
+  GoogleMap,
+  Marker,
+  Autocomplete,
+  DirectionsRenderer,
+} from '@react-google-maps/api'
+import { useNavigate } from 'react-router-dom';
+
+
+
+export default function Menu({ user, setUser, setLogin, login, setCartIds, cart }) {
   const [menuItems, setMenuItems] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+
+  const [restaurant, setRestaurant] = useState([])
+  console.log("file: Menu.jsx:21 -> Menu -> restaurant:", restaurant);
+
+  const googleAPi = 'AIzaSyB9S_inJIdpDV4MOXLAO62T1wTDX3YSpmA'
+
+  const libraries = ['places'];
+
+const { isLoaded } = useLoadScript({
+  googleMapsApiKey: googleAPi,
+  libraries: libraries,
+});
+
 
   useEffect(() => {
-   
-    fetch('https://backendfood-co7z.onrender.com/restaurant/menu/1')
+    let id = localStorage.getItem('restaurantId')
+    fetch(`https://backendfood-co7z.onrender.com/restaurant/menu/${id}`)
       .then((response) => response.json())
-      .then((data) => setMenuItems(data))
+      .then((data) => {
+        setMenuItems(data)
+        setFiltered(data);
+      })
       .catch((error) => console.error('Error fetching menu items:', error));
+
+    fetch(`https://backendfood-co7z.onrender.com/restaurants/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setRestaurant([data])
+      })
   }, []);
 
-  const handleAddToCart = () => {
-    
-  };
+  function filter(category){
+    if(category === 'all'){
+      setFiltered([])
+      setFiltered(menuItems)
+    }
+    else if(category === 'other'){
+      let dataset = menuItems.filter((e)=>
+        e.category == null
+      )
+      setFiltered(dataset)
+    }
+    else if(category === 'allergen'){
+      let dataset = menuItems.filter((e)=> !e.allergen)
+      setFiltered(dataset)
+    }
+    else if(category === 'vegetarian'){
+      setFiltered([])
+      let dataset = menuItems.filter((e)=> e.vegetarian)
+      setFiltered(dataset)
+    }
+    else{
+      setFiltered([])
+      let dataset = menuItems.filter((e)=>e.category === category)
+      setFiltered(dataset)
+    }
+  }
+
+  const nav = useNavigate()
+  function move2(id){
+    localStorage.getItem('foodId')?localStorage.removeItem('restaurantId'):null
+    localStorage.setItem('foodId', id)
+    nav('/customer/food')
+  }
+
+  let [cartItems, setCartItems] = useState([])
+  console.log("file: Menu.jsx:86 -> Menu -> cartItems:", cartItems);
+  
+  function addToCart(id){
+    let n = true
+    cartItems.map(x=>{
+      x == id? n=false : null
+    })
+    let x = [...cartItems]
+    n ? x.push(id) : null
+    setCartItems(x)
+    setCartIds(x.length)
+    cart(x)
+    let myArrayString = JSON.stringify(x);
+    localStorage.setItem("cartList", myArrayString);
+  }
+
+
+  const elements = filtered.map((e, i)=>{
+    return(
+    <div className="menuContainer">
+      <div className="menuPicDiv" key={i+e.name}
+        style={{background: `url(${e.picture})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+      }}
+      >
+      </div>
+      <div className="menuCont" key={"menu"+e.price+i}>
+        <h1 key={"menu0"+e.price+i+2}>{e.name}</h1>
+        <p key={"menu1"+e.price+i+2}>{e.ingredients}</p>
+        <p key={"menu2"+e.price+i+3}>Vegetarian: {e.vegetarian ? 'Yes' : 'No'}</p>
+        <p key={"menu3"+e.price+i+4}>Allergen: {e.allergen ? 'Yes' : 'No'}</p>
+        <p key={"menu4"+e.price+i+5}>Price: {e.price}</p>
+        <div className="botMenu">
+          <button onClick={()=>move2(e.id)}>view</button>
+          <button onClick={()=>addToCart(e.id)}>Add to cart</button>
+        </div>
+      </div>
+    </div>)
+  })
+
+  const showRestaurant = restaurant.map((e, i)=>{
+    return(
+      <div key={i+e.name} className="eResMenu">
+        <div className="eResBanner"
+          style={{ background: `url(${e.picture})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          width: '100%',
+          height: '85%',
+        }}
+        ></div>
+        <div key={i+e.name+1} className="eResDetails">
+          <p key={i+e.name+2}>Name: {e.name}</p>
+          <p key={i+e.name+3}>Ratings: {e.ratings}</p>
+          <p key={i+e.name+4}>Ambience: {e.ambience}</p>
+        </div>
+      </div>
+    )
+  })
 
   return (
-    <div id="nMenuContainer">
-      <header id="nHeader">
-        <nav>
-          <img id="nLogo" src={logo} alt="logo" />
-          <ul>
-            <li>
-              <a href="#tracking">Tracking</a>
-            </li>
-            <li>
-              <a href="#restaurants">Restaurants</a>
-            </li>
-            <li>
-              <a href="#foodhistory">Food History</a>
-            </li>
-            <li>
-              <div id="gRestaurantDiscount">Login</div>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
-      <div class="grid-container">
-       <div class="grid-child purple">
-        <img src={rest} alt="rest" />
-        <p>Mama Rock Kitchen</p>
-        <p>Open until 11:00p.m</p>
-      </div>
-
-      <div id="grid-child green">
-       <img src={pin} alt="pin" />
-       <p>Burgers</p>
-      </div>
-       {/* Add more div elements as needed */}
-      </div>
-
-      <section id="nFoods">
-        <div id="nFoodItem">
-          <img src={chipo} alt="chipo" />
-          <p>Chips</p>
-        </div>
-        <div id="nFoodItem">
-          <img src={fast} alt="fast" />
-          <p>Fast foods</p>
-        </div>
-        <div id="nFoodItem">
-          <img src={drinks} alt="drinks" />
-          <p>Drinks</p>
-        </div>
-        <div id="nFoodItem">
-          <img src={burger} alt="burger" />
-          <p>Burger</p>
-        </div>
-        <div id="nFoodItem">
-          <img src={offers} alt="offers" />
-          <p>Offers</p>
-        </div>
-        </section>
-     
-        <section id="nMenu">
-        
-        {menuItems.map((menu) => (
-          <div key={menu.id} id="nMenuCard">
-            <div id="nMenuImage">
-              <img src={burger} alt="burger" />
-            </div>
-            <h3>{menu.name}</h3>
-            <p>Price: ${menu.price}</p>
-            {/*<FaFavoriteBorderOutlinedIcon id="icons"/>*/}
-            <button onClick={handleAddToCart}>Add to Cart</button>
+    <div className='menu'>
+      <NavC/>
+      <div className='bodyMenu'>
+        <div className="menuBanner">
+          <div className="banner1">
+            {showRestaurant}
           </div>
-        ))}
-      </section>
-
-      <footer id="gFooter">
-      <div id="gfooterLogo">
-        <img src={logo} alt="logo" />
+          <div className="map">
+            {!isLoaded && <div>Loading...</div>}
+            {isLoaded && 
+              <Map>
+                <Marker position={{ lat: -1.299825, lng: 36.787446 }} />
+              </Map>
+            }
+          </div>
+        </div>
+        <div className='filter'>
+          <div className="choice" onClick={()=>filter('all')}>all</div>
+          <div className="choice" onClick={()=>filter('Fries')}>Fries</div>
+          <div className="choice" onClick={()=>filter('allergen')}>Non-Allergen</div>
+          <div className="choice" onClick={()=>filter('vegetarian')}>vegetarian</div>
+          <div className="choice" onClick={()=>filter('Sides')}>Sides</div>
+          <div className="choice" onClick={()=>filter('Main')}>Main</div>
+          <div className="choice" onClick={()=>filter('Desserts')}>Desserts</div>
+          <div className="choice" onClick={()=>filter('Burgers')}>Burgers</div>
+          <div className="choice" onClick={()=>filter('other')}>others</div>
+        </div>
+        <div className="menuContent">
+          {elements}
+        </div>
       </div>
-      <div id="gfooterContent">
-        <p>Contact us at: FoodChapchap@FoodChapchap.com</p>
-        <p>123 Street, New York City, NY 10001</p>
-      </div>
-      <div id="gfooterYear">
-        <p>&copy; {new Date().getFullYear()} Your Company Name. All rights reserved.</p>
-      </div>
-    </footer>
     </div>
   );
+}
+
+
+// function Map(){
+
+//   let lat = 0
+//   let lng = 0
+
+//   navigator.geolocation.getCurrentPosition((position)=> {
+//     lat = position.coords.latitude
+//     lng = position.coords.longitude
+//     console.log(lat, lng)
+//   })
+
+//   console.log(lat, lng)
+
+  
+//   const center = useMemo(() => ({ lat: -1.299825, lng: 36.787446 }), [])
+
+  
+
+//   return(
+//     <div>
+//       {/* <div className="places-container">
+//         <PlacesAutocomplete setSelected={setSelected} />
+//       </div> */}
+
+//       <GoogleMap
+//         zoom={16}
+//         center={center}
+//         mapContainerClassName="mapDisp"
+//       >
+//         <Marker position={{ lat: -1.299825, lng: 36.787446 }} />
+//       </GoogleMap>
+//     </div>
+//   )
+
+// }
+
+function Map() {
+
+  let lat = 0
+  let lng = 0
+
+  const [center, setCenter] = useState({ lat: -1.299825, lng: 36.787446 })
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      lat = position.coords.latitude
+      lng = position.coords.longitude
+      setCenter({ lat, lng })
+    })
+  }, [])
+
+  console.log(lat, lng)
+
+  
+
+  return(
+    <div>
+      {/* <div className="places-container">
+        <PlacesAutocomplete setSelected={setSelected} />
+      </div> */}
+
+      <GoogleMap
+        zoom={16}
+        center={center}
+        mapContainerClassName="mapDisp"
+      >
+        
+      </GoogleMap>
+    </div>
+  )
+
 }

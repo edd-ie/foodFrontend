@@ -1,0 +1,118 @@
+.blog{
+    background: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+.blogHeader{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: black;
+    height: 10%;
+}
+
+.blogProf{
+    position: relative;
+    height: 70%;
+    width: 4%;
+    background: white;
+    margin-top: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.blogHead {
+    margin-top: 30px;
+    color: #fff;
+}
+
+.blogDisplay{
+    background: #000;
+    position: relative;
+    width: 100%;
+    overflow-y: auto;
+    height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 2%;
+    gap: 3%;
+}
+
+.blogCard{
+    background: #000;
+    width: 20%;
+    height: 90%;
+    box-shadow: 0px 0px 15px 1px #31363a;
+    transition: 0.3s;
+    animation: ease-in-out;
+    color: #fff;
+    border: 1px solid #ffa500;
+    margin-bottom: 30px;
+    border-radius: 15px;
+}
+
+.blogCard:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 15px 05px #31363a;
+}
+
+#gImage-container img{
+    overflow: hidden;
+    height: 90%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+#gCard-content {
+    margin: 1rem;
+    margin-top: 0.5rem;
+}
+
+h1,p {
+    margin: 0;
+    padding: 0;
+}
+
+#gCard-title {
+    margin-bottom: 0.5rem;
+}
+
+#gBtn {
+    display: flex;
+    justify-content: center;
+    margin: 0.5 rem;
+}
+
+#gBtn button {
+    padding: 0.5rem;
+    background-color: #31363a;
+    border: none;
+    transition: 0.2s;
+    color: #fff;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 10px #ffa6006d;
+    border-radius: 30px;
+    margin-bottom: 15px;
+}
+
+#gBtn button:hover {
+    background-color: #31363a;
+    letter-spacing: 2px;
+}
+
+
+
+
+
+
+

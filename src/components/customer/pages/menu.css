@@ -1,314 +1,162 @@
-#nMenuContainer{
-    height: 100vh;
-    width: 100%;
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    overflow-y: scroll;
-    overflow-x: hidden;
+.menu{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
- 
-  
-#nHeader {
-    background-color: #000;
-    padding: 1px;
-    margin: 10px;
-    
-  }
-  
-  #nHeader nav {
-    display: flex;
-    justify-content: center;
-    padding: 30px;
-    
-    
-  }
-  
-  #nHeader ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    
-    
-  }
-  
-  #nHeader li {
-    display: inline;
-    margin-right: 250px;
-    
-  }
-
-  #nLogo {
-    height: 170px;
-    position: absolute;
-    top:  0px;
-    left: 1px;
-  }
-  
-  #nHeader li:last-child {
-    margin-right: 0;
-  }
-  
-  #nHeader a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 34px;
-  }
-  
-  #nHeader a:hover {
-    color: #ffa500;
-  }
-
-
-  #nGps {
-    width: 100%;
-    height: 40%;
-    background-color: #31363a;
-    margin-top: 6.5vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap; /* Allow wrapping to the next row */
-  }
-  
-  #nGps div {
-    text-align: center;
-    width: 40%;
-    background-color: transparent;
-    margin-bottom: 20px;
-    display: flex; /* Add this */
-    flex-direction: column; /* Add this */
-    align-items: center; /* Add this */
-  }
-  
-  #nGps img {
-    width: 100%;
-    height: 400px; /* Add a fixed height to ensure all images have the same height */
-    max-height: 300px;
-    border: 1px solid #ffa500;
-    border-radius: 5px;
-    object-fit: cover;
-  }
-  
-  #nGps p {
-    margin-top: 10px;
-    font-size: 18px;
-    color: #fff;
-    background-color: transparent;
-  }
-
-   #nFoods {
-    width: 100%;
-    height:20%;
-    background-color: #000;
-    margin-top: 2vh;
-    display: flex; 
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-
-   }
-
-   #nFoodItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-  }
-  
-  #nFoodItem img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 50%;
-    
-  }
-
-  #nFoodItem img:hover {
-    transform: scale(1.05);
-  }
-
-
-  
-  #nFoodItem p {
-    margin-top: 10px;
-    font-size: 16px;
-    color: #fff;
-  }
-
-   #nMenu {
-    background-color: #31363a;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; 
-   }
-
-  #nMenuCard {
-   flex: 0 0 calc(33.33% - 20px); 
-   height: 46vh;
-   max-width: 450px;
-   margin: 20px;
-   padding: 10px;
-   border: 1px solid #ffa500;
-   text-align: center;
-   transition: transform 0.2s ease; 
-   width: 10%;
-   border-radius: 15px;
-   background-color: #000;
-  }
-
-#nMenuCard:hover {
-  transform: scale(1.05); 
-  box-shadow: 2px 2px 12px rgba(242, 135, 5, 0.862), -1px -1px -8px rgba(0, 0, 0, 0, 0.2);
-}
-
-#nMenuImage {
-  width: 100%;
-  max-height: 140px;
-  margin-top: 0px;
-}
-
-#nMenuImage img {
-  width: 100%;
-  max-height: 350px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-#nMenuCard h3 {
-  margin: 5px ;
-  font-size: 16px;
-  margin-right: 320px;
-  margin-left: 20px;
-  margin-top: 230px;
-  color: #fff;
-}
-
-#nMenuCard p {
-  margin: 5px 0 ;
-  font-size: 14px;
-  margin-right: 300px;
-  margin-bottom: 0px;
-  color: #fff;
-}
-
-#nMenuCard button {
-  background-color: #ffa500;
-  color: #fff;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: 330px;
-}
-
-#nMenuCard button:hover {
-  background-color: #c4840d;
-}
-
-#gFooter {
-  background-color: #000;
-  width: 100%;
-  padding: 20px;
+.bodyMenu{
+  width: 100vw;
+  position: relative;
+  background: rgb(19, 19, 19);
+  height: 92vh;
+  margin-top: 4.3%;
+  overflow-y: scroll;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
   flex-direction: column;
 }
 
-#gfooterLogo img {
-  height:250px;
-  position: absolute;
-  top: 2935px;
-  left: 35px;
-}
-
-#gfooterContent {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-#gfooterContent p {
-  margin: 5px;
-}
-
-#gfooterYear {
-  color: #fff;
-}
-
-#additionalDiv {
-  background-color: #000;
-  color: #fff;
-  border: #f7a713;
-  font-size: px;
-  top: 10px;
-  border-radius: 10px;
-  border-color: #f75b13;
-  border-width: 15px;
-  max-width: 200px;
-}
-
-#icons {
-  height: 50px;
-  width: 60px;
-  color: #ffa500;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  background-color: #000;
-  color: #fff;
-}
-
-.grid-child img {
+.menuBanner{
+  position: relative;
   width: 100%;
-  height: 200px; /* Adjust the height as needed */
-  object-fit: cover;
+  height: 40%;
+  display: flex;
+}
+
+.filter{
+  width: 100%;
+  height: 5%;
+  display: flex;
+  /* border-bottom: 1px solid black; */
+  justify-content: space-around;
+  
+}
+
+.choice{
+  margin-top: 8px;
+  height: 100%;
+  width: 8%;
+  text-align: center;
+  font-size: 15px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: orange;
+  color: white;
+  cursor: pointer;
+}
+
+.choice:hover{
+  color: orange;
+}
+
+.menuContent{
+  position: relative;
+  width: 100%;
+  height: 55%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2%;
+}
+
+.banner1{
+  width: 49%;
+  height: 99%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  margin-top: 0.5%;
   border-radius: 10px;
 }
 
-.grid-child p {
-  margin-top: 10px;
-  font-size: 18px;
-  color: #fff;
-  background-color: transparent;
+.map{
+  width: 50%;
+  height: 100%;
 }
 
-.purple {
-  background-color: transparent;
+.menuContainer{
+  background: white;
+  width: 45%;
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 68%;
+  margin: 2%;
+  border: none;
+}
+.menuPicDiv{
+  position: relative;
+  width: 50%;
+  border-right: 1.5px solid black;
+  height: 100%;
 }
 
-.green {
-  background-color: transparent;
+.eMenuImg{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.menuCont{
+  position: relative;
+  width: 50%;
+  word-wrap: normal;
+}
+
+.menuCont h1{
+  margin-top: 2%;
+  margin-bottom: 5%;
+  text-align: center;
+  text-decoration: underline;
+}
+.menuCont p{
+  margin-top: 2%;
+  margin-bottom: 2%;
+  text-align: left;
+  margin-left: 2%;
+}
+
+.botMenu{
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 5%;
+  height: 10%;
+}
+
+.mapDisp{
+  width: 49vw;
+  height: 36.8vh;
+  border-radius: 4px;
+  margin-top: 1px;
 }
 
 
+.eResMenu{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+}
 
-
-
-
-
- 
-
-
-
-
-
-
-
- 
-
+.eResDetails{
+  display: flex;
+  color: white;
+  justify-content: space-evenly;
+  margin-bottom: 2%;
+  padding: 0;
+  height: 15%;
+  width: 100%;
+  position: relative;
+  font-size: 20px;
+  padding-top: 1%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   
-  
-
-  
-  
-  
-  
-  
-
-  
+}

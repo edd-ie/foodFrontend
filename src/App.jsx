@@ -1,14 +1,29 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import './App.css'
 
 
 function App() {
-  const [user, setUser] = useState({id:1})
+  const [user, setUser] = useState([])
+  console.log("file: App.jsx:8 -> App -> user:", user);
   const [login, setLogin] = useState(true)
   const [resId, setResId] = useState([])
   const [foodId, setFoodId] = useState([])
-  const[side, setSide] = useState(false)
+  const [cartIds, setCartIds] = useState(0)
+  const [cartList, setCartList] = useState([])
+  console.log("file: App.jsx:13 -> App -> cartIds:", cartIds);
+
+  useEffect(()=>{
+    localStorage.getItem('foodChapUser') ? setLogin(true) : setLogin(false)
+    let id = localStorage.getItem('foodChapUser')
+    let page = localStorage.getItem('foodChapSide') == 'cust' ? 'customers' : 'restaurants'
+    
+    fetch(`https://backendfood-co7z.onrender.com/${page}/${id}`)
+    .then(res=>res.json())
+    .then(data=>setUser(data))
+
+
+  },[])
 
 
   const router = createBrowserRouter([
@@ -34,7 +49,7 @@ function App() {
       },
       {
         path: "/customer/cart",
-        element: <Cart user={user} setUser={setUser} login={login} setLogin={setLogin}/>
+        element: <Cart cart={cartList}  setCart={(e)=>setCartList(e)} user={user} setUser={setUser} login={login} setLogin={setLogin}/>
       },
       {
         path: "/customer/food",
@@ -50,7 +65,7 @@ function App() {
       },
       {
         path: "/customer/menu",
-        element: <Menu user={user} setUser={setUser} login={login} setLogin={setLogin}/>
+        element: <Menu cart={(e)=>setCartList(e)} user={user} setUser={setUser} login={login} setLogin={setLogin} setCartIds={(e)=>setCartIds(e)}/>
       },
       {
         path: "/customer/reviews",
@@ -62,7 +77,7 @@ function App() {
       },
       {
         path: "/navC",
-        element: <NavC  user={user} setLogin={setLogin}/>
+        element: <NavC cart={cartIds}  user={user} setLogin={setLogin}/>
       },
       {
         path: "/restaurant/dashboard",
@@ -77,6 +92,10 @@ function App() {
         element: <ProfC user={user}/>
       },
       {
+        path: '/restaurant/profile',
+        element: <ProfR user={user}/>
+      },
+      {
         path: '/restaurant/orders',
         element: <Orders user={user}/>
       },
@@ -87,6 +106,26 @@ function App() {
       {
         path: '/restaurant/inventory',
         element: <Inventory user={user}/>
+      },
+      {
+        path: '/blog',
+        element: <Blog/>
+      },
+      {
+        path: '/blogPage',
+        element: <BlogPage/>
+      },
+      {
+        path: '/contact',
+        element: <Contact user={user}/>
+      },
+      {
+        path : '/Favourites',
+        element : <Favourites user={user}/>
+      },
+      {
+        path: '/restaurant/dishes',
+        element: <Dishes user={user}/>
       }
     ]
   )
@@ -119,7 +158,12 @@ import NavC from './components/utility/NavC'
 import Dashboard from './components/restaurant/Components/Dashboard'
 import Staff from './components/restaurant/Components/Staff'
 import ProfC from './components/utility/ProfC'
+import ProfR from './components/utility/ProfR'
 import Orders from './components/restaurant/Components/orders'
 import OrderTracking from './components/customer/pages/OrderTracking'
 import Inventory from './components/restaurant/Components/Inventory'
-
+import Blog from './components/utility/Blog'
+import BlogPage from './components/utility/BlogPage'
+import Favourites from './components/customer/pages/Favourites';
+import Contact from './components/utility/contact'
+import Dishes from './components/restaurant/Components/Dishes';

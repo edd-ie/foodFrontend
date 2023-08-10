@@ -1,122 +1,211 @@
-.gCart-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 20px;
-  overflow-y: scroll;
-  
+.nCart-container {
+  border: 0.6px solid rgb(3, 3, 3);
+  margin: 0;
+  padding: 0;
+  height: 18%;
+  width: 45%;
+  margin-top: 3%;
 }
 
-.gOrderMain {
+#eCartMain{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.eCartContainer{
   position: relative;
   display: flex;
-  width: 60%;
-  height: 200px;
-  margin: auto; 
-  padding: 15px;
-  border: 1px solid #31363a;
-  border-radius: 5px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 5%;
-  box-shadow: 4px 4px 2px #31363a;
+  height: 110%;
+  margin-top: 4%;
 }
-
-.gOrderMain:hover {
-  color: #31363a;
-}
-
-.gOrderMain img {
-  max-width: 300px; 
-  height: auto;
-  margin-right: 10px; 
-}
-
-.food-details {
+.cartHousing{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  flex: 1;
-}
-
-/* Food name styling */
-.food-details h2 {
-  font-size: 1.2em;
-  margin: 0 0 5px; /* Adjust bottom margin for spacing */
-  color: #ffa500;
-}
-
-.food-details h2:hover {
-  font-size: 1.2em;
-  margin: 0 0 5px; /* Adjust bottom margin for spacing */
-  color: #31363a;
-}
-
-/* Food paragraph styling */
-.food-details p {
-  font-size: 1em;
-  margin: 5px 0;
-}
-
-.food-details p.price {
-  font-size: 1em;
-  margin: 5px 0;
-}
-
-/* Food category styling */
-.food-details p.category {
-  color: #666;
-  margin-bottom: 5px; /* Add bottom margin to create space */
-}
-
-/* Food ingredients styling */
-.food-details p.ingredients {
-  font-size: 0.9em;
-  color: #888;
-  margin-top: 10px; /* Add top margin to create space */
-}
-        
-/* Button styling */
-.food-details button {
-  background-color: #ffa500;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  margin: 5px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
-}      
-
-.food-details button:hover {
-  background-color: #ff8120;
-}
-
-/* Preparation time styling */
-.preparation-time {
-  font-size: 0.9em;
-  color: #666;
-  margin-top: 5px;
-}
-
-#gIcon {
-  display: flex;
   align-items: center;
-  justify-content: left;
-  
+  width: 60%;
+  background-color: #141414;
+  padding-bottom: 1%;
+}
+
+.eCartCheckout{
+  position: relative;
+  width: 40%;
+  background-color: #141414;
+  height: 100%;
   
 }
 
-.gOrderMain:hover #gIcon {
-  opacity: 1; /* Show the icons when the cursor hovers over the .gOrderMain element */
+.nOrderMain {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: rgb(0, 0, 0);
+  color: white;
 }
 
-.material-symbols-sharp {
-  font-size: 24px;
+.nCartImg{
+  width: 45%;
+  height: 100%;
+}
+
+.nFood-details{
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: 55%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding:0;
+  padding-left: 2%;
+  border-left: 1px solid rgb(7, 7, 7);
+}
+
+.nFood-details h2{
+  text-align: center;
+  margin-top: 2%;
+  text-decoration: underline;
+}
+
+.nFood-details p{
+  margin-bottom: 4%;
+  padding: 0;
+  text-align: start;
+  font-size: 18px;
+  color: orange;
+}
+
+.nFood-details p span{
+  margin: 0;
+  padding: 0;
+  margin-left: 5px;
+  color: white;
+}
+
+.nIcon{
+  display: flex;
+  font-size: 20px;
+}
+
+.nIcon span{
+  color: orange;
+  font-weight: bold;
+  margin-right: 2%;
   cursor: pointer;
-  margin: 0 6px;
-  color: #ffa500;
 }
 
-.material-symbols-sharp:hover {
-  color: #ff8120; /* Change the color when the cursor hovers over the icon */
+.nRemove{
+  margin-left: 35%;
+  cursor: pointer;
+  display: flex;
+  align-items: end;
+  margin-top: 2%;
+}
+
+.nRemove:hover{
+  color: rgba(255, 0, 0, 0.959);
+}
+
+.eCartSummary{
+  position: relative;
+  background: white;
+  width: 75%;
+  height: 50%;
+
+  margin-top: 15%;
+  margin-left: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.sumTop{
+  position: relative;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sumMid{
+  position: relative;
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sumBot{
+  position: relative;
+  height: 10%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cartCheckOut{
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  height: 70%;
+  width: 30%;
+  font-size: 22px;
+  padding-top: 2px;
+  text-align: center;
+  color: orange;
+  background: rgb(0, 0, 0);
+}
+
+.sumTable{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.sumTabH{
+  width: 100%;
+  background: orange;
+  font-size: 20px;
+}
+.sumTabH th{
+  width: 100%;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+}
+
+.tabRow{
+  font-size: 15px;
+  display: flex;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  justify-content: flex-start;
+  border-color: 1px solid black;
+  padding-bottom: 4px;
+}
+
+.tabRow1{
+  width: 30%;
+  text-align: left;
+  padding-left: 9px;
+}
+.tabRow2{
+  width: 10%;
+  text-align: left;
+  padding-left: 9px;
+  margin-left: 1%;
+  margin-right: 7%;
+}
+
+.tabRow3{
+  width: 10%;
+  text-align: left;
+  padding-left: 9px;
+  margin-left: 5%;
 }
