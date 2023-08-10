@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import NavC from '../../utility/NavC';
 import './orderTracking.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function OrderTracking({ user }) {
   const [orders, setOrders] = useState([]);
+  const nav = useNavigate();
   console.log(orders);
 
   useEffect(() => {
@@ -12,6 +14,7 @@ export default function OrderTracking({ user }) {
       .then(data => setOrders(data))
       .catch(error => console.error('Error fetching data:', error));
   }, []);
+
 
   return (
     <div className="gOrderTrack">
@@ -29,7 +32,7 @@ export default function OrderTracking({ user }) {
               <p>Total: ksh {order.order.total}</p>
               <p>Paid: {order.paid ? 'True' : 'False'}</p>
               <p>Complete: {order.complete ? 'True' : 'False'}</p>
-              {!order.paid && <button>Pay Now</button>}
+              {!order.paid && <button onClick={()=>nav('/customer/payment'  )}>Pay Now</button>}
             </div>
           ))}
         </div>
