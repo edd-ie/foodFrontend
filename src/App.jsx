@@ -116,6 +116,18 @@ function App() {
         element: <BlogPage/>
       },
       {
+        path: '/customer/payment',
+        element: <Payment/>
+      },
+      {
+        path: '/customer/history',
+        element: <History/>
+      },
+      {
+        path: '/restaurant/history',
+        element: <RestHistory/>
+      },
+      {
         path: '/contact',
         element: <Contact user={user}/>
       },
@@ -172,6 +184,9 @@ import OrderTracking from './components/customer/pages/OrderTracking'
 import Inventory from './components/restaurant/Components/Inventory'
 import Blog from './components/utility/Blog'
 import BlogPage from './components/utility/BlogPage'
+import Payment from './components/customer/pages/Payment'
+import History from './components/customer/pages/History'
+import RestHistory from './components/restaurant/Components/RestHistory'
 import Favourites from './components/customer/pages/Favourites';
 import Contact from './components/utility/contact'
 import Dishes from './components/restaurant/Components/Dishes';
