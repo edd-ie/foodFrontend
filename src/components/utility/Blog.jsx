@@ -5,31 +5,37 @@ import logo from '../../assets/logo1.png';
 import { useNavigate } from 'react-router-dom';
 import truck from '../../assets/truck.jpg';
 
-
 export default function Blog() {
+    const [post, setPost] = useState([]);
+    const [isFormOpen, setIsFormOpen] = useState(false);
+    const [newBlog, setNewBlog] = useState({
+        image: '',
+        restaurant: '',
+        description: '',
+    });
 
-    const[post, setPost] = useState([])
-    console.log("file: Blog.jsx:8 -> Blog -> post:", post);
-
-    let dataset={
+    const dataset = {
         image: '../../assets/truck.jpg',
         restaurant: 'The Orient',
-        description: 'Tale of a chef the lost his taste',
-    }
+        description: 'Tale of a chef who lost his taste',
+    };
 
     useEffect(() => {
-        let data = []
-        let n = 20
-        for(let i = 0; i < n; i++){
-            data.push(dataset)
+        let data = [];
+        let n = 20;
+        for (let i = 0; i < n; i++) {
+            data.push(dataset);
         }
-        setPost(data)
-    },[])
+        setPost(data);
+    }, []);
 
 
-    const cards = post.map((card,index) =>{
-        return(
-            <div className="blogCard" key={index+card.restaurant}>
+    const nav = useNavigate();
+
+    const cards = post.map((card, index) => {
+        return (
+            <div className="blogCard card1" key={index + card.restaurant}>
+                {/* Existing card content */}
                 <div id="gImage-container">
                 <img src={truck} alt="" />
                 </div>
@@ -44,27 +50,28 @@ export default function Blog() {
                 </div>
                
                 <div id="gBtn">
-                    <button>
+                    <button onClick={()=>nav('/blogpage')}>
                         <a>
                             View more...
                         </a>
                     </button>
                 </div>
             </div>
-        )
-    })
+        );
+    });
 
-    const nav = useNavigate()
-    return( 
+    return (
         <div className="blog">
             <div className="blogHeader">
                 <img src={logo} alt="logo" className="blogLogo"  onClick={()=>nav('/customer/homePage')}/>
                 <h1 className="blogHead">The connoisseur</h1>
-                <div className="blogProf"></div>
+                <div className="blogProf">
+                </div>
             </div>
+
             <div className="blogDisplay">
                 {cards}
             </div>
         </div>
-    )
+    );
 }

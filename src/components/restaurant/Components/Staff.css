@@ -7,10 +7,12 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        background: rgb(31, 30, 30);
 }
 
 
 .eStaffContent {
+    
     position: relative;
     width: 100%;
     height: 50%;

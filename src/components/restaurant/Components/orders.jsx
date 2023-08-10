@@ -4,6 +4,7 @@ import NavR from "../../utility/NavR";
 
 export default function Orders({ user }) {
   const [orders, setOrders] = useState([]);
+  console.log("file: orders.jsx:7 -> Orders -> orders:", orders);
   const [editingOrderId, setEditingOrderId] = useState(null);
   const [editedChefId, setEditedChefId] = useState("");
   const [editedStatus, setEditedStatus] = useState("");
@@ -25,7 +26,14 @@ export default function Orders({ user }) {
 
   const handleFieldChange = async (orderId) => {
     try {
-      const response = await fetch(`https://backendfood-co7z.onrender.com/restaurant/orders/${orderId}`, {
+      console.log('URL:', `https://backendfood-co7z.onrender.com/restaurant/orders/1${orderId}`);
+      console.log('Payload:', JSON.stringify({
+        chef_id: editedChefId,
+        status: editedStatus,
+        order_id: editedOrderId
+      }));
+  
+      const response = await fetch(`https://backendfood-co7z.onrender.com/restaurant/orders/1${orderId}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'
@@ -36,7 +44,11 @@ export default function Orders({ user }) {
           order_id: editedOrderId
         })
       });
-
+  
+      console.log('Response Status:', response.status);
+      const responseData = await response.json();
+      console.log('Response Data:', responseData);
+  
       if (response.ok) {
         setOrders(prevOrders =>
           prevOrders.map(order =>
@@ -50,10 +62,6 @@ export default function Orders({ user }) {
               : order
           )
         );
-        setEditingOrderId(null);
-        setEditedChefId("");
-        setEditedStatus("");
-        setEditedOrderId("");
       } else {
         console.error('Error updating fields');
       }
@@ -61,7 +69,7 @@ export default function Orders({ user }) {
       console.error('Error updating fields:', error);
     }
   };
-
+  
   const handleEditClick = (orderId, currentChefId, currentStatus, currentOrderId) => {
     setEditingOrderId(orderId);
     setEditedChefId(currentChefId);
@@ -101,9 +109,10 @@ export default function Orders({ user }) {
                   <div className="gEdit-form">
                     <h2>Edit Order</h2>
                     <form
-                      onSubmit={(e) => {
+                      onSubmit={async (e) => {
                         e.preventDefault();
-                        handleFieldChange(order.id);
+                        await handleFieldChange(order.id);
+                        handleEditFormClose();
                       }}
                     >
                       <label>Chef ID:</label>

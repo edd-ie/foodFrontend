@@ -31,40 +31,46 @@
 
 .blogHead {
     margin-top: 30px;
+    color: #fff;
 }
 
 .blogDisplay{
-    background: #727a81;
+    background: #000;
     position: relative;
     width: 100%;
     overflow-y: auto;
     height: 90%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-top: 2%;
     gap: 3%;
 }
 
 .blogCard{
-    background: white;
-    width: 15%;
-    height: 44%;
-    box-shadow: 0px 0px 15px -5px #31363a;
+    background: #000;
+    width: 20%;
+    height: 90%;
+    box-shadow: 0px 0px 15px 1px #31363a;
     transition: 0.3s;
     animation: ease-in-out;
-    color: #000;
+    color: #fff;
+    border: 1px solid #ffa500;
+    margin-bottom: 30px;
+    border-radius: 15px;
 }
 
 .blogCard:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 15px 0px #31363a;
+    transform: scale(1.02);
+    box-shadow: 0px 0px 15px 05px #31363a;
 }
 
 #gImage-container img{
     overflow: hidden;
-    height: 200px;
+    height: 90%;
     width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
 }
 
 #gCard-content {
@@ -89,12 +95,24 @@ h1,p {
 
 #gBtn button {
     padding: 0.5rem;
-    background-color: #ffa500;
+    background-color: #31363a;
     border: none;
     transition: 0.2s;
     color: #fff;
+    letter-spacing: 1px;
+    box-shadow: 0 1px 10px #ffa6006d;
+    border-radius: 30px;
+    margin-bottom: 15px;
 }
 
 #gBtn button:hover {
     background-color: #31363a;
+    letter-spacing: 2px;
 }
+
+
+
+
+
+
+
