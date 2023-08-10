@@ -76,7 +76,7 @@ export default function Dishes({user}) {
             <p key={"menu3"+e.price+i+4}>Allergen: {e.allergen ? 'Yes' : 'No'}</p>
             <p key={"menu4"+e.price+i+5}>Price: {e.price}</p>
             <div className="botMenu">
-            <button onClick={()=>edit(e)}>Edit</button>
+            <button onClick={()=>{setPicUrl(e.picture);edit(e)}}>Edit</button>
             <button onClick={()=>deleteFood(e.id, e.name)}>Delete</button>
             </div>
         </div>
@@ -157,7 +157,7 @@ export default function Dishes({user}) {
                 </div>
             </div>}
             {addFood && <div className="dishAdd">
-                <div className="addClose" onClick={()=>setAddFood(false)}>
+                <div className="addClose" onClick={()=>{setEditFood([]);setAddFood(false); setPicUrl("")}}>
                     <span className="material-symbols-sharp">
                         close
                     </span>
@@ -176,7 +176,7 @@ export default function Dishes({user}) {
                     <div className="addSide">
                         <form action="submit" id="addForm" onSubmit={handleSubmit}>
                             <label htmlFor="name">Name</label>
-                            <input className="addVal" placeholder="Pizza" type="text"  name="name" required/>
+                            <input className="addVal" placeholder="Pizza" type="text"  name="name"/>
                             
                             <label htmlFor="ingredients">Description</label>
                             <textarea className="addVal" name="ingredients" 
@@ -207,9 +207,9 @@ export default function Dishes({user}) {
                             </select>
                             
                             <label htmlFor="price">price</label>
-                            <input className="addVal" placeholder="250" type="number" step="1" min="1" max="20000" id="price" name="price" required/>
+                            <input className="addVal" placeholder="250" type="number" step="1" min="1" max="20000" id="price" name="price"/>
                             
-                            <input type="file" name="foodPic" required onChange={handleImage}/>
+                            <input type="file" name="foodPic" onChange={handleImage}/>
                             
                             <input type="submit" value="Submit" id="addSubBTN"/>
                             
@@ -237,11 +237,11 @@ export default function Dishes({user}) {
                     <div className="addSide">
                         <form action="submit" id="addForm" onSubmit={handleSubmit}>
                             <label htmlFor="name">Name</label>
-                            <input className="addVal" placeholder="Pizza" type="text"  name="name" required/>
+                            <input className="addVal" placeholder={editFood? editFood.name:'Pizza'} type="text" name="name"/>
                             
                             <label htmlFor="ingredients">Description</label>
                             <textarea className="addVal" name="ingredients" 
-                            placeholder="Pizza with tomato sauce, cheese, and pepperoni"
+                            placeholder={editFood? editFood.ingredients:"Pizza with tomato sauce, cheese, and pepperoni"}
                             id="ingredients" cols="40" rows="6"/>
                             
                             <label htmlFor="vegetarian">Vegetarian</label>
@@ -268,9 +268,9 @@ export default function Dishes({user}) {
                             </select>
                             
                             <label htmlFor="price">price</label>
-                            <input className="addVal" placeholder="250" type="number" step="1" min="1" max="20000" id="price" name="price" required/>
+                            <input className="addVal" placeholder={editFood? editFood.price:250} type="number" step="1" min="1" max="20000" id="price" name="price"/>
                             
-                            <input type="file" name="foodPic" required onChange={handleImage}/>
+                            <input type="file" name="foodPic" onChange={handleImage}/>
                             
                             <input type="submit" value="Submit" id="addSubBTN"/>
                             

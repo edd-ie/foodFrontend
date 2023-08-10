@@ -24,7 +24,8 @@ export default function NavC({cart, user, setLogin}) {
     function handleLogOff() {
         handleProfile() 
         localStorage.removeItem('foodChapUser')
-        navigate('/')
+        window.location.reload(true);
+        localStorage.removeItem('foodChapSide')
     }
 
     return(

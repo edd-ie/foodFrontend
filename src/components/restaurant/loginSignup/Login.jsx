@@ -36,6 +36,8 @@ export default function RestaurantLogin({ user, setUser, setLogin, login }) {
       localStorage.setItem('foodChapUser', data.id)
       localStorage.setItem('foodChapSide', 'res')
       setUser(data)
+      window.location.reload(true);
+
     })
     .catch(err => console.log(err))
   };
