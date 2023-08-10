@@ -1,0 +1,43 @@
+.khistory{
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.kMain{
+    width: 90%;
+    /* margin-top: 10%;
+    max-width: 1000px;
+    max-height: 800px; */
+    overflow: auto;
+    padding: 20px;
+    justify-content: center;
+    height: 70%;
+    overflow: hidden;
+}
+.ktable{
+  
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    
+}
+.ktable th,.ktable td{
+    
+    padding: 20px;
+    font-size: 24px;
+    border: 1.3px solid orange;
+
+}
+.ktable td
+.kCaption{
+    color: white;
+    
+    text-align: center;
+    font-size: 40px;
+}

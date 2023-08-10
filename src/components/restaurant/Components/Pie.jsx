@@ -1,14 +1,17 @@
-import React, { PureComponent } from 'react';
+import { useState } from 'react';
+import React, { PureComponent, useEffect } from 'react';
 import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
+import dataset from './Dashboard'
 
-const data = [
-  { name: 'Fries', value: 400 },
-  { name: 'Burger', value: 300 },
-  { name: 'Salsa', value: 300 },
-  { name: 'Pizza', value: 200 },
-  { name: 'Chicken', value: 600 },
-  { name: 'Beef', value: 100 },
-];
+
+
+let data = [
+    {name: 'Burgers', value: 300	},
+    {name: 'sides', value: 100	},
+    {name: 'Fries', value: 250	},
+    {name: 'Main', value: 40	},
+    {name: 'Desert', value: 10	},
+    ]
 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -48,15 +51,15 @@ const renderActiveShape = (props) => {
       />
       <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
       <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`Sales ${value}`}</text>
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#ff9900">{`Sales ${value}`}</text>
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#ff9900">
         {`(Rate ${(percent * 100).toFixed(2)}%)`}
       </text>
     </g>
   );
 };
 
-export default class PieDisp extends PureComponent {
+export default class PieDisp extends PureComponent  {
   static demoUrl = 'https://codesandbox.io/s/pie-chart-with-customized-active-shape-y93si';
 
   state = {
@@ -71,8 +74,8 @@ export default class PieDisp extends PureComponent {
 
   render() {
     return (
-      <ResponsiveContainer width="70%" height="100%">
-        <PieChart width={150} height={400}>
+      <ResponsiveContainer width="100%" height="100%">
+        <PieChart width={200} height={400}>
           <Pie
             activeIndex={this.state.activeIndex}
             activeShape={renderActiveShape}
@@ -81,7 +84,7 @@ export default class PieDisp extends PureComponent {
             cy="50%"
             innerRadius={60}
             outerRadius={80}
-            fill="#8261DA"
+            fill="#ff9900"
             dataKey="value"
             onMouseEnter={this.onPieEnter}
           />

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import NavC from "./NavC";
 import "./Prof.css";
 import Logo from '../../assets/chips.jpeg';
+import { useNavigate } from "react-router-dom";
 
 export default function ProfC({user}) {
     const [profile, setProfile] = useState([])
@@ -15,6 +16,7 @@ export default function ProfC({user}) {
         })
     },[])
 
+    const nav = useNavigate()
     function handleSubmit(e){
         e.preventDefault()
         let form = e.target
