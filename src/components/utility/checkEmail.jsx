@@ -1,14 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './checkEmail.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function CheckEmail({ user }) {
     const [email, setEmail] = useState('');
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // You can perform the logic for sending the reset password email here
-        console.log('Email submitted:', email);
+
+        try {
+            // Call your backend API to send a verification email and generate code
+            const response = await fetch('', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
+
+            if (response.ok) {
+                // Assuming email was sent successfully
+                console.log('Verification email sent to:', email);
+
+                // Navigate to the Verify component
+                navigate('/verify');
+            } else {
+                console.error('Failed to send verification email');
+            }
+        } catch (error) {
+            console.error('Error sending verification email:', error);
+        }
     };
 
     return (
@@ -24,7 +46,7 @@ export default function CheckEmail({ user }) {
                         required
                     />
                 </label>
-                <button type="submit">Submit</button>
+                <button type="submit">Send Email and Verify</button>
             </form>
         </div>
     );
