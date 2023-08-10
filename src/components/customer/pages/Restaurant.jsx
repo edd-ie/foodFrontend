@@ -22,10 +22,7 @@ export default function Restaurant({ user, setUser, setLogin, login }) {
       });
   }, []);
 
-  const handleLikeRestaurant = (restaurantId) => {
-    // Implement your logic for liking/unliking a restaurant here
-    // For example, you can update the liked property of the restaurant object in the state
-  };
+ 
 
   function filterA(ambience){
     if (ambience !== 'all'){
@@ -82,6 +79,21 @@ export default function Restaurant({ user, setUser, setLogin, login }) {
     nav('/customer/menu')
   }
 
+  const handleClick = (id) => {
+    // Find the restaurant with the matching id
+    const updatedRestaurants = restaurants.map((restaurant) => {
+      if (restaurant.id === id) {
+        return { ...restaurant, liked: !restaurant.liked };
+      }
+      return restaurant;
+    });
+
+    // Update the state with the new restaurant data
+    setRestaurants(updatedRestaurants);
+  };
+  
+
+
   const elements = filteredRestaurants.map((restaurant) => {
     return (
       <div className="chweResDisp" key={restaurant.id} onClick={()=>move(restaurant.id)}>
@@ -99,7 +111,7 @@ export default function Restaurant({ user, setUser, setLogin, login }) {
             <FontAwesomeIcon
               icon={faHeart}
               className={`chweHeart ${restaurant.liked ? 'liked' : ''}`}
-              onClick={() => handleLikeRestaurant(restaurant.id)}
+              onClick={() => handleClick(restaurant.id)}
             />
           </div>
         </div>

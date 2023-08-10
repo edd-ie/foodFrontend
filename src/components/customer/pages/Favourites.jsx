@@ -61,7 +61,7 @@ export default function Favourites({ user }) {
                             <td>{item.restaurant.cuisine}</td>
                             <td>{item.restaurant.ratings}</td>
                             <td>
-                                <button onClick={() => handleDelete(item.id)}>Delete</button>
+                                <button className="faveResButton" onClick={() => handleDelete(item.id)}>Delete</button>
                             </td>
                         </tr>
                     ))}

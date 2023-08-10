@@ -93,7 +93,7 @@ export default function Inventory({ user }) {
           <tbody>
             {inventoryData.map(item => (
               <tr key={item.id}>
-                <td style={{ color: 'orange' }}>
+                <td style={{ color: '#FF702A' }}>
                   {editedItem === item ? (
                     <div className="MarkEditItemForm">
                       <input

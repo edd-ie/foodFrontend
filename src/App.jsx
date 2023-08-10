@@ -11,12 +11,14 @@ function App() {
   const [foodId, setFoodId] = useState([])
   const [cartIds, setCartIds] = useState(0)
   const [cartList, setCartList] = useState([])
+  const [side, SetSide] = useState('')
   console.log("file: App.jsx:13 -> App -> cartIds:", cartIds);
 
   useEffect(()=>{
     localStorage.getItem('foodChapUser') ? setLogin(true) : setLogin(false)
     let id = localStorage.getItem('foodChapUser')
-    let page = localStorage.getItem('foodChapSide') == 'cust' ? 'customers' : 'restaurants'
+    let page = localStorage.getItem('foodChapSide')
+    SetSide(page)
     
     fetch(`https://backendfood-co7z.onrender.com/${page}/${id}`)
     .then(res=>res.json())
@@ -25,11 +27,14 @@ function App() {
 
   },[])
 
+  function choice(){
+    return localStorage.getItem('foodChapSide') ==='cust' ? (<Homepage user={user} setUser={setUser} login={login} setLogin={setLogin}/>):( <Dashboard user={user} setUser={setUser} login={login} setLogin={setLogin}/>)
+  }
 
   const router = createBrowserRouter([
       {
         path: "/",
-        element:<Homepage user={user} setUser={setUser} login={login} setLogin={setLogin}/>
+        element: choice()
       },
       {
         path: "/customer/login",
