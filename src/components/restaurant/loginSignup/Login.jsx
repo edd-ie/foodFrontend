@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import '../../customer/loginSignup/login.css';
 import logo from '../../../assets/logo1.png';
+import { useNavigate } from 'react-router-dom';
 import RestaurantSignUp from './SignUp'
+
 
 export default function RestaurantLogin({ user, setUser, setLogin, login }) {
   const [formData, setFormData] = useState({
@@ -45,6 +47,9 @@ export default function RestaurantLogin({ user, setUser, setLogin, login }) {
 
   const handleForgotPassword = () => {
     console.log("Forgot Password clicked!");
+    let navigate = useNavigate()
+    navigate('/checkEmail');
+
   };
 
   const [change, setChange] = useState(false)

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './login.css';
 import logo from '../../../assets/logo1.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import CustomerSignUp from './SignUp';
 
 
 
 export default function CustomerLogin({ user, setUser, setLogin, login }) {
   const [change, setChange] = useState(false);
+  // let history = useNavigate()
 
   const [formData, setFormData] = useState({
     email: '',
@@ -53,6 +54,9 @@ export default function CustomerLogin({ user, setUser, setLogin, login }) {
   const handleForgotPassword = () => {
     
     console.log("Forgot Password clicked!");
+   
+    let navigate = useNavigate()
+    navigate("/checkEmail")
   };
 
   return (
