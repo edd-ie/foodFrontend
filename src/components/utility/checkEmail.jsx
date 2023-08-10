@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './checkEmail.css';
 import { useNavigate } from 'react-router-dom';
+import emailjs from 'emailjs-com'; // Import the emailjs library
 
 export default function CheckEmail({ user }) {
     const [email, setEmail] = useState('');
@@ -10,26 +11,26 @@ export default function CheckEmail({ user }) {
         e.preventDefault();
 
         try {
-            // Call your backend API to send a verification email and generate code
-            const response = await fetch('', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email }),
-            });
-
-            if (response.ok) {
-                // Assuming email was sent successfully
-                console.log('Verification email sent to:', email);
-
+            // Call your backend API to send a verification code
+            // ... your backend logic here ...
+            const num = 98752
+            // Use emailjs to send the verification code
+            emailjs.send("service_q1o0tbd", "template_kd6vlh5", {
+                from_name: "Food ChapChap",
+                to_name: email, // Use the user's name here
+                message: "Your verification code is: 98752", // Replace with the actual verification code
+                their_email: email, // Use the provided email
+            }, "ujb75ApoGWIK4eHX9")
+            .then(() => {
+                console.log('Verification code sent to:', email);
                 // Navigate to the Verify component
                 navigate('/verify');
-            } else {
-                console.error('Failed to send verification email');
-            }
+            })
+            .catch((error) => {
+                console.error('Error sending verification code:', error);
+            });
         } catch (error) {
-            console.error('Error sending verification email:', error);
+            console.error('Error:', error);
         }
     };
 
@@ -46,7 +47,7 @@ export default function CheckEmail({ user }) {
                         required
                     />
                 </label>
-                <button type="submit">Send Email and Verify</button>
+                <button type="submit">Send Verification Code</button>
             </form>
         </div>
     );

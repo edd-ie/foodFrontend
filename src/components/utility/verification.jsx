@@ -1,31 +1,32 @@
 import React, { useState } from 'react';
 import './verification.css';
+import { useNavigate } from 'react-router-dom';
 
-export default function Verify({ user }) {
+export default function Verify() {
     const [verificationCode, setVerificationCode] = useState('');
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Here you can perform the logic to verify the entered code
-        console.log('Verification code submitted:', verificationCode);
+    const handleVerifyCode = () => {
+        // Simulate successful verification (replace with actual verification logic)
+        if (verificationCode === "98752") {
+            navigate('/ResetPassword');
+        } else {
+            console.error('Invalid verification code');
+        }
     };
 
     return (
         <div className="Verify">
             <h1>Verify Your Account</h1>
-            <p>A verification code has been sent to your email.</p>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Verification Code:
-                    <input
-                        type="text"
-                        value={verificationCode}
-                        onChange={(e) => setVerificationCode(e.target.value)}
-                        required
-                    />
-                </label>
-                <button type="submit">Verify</button>
-            </form>
+            <p>Enter the verification code sent to your email:</p>
+            <input
+                type="text"
+                value={verificationCode}
+                onChange={(e) => setVerificationCode(e.target.value)}
+                required
+            />
+            <button onClick={handleVerifyCode}>Verify Code</button>
         </div>
     );
 }
+
