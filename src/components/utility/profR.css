@@ -35,7 +35,7 @@
 .Chwey-profile-cuisine p,
 .Chwey-profile-address p,
 .Chwey-profile-ratings p {
-
+   margin: 30px;
     color: white;
     padding: 9px;
 }
@@ -58,6 +58,7 @@
 }
 
 .Chwey-edit-section-input {
+    margin-top: 20px;
     width: 80%;
     padding: 7px;
     margin-bottom: 10px;
