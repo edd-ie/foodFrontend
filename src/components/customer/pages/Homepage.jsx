@@ -13,40 +13,71 @@ export default function Homepage({ user, setUser, setLogin, login }) {
   const restaurants = [
     {
         id: 1,
-        name: "Restaurant A",
+        name: "Orient",
         image: "burger.jpg",
         rating: 4.5,
-        estimatedDistance: "30 kms",
+        estimatedDistance: "cultural",
         liked: false,
       },
       {
         id: 2,
-        name: "Restaurant B",
+        name: "Bougie",
         image: "burger.jpg",
         rating: 4.2,
-        estimatedDistance: "20 kms",
+        estimatedDistance: "luxury",
         liked: true,
       },
 
       {
-        id: 2,
-        name: "Restaurant B",
+        id: 3,
+        name: "WaySub",
         image: "burger.jpg",
         rating: 4.2,
-        estimatedDistance: "20 kms",
+        estimatedDistance: "urban",
+        liked: true,
+      }
+];
+  const food = [
+    {
+        id: 1,
+        name: "Scotch Eggs",
+        image: "burger.jpg",
+        rating: 3.3,
+        estimatedDistance: "Burgers",
+        liked: false,
+      },
+      {
+        id: 2,
+        name: "Salmon Nigiri",
+        image: "burger.jpg",
+        rating: 4.2,
+        estimatedDistance: "Fries",
+        liked: true,
+      },
+
+      {
+        id: 3,
+        name: "Peking Duck",
+        image: "burger.jpg",
+        rating: 4.2,
+        estimatedDistance: "Sides",
         liked: true,
       }
 ];
 const nav = useNavigate()
-function move(){
+function move(id){
+  localStorage.getItem('restaurantId')?localStorage.removeItem('restaurantId'):null
+  localStorage.setItem('restaurantId', id)
   nav('/customer/menu')
 }
-function move2(){
+function move2(id){
+  localStorage.getItem('foodId')?localStorage.removeItem('restaurantId'):null
+  localStorage.setItem('foodId', id)
   nav('/customer/food')
 }
 
   const display = restaurants.map((res, index)=>{
-    return(<div className="gTopHome" onClick={move}>
+    return(<div className="gTopHome" onClick={()=>move(res.id)}>
       <div className="gTopComp" key={index+res.name}>
         <img className='gHomePic' src={burger} alt="" />
       </div>
@@ -54,7 +85,7 @@ function move2(){
         <div className="gBotLeft">
           <h2>{res.name}</h2>
           <p>Rating: <span>{res.rating}</span></p>
-          <p>Distance: <span>{res.estimatedDistance}</span></p>
+          <p>Ambience: <span>{res.estimatedDistance}</span></p>
         </div>
          {/* <div className="gBotRight" style={{display:'flex', flexDirection:'column', alignItems:'right', justifyContent:'center'}}>
           <span className="material-symbols-sharp"  style={{color:'white', fontSize:'40px'}}>
@@ -64,8 +95,8 @@ function move2(){
       </div>
     </div>)
   })
-  const foods = restaurants.map((res, index)=>{
-    return(<div className="gTopHome" onClick={move2}>
+  const foods = food.map((res, index)=>{
+    return(<div className="gTopHome" onClick={()=>move2(res.id)}>
       <div className="gTopComp" key={index+res.name}>
         <img className='gHomePic' src={burger} alt="" />
       </div>
@@ -73,13 +104,8 @@ function move2(){
         <div className="gBotLeft">
           <h2>{res.name}</h2>
           <p>Rating: <span>{res.rating}</span></p>
-          <p>Distance: <span>{res.estimatedDistance}</span></p>
+          <p>Category: <span>{res.estimatedDistance}</span></p>
         </div>
-         {/* <div className="gBotRight" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
-          <span className="material-symbols-sharp"  style={{color:'white'}}>
-          favorite
-          </span>
-         </div> */}
       </div>
     </div>)
   })
