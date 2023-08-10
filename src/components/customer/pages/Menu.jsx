@@ -83,6 +83,7 @@ const { isLoaded } = useLoadScript({
   }
 
   let [cartItems, setCartItems] = useState([])
+  let [foodNames, setFoodNames] = useState([])
   console.log("file: Menu.jsx:86 -> Menu -> cartItems:", cartItems);
   
   function addToCart(id){
@@ -97,6 +98,17 @@ const { isLoaded } = useLoadScript({
     cart(x)
     let myArrayString = JSON.stringify(x);
     localStorage.setItem("cartList", myArrayString);
+  }
+  function addToList(name){
+    let n = true
+    foodNames.map(x=>{
+      x == name? n=false : null
+    })
+    let x = [...foodNames]
+    n ? x.push(name) : null
+    setFoodNames(x)
+    let myArrayString = JSON.stringify(x);
+    localStorage.setItem("cartNames", myArrayString);
   }
 
 
@@ -118,7 +130,7 @@ const { isLoaded } = useLoadScript({
         <p key={"menu4"+e.price+i+5}>Price: {e.price}</p>
         <div className="botMenu">
           <button onClick={()=>move2(e.id)}>view</button>
-          <button onClick={()=>addToCart(e.id)}>Add to cart</button>
+          <button onClick={()=>{addToList(e.name);addToCart(e.id)}}>Add to cart</button>
         </div>
       </div>
     </div>)

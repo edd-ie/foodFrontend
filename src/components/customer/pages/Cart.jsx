@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import './cart.css';
 import NavC from '../../utility/NavC';
+import { useNavigate } from 'react-router';
 
 export default function Cart({ user, setUser, setLogin, login, cart, setCart }) {
   let myArrayString = localStorage.getItem("cartList");
@@ -14,8 +15,12 @@ export default function Cart({ user, setUser, setLogin, login, cart, setCart }) 
   const [selectedFoodIndex, setSelectedFoodIndex] = useState(null);
   const [items, setItems] = useState([]);
   const [cost, setCost] = useState(0);
-  console.log("file: Cart.jsx:13 -> Cart -> items:", items);
+  const [serviceFee, setServiceFee] = useState(30)
 
+  function services(x){
+    
+    return 200
+  }
   useEffect(() => {
     let myArrayString = localStorage.getItem("cartList");
     let list = JSON.parse(myArrayString);
@@ -37,7 +42,25 @@ export default function Cart({ user, setUser, setLogin, login, cart, setCart }) 
       })
       totalCost += (x.price * quantities[x.id])
     }
+
     setCost(totalCost)
+    
+    if(totalCost == 0){
+      setServiceFee(0)
+    }
+    else if(totalCost > 0 && totalCost < 499){
+      setServiceFee(30)
+    }else if(totalCost > 499 && totalCost < 1000){
+      setServiceFee(50)
+    }else if(totalCost > 999 && totalCost < 1500){
+      setServiceFee(100)
+    }else if(totalCost > 1499 && totalCost < 2000){
+      setServiceFee(150)
+    }
+    else{
+      setServiceFee(200)
+    }
+
     console.log(data)
     setItems(data);
   },[quantities])
@@ -151,6 +174,21 @@ export default function Cart({ user, setUser, setLogin, login, cart, setCart }) 
     </div>
   ));
 
+  const nav = useNavigate()
+
+  // 499> 30 
+  // 500 to 999>50 
+  // 1000 to 1499>100 
+  // 1500 to 1999>150 
+  // 2000> 200
+
+  function handlePay(){
+    let x = [cost, serviceFee]
+    let myArrayString = JSON.stringify(x);
+    localStorage.setItem("cs", myArrayString);
+    nav('/payment')
+  }
+
   return (
     <div id='eCartMain'>
       <NavC />
@@ -174,10 +212,12 @@ export default function Cart({ user, setUser, setLogin, login, cart, setCart }) 
                     {viewItems}
                   </tbody>
                 </table>
-                <h1>Total: {cost}</h1>
+                <h2>Sub total: {cost}</h2>
+                <h3>Service fee: {serviceFee}</h3>
+                <h1>Total: {cost+serviceFee}</h1>
               </div>
               <div className="sumBot">
-                <div className="cartCheckOut">Checkout</div>
+                <div className="cartCheckOut" onClick={handlePay}>Checkout</div>
               </div>
           </div>
         </div>
