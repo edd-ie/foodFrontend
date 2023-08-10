@@ -30,6 +30,7 @@
 .MarkInventoryTable td {
     border: 1px solid white;
     padding: 10px;
+    color: #FF702A;
 }
 
 .MarkInventoryTable th {
@@ -41,7 +42,7 @@
 }
 
 .MarkInventoryTable td button {
-    background-color: orange;
+    background-color: #FF702A;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -50,7 +51,7 @@
 
 .MarkInventoryTable td button.MarkEditButton.editing {
     margin-right: 5px;
-    background-color: orange;
+    background-color: #FF702A;
 
 }
 
@@ -80,11 +81,15 @@
 }
 
 .MarkAddItemButton {
-    background-color: orange;
+    background-color: #FF702A;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+}
+.MarkAddItemButton:hover{
+    background: none;
+    border: 1px solid  #FF702A;
 }
 
 .MarkAddItemModal {
@@ -125,7 +130,7 @@
 }
 
 .MarkAddItemForm button.MarkSubmitButton {
-    background-color: orange;
+    background-color: #FF702A;
     color: white;
     padding: 8px 16px;
     font-size: 16px;
@@ -135,7 +140,7 @@
 }
 
 .MarkAddItemForm button.MarkCancelButton {
-    background-color: orange;
+    background-color:#FF702A;
     color: white;
     padding: 8px 16px;
     font-size: 16px;
@@ -164,7 +169,7 @@
 }
 
 .MarkEditItemForm button.MarkSaveButton {
-    background-color: orange;
+    background-color: #FF702A;
     color: white;
     padding: 8px 16px;
     font-size: 16px;
@@ -184,7 +189,7 @@
 }
 
 .MarkDeletedItem button {
-    background-color: orange;
+    background-color: #FF702A;
     color: white;
     padding: 8px 16px;
     font-size: 16px;
@@ -197,7 +202,7 @@
 
 /* Style for the Cancel button in the Add Item modal */
 .MarkCancelButton {
-    background-color: orange;
+    background-color: #FF702A;
     color: white;
     padding: 8px 16px;
     font-size: 16px;
@@ -226,7 +231,7 @@
 
 /* Style for the Yes button in the Delete Confirmation modal */
 .MarkConfirmButton {
-    background-color: orange;
+    background-color: #FF702A;
     color: white;
     padding: 8px 16px;
     font-size: 16px;
@@ -238,7 +243,7 @@
 
 /* Style for the No button in the Delete Confirmation modal */
 .MarkCancelButton {
-    background-color: orange;
+    background-color: #FF702A;
     color: white;
     padding: 8px 16px;
     font-size: 16px;
