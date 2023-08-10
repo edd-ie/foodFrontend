@@ -1,84 +1,62 @@
-.gSIgnup{
-  width: 100vw;
+.eSIgnup{
   position: absolute;
+  width: 100vw;
+  background: black;
   height: 100vh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  color: white;
 }
 
-.gSIgnupForm{
-  position: relative;
+.eSIgnupForm{
+  border: 1px solid white;
+  height: 60%;
   display: flex;
   flex-direction: column;
-  text-align: left;
-  justify-content: space-evenly;
-  width: 28%;
-  height: 60%;
+  width: 25%;
+  font-size: 20px;
   padding-left: 5%;
+  border-radius: 15px;
+  justify-content: center;
 }
 
-.gFormLabel{
-  position: relative;
+.eFormLabel{
   color: orange;
-  text-align: left;
-  margin-top: 4%;
+  margin-bottom: 1%;
 }
 
-.gSIgnupForm input{
-  position: relative;
-  width: 85%;
-  height: 430%;
-  border-radius: 6px;
-  border: 0px;
+.eSignIn{
+  background: white;
+  width: 80%;
+  height: 7%;
+  border-radius: 12px;
+  border: none;
+  padding-left: 2%;
+  margin-bottom: 7%;
 }
 
-.gSIgnupForm select{
-  position: relative;
-  width: 87%;
+.eFormTransfer
+{
+  font-size: small;
 }
 
-.gSubFrmBtn{
-  width: 20px;
+.eSubFrmBtn{
   margin-top: 2%;
+  margin-bottom: 2%;
+  width: 30%;
+  height: 5%;
+  font-size: 15px;
+  
 }
 
-.gSIgnup h3{
-  padding: 0;
-  margin: 0;
-}
-
-#gPolicyText{
+#ePolicyText{
+  color: rgb(105, 105, 105);
   margin-top: 3%;
 }
 
-#gPolicyText, .gFormTransfer{
-  margin: 0;
-  margin-top: 5%;
-  font-size: small;
-  font-weight: 100;
-  background: transparent;
-}
-
 #policy{
-  margin: 0;
-  padding: 0;
-  width: 6%;
   margin-right: 2%;
-}
-
-#gSignLogo{
-  padding: 0;
-  margin: 0;
-  margin-top: 2%;
-}
-
-.gFormTransfer{
-  margin-left: 10%;
-}
-
-.gFormTransfer span{
-  color: rgb(0, 195, 255);
-  font-weight: 200;
-  cursor: pointer;
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './food.css';
 import NavC from '../../utility/NavC';
+import { useNavigate } from 'react-router-dom';
 
 export default function Cart({ user, setUser, setLogin, login }) {
   const [ids, setIds] = useState([1]);
@@ -10,7 +11,8 @@ export default function Cart({ user, setUser, setLogin, login }) {
   const [selectedFoodIndex, setSelectedFoodIndex] = useState(null);
 
   useEffect(() => {
-    fetch('https://backendfood-co7z.onrender.com/foods/1')
+    let id = localStorage.getItem('foodId')
+    fetch(`https://backendfood-co7z.onrender.com/foods/${id}`)
       .then((r) => r.json())
       .then((data) => {
         console.log("file: Food.jsx:16 -> .then -> data:", data);
@@ -18,6 +20,13 @@ export default function Cart({ user, setUser, setLogin, login }) {
       });
   
   },[]);
+
+  const nav = useNavigate()
+  function move(id){
+    localStorage.getItem('restaurantId')?localStorage.removeItem('restaurantId'):null
+    localStorage.setItem('restaurantId', id)
+    nav('/customer/menu')
+  }
 
   const elements = foods.map((food, index) => {
     return(
@@ -34,7 +43,7 @@ export default function Cart({ user, setUser, setLogin, login }) {
             <p  style={{fontWeight: "bold", marginBottom:'1%'}} >Vegetarian : <span>{food.vegetarian ? ' Yes' : ' No'}</span></p>
             <p  style={{fontWeight: "bold", marginBottom:'1%'}} >Ratings: <span>{food.ratings}</span></p>
             <p  style={{fontWeight: "bold", marginBottom:'1%'}} >Price : ksh <span>{food.price}</span></p>
-            <div className="foodBuy">Add to cart</div>
+            <div className="foodBuy" onClick={()=>move(food.restaurant_id)}>View Restaurant</div>
           </div>
         </div>
       </div>
