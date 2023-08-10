@@ -48,6 +48,16 @@ export default function Dishes({user}) {
     }
     
 
+    const [editFood, setEditFood] = useState([])
+    console.log("file: Dishes.jsx:52 -> deleteFood -> editFood:", editFood);
+    const [change, setChange] = useState(false)
+
+    
+    function edit(e){
+        setChange(true)
+        setEditFood(e)
+    }
+
 
     const dishes = filtered.map((e, i)=>{
         return(
@@ -66,7 +76,7 @@ export default function Dishes({user}) {
             <p key={"menu3"+e.price+i+4}>Allergen: {e.allergen ? 'Yes' : 'No'}</p>
             <p key={"menu4"+e.price+i+5}>Price: {e.price}</p>
             <div className="botMenu">
-            <button onClick={()=>move2(e.id)}>Edit</button>
+            <button onClick={()=>edit(e)}>Edit</button>
             <button onClick={()=>deleteFood(e.id, e.name)}>Delete</button>
             </div>
         </div>
@@ -136,7 +146,7 @@ export default function Dishes({user}) {
     return(
         <div className="dishes">
             <NavR></NavR>
-            {!addFood&&<div className="dishMain">
+            {!addFood&& !change&&<div className="dishMain">
                 <div className="dishEdit">
                     {options}
                     <button id="dishBTN" onClick={()=>setAddFood(true)}>add food</button>
@@ -148,6 +158,67 @@ export default function Dishes({user}) {
             </div>}
             {addFood && <div className="dishAdd">
                 <div className="addClose" onClick={()=>setAddFood(false)}>
+                    <span className="material-symbols-sharp">
+                        close
+                    </span>
+                </div>
+                <div className="addMain">
+                    <div className="addSide"
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}
+                    >
+                        {picUrl && <img id="preView" src={picUrl} alt="pic"/>}
+                        {!picUrl && <h2>No image selected</h2>}
+                    </div>
+                    <div className="addSide">
+                        <form action="submit" id="addForm" onSubmit={handleSubmit}>
+                            <label htmlFor="name">Name</label>
+                            <input className="addVal" placeholder="Pizza" type="text"  name="name" required/>
+                            
+                            <label htmlFor="ingredients">Description</label>
+                            <textarea className="addVal" name="ingredients" 
+                            placeholder="Pizza with tomato sauce, cheese, and pepperoni"
+                            id="ingredients" cols="40" rows="6"/>
+                            
+                            <label htmlFor="vegetarian">Vegetarian</label>
+                            <select name="vegetarian" id="vegetarian">
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                            
+                            <label htmlFor="allergen">Allergen</label>
+                            <select name="allergen" id="allergen">
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                            
+                            <label htmlFor="category">Category</label>
+                            <select name="category" id="category">
+                                <option value="Burgers">Burgers</option>
+                                <option value="Sides">Sides</option>
+                                <option value="Main">Main</option>
+                                <option value="Desserts">Desserts</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Fries">Fries</option>
+                                <option value="fastFood">Fast food</option>
+                            </select>
+                            
+                            <label htmlFor="price">price</label>
+                            <input className="addVal" placeholder="250" type="number" step="1" min="1" max="20000" id="price" name="price" required/>
+                            
+                            <input type="file" name="foodPic" required onChange={handleImage}/>
+                            
+                            <input type="submit" value="Submit" id="addSubBTN"/>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>}
+            {change && <div className="dishAdd">
+                <div className="addClose" onClick={()=>setChange(false)}>
                     <span className="material-symbols-sharp">
                         close
                     </span>
