@@ -6,7 +6,7 @@ import './App.css'
 function App() {
   const [user, setUser] = useState([])
   console.log("file: App.jsx:8 -> App -> user:", user);
-  const [login, setLogin] = useState(true)
+  const [login, setLogin] = useState(false)
   const [resId, setResId] = useState([])
   const [foodId, setFoodId] = useState([])
   const [cartIds, setCartIds] = useState(0)
@@ -151,6 +151,10 @@ function App() {
       {
         path: '/restaurant/history',
         element: <RestHistory/>
+      },
+      {
+        path: '/customer/history',
+        element: <History user={user}/>
       }
     ]
   )
@@ -197,3 +201,4 @@ import CheckEmail from './components/utility/checkEmail';
 import ResetPassword from './components/utility/ResetPassword';
 import Payment from './components/customer/pages/Payment';
 import RestHistory from './components/restaurant/Components/RestHistory';
+import History from './components/customer/pages/History';

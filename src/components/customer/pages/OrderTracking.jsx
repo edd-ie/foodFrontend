@@ -15,9 +15,11 @@ export default function OrderTracking({ user }) {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
-  function pay(id) {
+  function pay(id, total) {
     localStorage.getItem('trId') ? localStorage.removeItem('trId') :null
     localStorage.setItem('trId', id)
+    localStorage.getItem('unpaid') ? localStorage.removeItem('unpaid') :null
+    localStorage.setItem('unpaid', total)
     nav('/payment');
   }
 
@@ -37,7 +39,7 @@ export default function OrderTracking({ user }) {
               <p>Total: ksh {order.order.total}</p>
               <p>Paid: {order.paid ? 'True' : 'False'}</p>
               <p>Complete: {order.complete ? 'True' : 'False'}</p>
-              {!order.paid && <button onClick={()=>pay(order.id)}>Pay Now</button>}
+              {!order.paid && <button onClick={()=>pay(order.id, order.order.total)}>Pay Now</button>}
             </div>
           ))}
         </div>

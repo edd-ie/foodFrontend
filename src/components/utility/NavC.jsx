@@ -31,19 +31,27 @@ export default function NavC({cart, user, setLogin}) {
     return(
         <div id="rootNav">
             <div className="rLink rLogo" onClick={handleHome}></div>
+            
             <div className="rLink">
                 <Link to='/blog'>Blog</Link>
             </div>
+
             <div className="rLink">
                 <Link to='/Favourites'>Favourites</Link>
             </div>
+
             <div className="rLink">
                 <Link to='/customer/restaurant'>Restaurant</Link>
             </div>
+
             <div className="rLink">
                 <Link to='/customer/tracking'>Ordered Foods</Link>
             </div>
-            <div className="rLink"> <Link to='/customer/history'>History</Link></div>
+
+            <div className="rLink"> 
+                <Link to='/customer/history'>History</Link>
+            </div>
+
             <div className="rLink rCart">
                 <Link to='/customer/cart'>Cart</Link>
                 <span className="material-symbols-sharp">
@@ -53,6 +61,7 @@ export default function NavC({cart, user, setLogin}) {
                     {cart}
                 </div>
             </div>
+
             <div className="rLink rProf" onClick={()=>{handleProfile();  nav('/profile')}}></div>
 
             {show && 

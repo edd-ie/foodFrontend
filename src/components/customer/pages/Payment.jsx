@@ -7,7 +7,8 @@ export default function Payment() {
     const [receipt, setReceipt] = useState([])
     const nav = useNavigate()
 
-    const url = "https://5389-197-139-44-10.ngrok-free.app"
+    
+    const url = "https://f1c8-197-139-44-10.ngrok-free.app"
 
     let totalMPesa = 1;
 
