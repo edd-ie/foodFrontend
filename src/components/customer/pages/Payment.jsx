@@ -28,7 +28,8 @@ export default function Payment() {
           {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(dataSet)
+            body: JSON.stringify(dataSet),
+            mode: 'no-cors'
 
           }
           ).then(r => r.json())
@@ -111,7 +112,8 @@ export default function Payment() {
         fetch(`${url}/stkquery`,{
             method: 'POST',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({checkoutRequestID:receipt[1]["CheckoutRequestID"]})
+            body: JSON.stringify({checkoutRequestID:receipt[1]["CheckoutRequestID"]}),
+            mode: 'no-cors'
         })
         .then(r => r.json())
         .then(data =>{
