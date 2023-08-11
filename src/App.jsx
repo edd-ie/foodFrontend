@@ -143,7 +143,11 @@ function App() {
       {
         path: '/ResetPassword',
         element: <ResetPassword user={user}/>
-      }      
+      },
+      {
+        path: '/payment',
+        element: <Payment user={user}/>
+      }
     ]
   )
 
@@ -187,3 +191,4 @@ import Dishes from './components/restaurant/Components/Dishes';
 import Verify from './components/utility/verification';
 import CheckEmail from './components/utility/checkEmail';
 import ResetPassword from './components/utility/ResetPassword';
+import Payment from './components/customer/pages/Payment';
