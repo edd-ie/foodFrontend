@@ -18,7 +18,6 @@ export default function NavR({user, setLogin}) {
 
     function handleLogOff() {
         handleProfile()
-        navigate('/')
         window.location.reload(true);
         localStorage.removeItem('foodChapUser')
         localStorage.removeItem('foodChapSide')
@@ -64,10 +63,10 @@ export default function NavR({user, setLogin}) {
                         <p>Account</p> 
                     </div> 
                     <div className="rProfSettingItem" onClick={handleLogOff}>
-                        <span className="material-symbols-sharp">
+                        <Link to='/'><span className="material-symbols-sharp"  onClick={handleLogOff}>
                         logout
                         </span> 
-                        <p>Logout</p>    
+                        <p  onClick={handleLogOff}>Logout</p>   </Link>     
                     </div>   
                 </div>
             }

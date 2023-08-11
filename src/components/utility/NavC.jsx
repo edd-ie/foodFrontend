@@ -22,6 +22,7 @@ export default function NavC({cart, user, setLogin}) {
     }
 
     function handleLogOff() {
+        
         handleProfile() 
         localStorage.removeItem('foodChapUser')
         window.location.reload(true);
@@ -76,10 +77,10 @@ export default function NavC({cart, user, setLogin}) {
                         <p>Account</p> 
                     </div> 
                     <div className="rProfSettingItem" onClick={handleLogOff}>
-                        <span className="material-symbols-sharp"  onClick={handleLogOff}>
+                        <Link to='/'><span className="material-symbols-sharp"  onClick={handleLogOff}>
                         logout
                         </span> 
-                        <p  onClick={handleLogOff}>Logout</p>    
+                        <p  onClick={handleLogOff}>Logout</p>   </Link> 
                     </div>   
                 </div>
             }
