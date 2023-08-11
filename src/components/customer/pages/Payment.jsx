@@ -108,29 +108,29 @@ export default function Payment() {
         console.log("file: Payment.jsx:60 -> checkPayment -> dataset:", dataset);
 
         // updateOrder(dataset) /// for testing
-
-        if(receipt[1]["CheckoutRequestID"]){fetch(`${url}/stkquery`,{
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({checkoutRequestID:receipt[1]["CheckoutRequestID"]}),
-            mode: 'no-cors'
-        })
-        .then(r => r.json())
-        .then(data =>{
-            console.log(data)
-            if(data[1]["ResultCode"] == 0 ) {
-                alert("payment confirmed")
-                setClear(true)
-            }else{
-                alert("payment was unsuccessful")
-            }
+        updateOrder(dataset)
+        // if(receipt[1]["CheckoutRequestID"]){fetch(`${url}/stkquery`,{
+        //     method: 'POST',
+        //     headers: {"Content-Type": "application/json"},
+        //     body: JSON.stringify({checkoutRequestID:receipt[1]["CheckoutRequestID"]}),
+        //     mode: 'no-cors'
+        // })
+        // .then(r => r.json())
+        // .then(data =>{
+        //     console.log(data)
+        //     if(data[1]["ResultCode"] == 0 ) {
+        //         alert("payment confirmed")
+        //         setClear(true)
+        //     }else{
+        //         alert("payment was unsuccessful")
+        //     }
             
-            updateOrder(dataset)
-        })
-        .catch(err => {console.log(err); updateOrder(dataset)})}
-        else{
-            updateOrder(dataset)
-        }
+        //     updateOrder(dataset)
+        // })
+        // .catch(err => {console.log(err); updateOrder(dataset)})}
+        // else{
+        //     updateOrder(dataset)
+        // }
         
     }
     
