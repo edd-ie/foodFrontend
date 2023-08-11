@@ -11,12 +11,14 @@ function App() {
   const [foodId, setFoodId] = useState([])
   const [cartIds, setCartIds] = useState(0)
   const [cartList, setCartList] = useState([])
+  const [side, SetSide] = useState('')
   console.log("file: App.jsx:13 -> App -> cartIds:", cartIds);
 
   useEffect(()=>{
     localStorage.getItem('foodChapUser') ? setLogin(true) : setLogin(false)
     let id = localStorage.getItem('foodChapUser')
-    let page = localStorage.getItem('foodChapSide') == 'cust' ? 'customers' : 'restaurants'
+    let page = localStorage.getItem('foodChapSide')
+    SetSide(page)
     
     fetch(`https://backendfood-co7z.onrender.com/${page}/${id}`)
     .then(res=>res.json())
@@ -25,11 +27,14 @@ function App() {
 
   },[])
 
+  function choice(){
+    return localStorage.getItem('foodChapSide') ==='cust' ? (<Homepage user={user} setUser={setUser} login={login} setLogin={setLogin}/>):( <Dashboard user={user} setUser={setUser} login={login} setLogin={setLogin}/>)
+  }
 
   const router = createBrowserRouter([
       {
         path: "/",
-        element:<Homepage user={user} setUser={setUser} login={login} setLogin={setLogin}/>
+        element: choice()
       },
       {
         path: "/customer/login",
@@ -116,18 +121,6 @@ function App() {
         element: <BlogPage/>
       },
       {
-        path: '/customer/payment',
-        element: <Payment/>
-      },
-      {
-        path: '/customer/history',
-        element: <History/>
-      },
-      {
-        path: '/restaurant/history',
-        element: <RestHistory/>
-      },
-      {
         path: '/contact',
         element: <Contact user={user}/>
       },
@@ -145,8 +138,16 @@ function App() {
       },
       {
         path: '/checkEmail',
-        element: <checkEmail user={user}/>
-      }      
+        element: <CheckEmail user={user}/>
+      },      
+      {
+        path: '/ResetPassword',
+        element: <ResetPassword user={user}/>
+      },
+      {
+        path: '/payment',
+        element: <Payment user={user}/>
+      }
     ]
   )
 
@@ -184,11 +185,10 @@ import OrderTracking from './components/customer/pages/OrderTracking'
 import Inventory from './components/restaurant/Components/Inventory'
 import Blog from './components/utility/Blog'
 import BlogPage from './components/utility/BlogPage'
-import Payment from './components/customer/pages/Payment'
-import History from './components/customer/pages/History'
-import RestHistory from './components/restaurant/Components/RestHistory'
 import Favourites from './components/customer/pages/Favourites';
 import Contact from './components/utility/contact'
 import Dishes from './components/restaurant/Components/Dishes';
-import Verify from './components/utility/verfication';
-import checkEmail from './components/utility/checkEmail';
+import Verify from './components/utility/verification';
+import CheckEmail from './components/utility/checkEmail';
+import ResetPassword from './components/utility/ResetPassword';
+import Payment from './components/customer/pages/Payment';

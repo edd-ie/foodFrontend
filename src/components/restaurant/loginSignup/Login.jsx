@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import '../../customer/loginSignup/login.css';
 import logo from '../../../assets/logo1.png';
+import { useNavigate } from 'react-router-dom';
+import RestaurantSignUp from './SignUp'
+
 
 export default function RestaurantLogin({ user, setUser, setLogin, login }) {
   const [formData, setFormData] = useState({
@@ -36,17 +39,24 @@ export default function RestaurantLogin({ user, setUser, setLogin, login }) {
       localStorage.setItem('foodChapUser', data.id)
       localStorage.setItem('foodChapSide', 'res')
       setUser(data)
+      window.location.reload(true);
+
     })
     .catch(err => console.log(err))
   };
 
   const handleForgotPassword = () => {
     console.log("Forgot Password clicked!");
+    let navigate = useNavigate()
+    navigate('/checkEmail');
+
   };
+
+  const [change, setChange] = useState(false)
 
   return (
     <div id="maLand">
-    <div id='maLogin'>
+    {!change && <div id='maLogin'>
     <img id='maLogo'  src={logo} alt="logo"  style={{alignSelf: 'center', marginLeft:'20%', marginBottom:'5%'}}/>
       <h1>Login to your account</h1>
       <form onSubmit={handleSubmit}>
@@ -90,13 +100,14 @@ export default function RestaurantLogin({ user, setUser, setLogin, login }) {
           Don't have an account?
           <span
             style={{ cursor: 'pointer', color: 'orange'}}
-            onClick={() => setLogin(!login)}
+            onClick={() => setChange(true)}
           >
            Create account
           </span>
         </p>
       </div>
-    </div>
+    </div>}
+    {change && <RestaurantSignUp user={user} setUser={setUser} login={login} setLogin={setLogin}/>}
     </div>
   );
 }

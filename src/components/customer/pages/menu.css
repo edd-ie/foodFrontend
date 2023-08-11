@@ -106,6 +106,7 @@
   position: relative;
   width: 50%;
   word-wrap: normal;
+  background: white;
 }
 
 .menuCont h1{
