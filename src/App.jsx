@@ -151,7 +151,11 @@ function App() {
       {
         path: '/customer/history',
         element: <History user={user}/>
-      }
+      },
+      // {
+      //   path: '/restaurant/history',
+      //   element: <RestHistory/>
+      // }
     ]
   )
 
@@ -197,3 +201,4 @@ import CheckEmail from './components/utility/checkEmail';
 import ResetPassword from './components/utility/ResetPassword';
 import Payment from './components/customer/pages/Payment';
 import History from './components/customer/pages/History';
+// import RestHistory from './components/customer/pages/RestHistory';

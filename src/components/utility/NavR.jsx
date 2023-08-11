@@ -40,8 +40,8 @@ export default function NavR({user, setLogin}) {
             <div className="rLink">
                 <Link to="/restaurant/dishes">Menu</Link>
                 </div>
-            <div className="rLink">
-            <Link to="/restaurant/history">History</Link></div>
+            {/* <div className="rLink">
+            <Link to="/restaurant/history">History</Link></div> */}
             <div className="rLink rCart">
                 <Link to="/restaurant/orders">Orders</Link>
                  
