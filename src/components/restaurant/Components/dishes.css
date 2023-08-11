@@ -65,7 +65,7 @@
 #dishBTN:hover{
     color: white;
     background: none;
-    border: 1px solid #FF702A;
+    border: 1px solid orange;
 }
 
 .options{
@@ -75,7 +75,7 @@
     font-size: large;
     border-radius: 8px;
     cursor: pointer;
-    background: #FF702A;
+    background: orange;
     border: 1px solid white;
     color: white;
     border: none;
@@ -84,7 +84,7 @@
 
 .options:hover{
     background: none;
-    border: 1px solid #FF702A;
+    border: 1px solid orange;
 }
 
 .dishFoods{
