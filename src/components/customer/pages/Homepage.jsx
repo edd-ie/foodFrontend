@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './homepage.css';
 import PICHA from '../../../assets/PICHA.jpg';
 import logo from '../../../assets/logo1.png';
@@ -8,6 +8,15 @@ import { useNavigate } from 'react-router-dom';
 
 
 export default function Homepage({ user, setUser, setLogin, login }) {
+  const [shops, setShops] = React.useState([])
+
+  useEffect(() => {
+    fetch('https://backendfood-co7z.onrender.com/restaurants')
+    .then(res => res.json())
+    .then(data => setShops(data))
+  },[])
+  
+  
   // Mock user's current location
   const currentLocation = "Ngong Road, NRB 📍";
   const restaurants = [
@@ -115,19 +124,44 @@ const handleLikeRestaurant = (restaurantId) => {
     // For example, you can update the liked property of the restaurant object in the state
   };
 
+  const [dataset, setDataset] = React.useState([]);
+  const [disp, setDisp] = React.useState(false);
+
+  function search(value){
+    console.log(value)
+    let search = shops.filter((shop)=>{
+      return shop.name.toLowerCase().includes(value.toLowerCase())
+    })
+    console.log(search)  
+    setDataset(search)
+  }
+
+  const results = dataset.map((e, i)=>{
+    return(
+      <div className="rSearch" key={i+e.name+'search'} onClick={()=>move(e.id)}>
+        <div className="sideSearch" key={1+e.name+'result'}>{e.name}</div>
+        <div className="sideSearch" key={2+e.name+'result'}>{e.ambience}</div>
+        <div className="sideSearch" key={3+e.name+'result'}>{e.cuisine}</div>
+      </div>
+    )
+  })
+
   return (
     <div id='gHomeContainer'>
       <NavC/>
-      <div className="gHomeContent">
+      <div className="gHomeContent" >
         <div className="gHomeBanner">
           <div id="eSearch">
             <input id="eButton1" type="text" value={currentLocation} />
-            <input id="eButton2" type="text" placeholder="Search for a restaurant" />
+            <input onClick={()=>setDisp(true)} id="eButton2" type="text" placeholder="Search for a restaurant" onChange={(e)=>search(e.target.value)} />
             <input id="eButton3" type='submit' value='search' />
           </div>
+          {disp && <div className="HomeSearch">
+              {results}
+            </div>}
         </div>
-        <div className="gHomeMain">
-          <div className="gHomePart">
+        <div className="gHomeMain" onClick={()=>setDisp(false)}>
+          <div className="gHomePart" onClick={()=>setDisp(false)}>
             <h1 id="gH1" style={{textAlign:'center'}}>Featured Restaurants</h1>
             <div className="gHomeTags">
               {display}
@@ -140,125 +174,24 @@ const handleLikeRestaurant = (restaurantId) => {
             </div>
           </div>
         </div>
-        <div className="gHomeFooter"></div>
+        <div className="gHomeFooter">
+          <div className="footContent">
+            <img src={logo} alt="logo" />
+          </div>
+          <div className="footContent">
+            <p>© 2023 FoodChapChap. All rights reserved.</p>
+          </div>
+          <div className="footContent">
+            <h3>Contact</h3>
+            <a href="https://github.com/edd-ie">edd-ie</a>
+            <a href="https://github.com/Nkathaglow">NkathaGlow</a>
+            <a href="https://github.com/elizabethkerubo02">Lizzie</a>
+            <a href="https://github.com/markchweya">Chweya</a>
+            <a href="https://github.com/mohasalanka">Mohasalanka</a>
+          </div>
+        </div>
       </div>
 
     </div>
   );
 }
-
-
-// {/* Header */}
-//       {/* <header id="gHeader">
-      
-//         <nav>
-//           <img id='gLogo' src={logo} alt="logo" />
-//           <ul>
-//             <li>
-//               <a href="#tracking">Tracking</a>
-//             </li>
-//             <li>
-//               <a href="#restaurants">Restaurants</a>
-//             </li>
-//             <li>
-//               <a href="#foodhistory">Food History</a>
-//             </li>
-//             <li>
-//             <div id="gRestaurantDiscount">Login</div>
-//             </li>
-
-//           </ul>
-//         </nav>
-//       </header> */}
-//       <NavC/>
-
-//       {/* Image with Customizable Text and Search Box */}
-//       <div id="gImage" style={{ position: 'relative' }}>
-//         <img id='PICHA' src={PICHA} alt="PICHA" />
-//         <h2>Order your best food anytime</h2>
-
-//         {/* Overlay for search */}
-//         <div id="gButton">
-//           <input id="gButton1" type="text" value={currentLocation} />
-//           <input id="gButton2" type="text" placeholder="Search restaurant,cuisines,dishes" />
-//           <button id="gButton3">Search</button>
-//         </div>
-//       </div>
-
-//       {/* Content */}
-   
-//       <div className="gContentHome">
-//         <div className="gBody">
-//         <div id="gH1">
-//           <h1>Featured Restaurants</h1>
-//         </div>
-//           <div id="gRest">
-      
-//           {restaurants.map((restaurant) => (
-//           <div id="gRestaurantCard" key={restaurant.id}>
-
-            
-//             <div id="gRestaurantImage">
-//               <img src={burger} alt={restaurant.name} />
-//             </div>
-//             <div id="gRestaurantName">
-//               <h3>{restaurant.name}</h3>
-//             </div>
-//             <div id="gRestaurantRating">Rating: {restaurant.rating}</div>
-//             <div id="gRestaurantTime">Estimated Distance: {restaurant.estimatedDistance}</div>
-//             <button onClick={() => handleLikeRestaurant(restaurant.id)}>
-//             {restaurant.liked ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>}
-//             </button>
-//         </div>
-//         ))}
-//         </div>
-      
-        
-//       </div>
-
-//       <div className="gBody">
-//         <div id="gH1">
-//           <h1>Best Selling Foods</h1>
-//         </div>
-//           <div id="gRest">
-      
-//           {restaurants.map((restaurant) => (
-//           <div id="gRestaurantCard" key={restaurant.id}>
-
-            
-//             <div id="gRestaurantImage">
-//               <img src={burger} alt={restaurant.name} />
-              
-//             </div>
-//             <div id="gRestaurantName">
-//               <h3>{restaurant.name}</h3>
-//             </div>
-//             <div id="gRestaurantRating">Rating: {restaurant.rating}</div>
-//             <div id="gRestaurantTime">Estimated Distance: {restaurant.estimatedDistance}</div>
-//             <button onClick={() => handleLikeRestaurant(restaurant.id)}>
-//             {restaurant.liked ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>}
-//             </button>
-//         </div>
-//         ))}
-//         </div>
-      
-        
-//       </div>
-
-//       <div id="gFooter">
-//           <div id="gfooterLogo">
-//             <img src={logo} alt="logo" />
-//           </div>
-//           <div id="gfooterContent">
-//             <p>Contact us at: FoodChapchap@FoodChapchap.com</p>
-//             <p>123 Street, New York City, NY 10001</p>
-//           </div>
-//           <div id="gfooterYear">
-//             <p>&copy; {new Date().getFullYear()} Your Company Name. All rights reserved.</p>
-//           </div>
-//         </div>
-
-//       </div>
-
-  
-      

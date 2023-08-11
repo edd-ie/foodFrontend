@@ -6,7 +6,7 @@ import './App.css'
 function App() {
   const [user, setUser] = useState([])
   console.log("file: App.jsx:8 -> App -> user:", user);
-  const [login, setLogin] = useState(true)
+  const [login, setLogin] = useState(false)
   const [resId, setResId] = useState([])
   const [foodId, setFoodId] = useState([])
   const [cartIds, setCartIds] = useState(0)
@@ -147,6 +147,10 @@ function App() {
       {
         path: '/payment',
         element: <Payment user={user}/>
+      },
+      {
+        path: '/customer/history',
+        element: <History user={user}/>
       }
     ]
   )
@@ -192,3 +196,4 @@ import Verify from './components/utility/verification';
 import CheckEmail from './components/utility/checkEmail';
 import ResetPassword from './components/utility/ResetPassword';
 import Payment from './components/customer/pages/Payment';
+import History from './components/customer/pages/History';
