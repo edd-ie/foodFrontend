@@ -69,17 +69,17 @@ export default function Dishes({user}) {
         }}
         >
         </div>
-        <div className="menuCont" key={"menu"+e.price+i}>
-            <h1 key={"menu0"+e.price+i+2}>{e.name}</h1>
-            <p key={"menu1"+e.price+i+2}>{e.ingredients}</p>
-            <p key={"menu2"+e.price+i+3}>Vegetarian: {e.vegetarian ? 'Yes' : 'No'}</p>
-            <p key={"menu3"+e.price+i+4}>Allergen: {e.allergen ? 'Yes' : 'No'}</p>
-            <p key={"menu4"+e.price+i+5}>Price: {e.price}</p>
-            <div className="botMenu">
-            <button onClick={()=>{setPicUrl(e.picture);edit(e)}}>Edit</button>
-            <button onClick={()=>deleteFood(e.id, e.name)}>Delete</button>
+            <div className="menuCont" key={"menu"+e.price+i}>
+                <h1 key={"menu0"+e.price+i+2}>{e.name}</h1>
+                <p key={"menu1"+e.price+i+2}>{e.ingredients}</p>
+                <p key={"menu2"+e.price+i+3}>Vegetarian: {e.vegetarian ? 'Yes' : 'No'}</p>
+                <p key={"menu3"+e.price+i+4}>Allergen: {e.allergen ? 'Yes' : 'No'}</p>
+                <p key={"menu4"+e.price+i+5}>Price: {e.price}</p>
+                <div className="botMenu">
+                    <button onClick={()=>{setPicUrl(e.picture);edit(e)}}>Edit</button>
+                    <button onClick={()=>deleteFood(e.id, e.name)}>Delete</button>
+                </div>
             </div>
-        </div>
         </div>)
     })
 

@@ -87,15 +87,18 @@ const { isLoaded } = useLoadScript({
   console.log("file: Menu.jsx:86 -> Menu -> cartItems:", cartItems);
   
   function addToCart(id){
-    let n = true
+    let n = true //check if it in array
     cartItems.map(x=>{
       x == id? n=false : null
     })
+
+    //cart ids
     let x = [...cartItems]
     n ? x.push(id) : null
     setCartItems(x)
     setCartIds(x.length)
     cart(x)
+    //store to localStorage
     let myArrayString = JSON.stringify(x);
     localStorage.setItem("cartList", myArrayString);
   }
