@@ -8,7 +8,7 @@ export default function Payment() {
     const nav = useNavigate()
 
     
-    const url = "https://f1c8-197-139-44-10.ngrok-free.app"
+    const url = "https://b859-197-139-44-10.ngrok-free.app"
 
     let totalMPesa = 1;
 

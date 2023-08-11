@@ -53,13 +53,16 @@ export default function NavC({cart, user, setLogin}) {
             </div>
 
             <div className="rLink rCart">
-                <Link to='/customer/cart'>Cart</Link>
+                <Link to='/customer/cart'>Cart
                 <span className="material-symbols-sharp">
                     shopping_cart
                 </span>
                 <div className="cartCount">
                     {cart}
                 </div>
+                
+                </Link>
+                
             </div>
 
             <div className="rLink rProf" onClick={()=>{handleProfile();  nav('/profile')}}></div>
