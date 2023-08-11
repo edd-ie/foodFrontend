@@ -39,7 +39,7 @@
     cursor: pointer;
     border: none;
     color: white;
-    background: #FF702A;
+    background: orange;
 }
 /* width */
 ::-webkit-scrollbar {
