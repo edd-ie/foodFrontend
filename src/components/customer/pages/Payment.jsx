@@ -115,17 +115,23 @@ export default function Payment() {
             body: JSON.stringify({checkoutRequestID:receipt[1]["CheckoutRequestID"]}),
             mode: 'no-cors'
         })
-        .then(r => r.json())
-        .then(data =>{
-            console.log(data)
-            if(data[1]["ResultCode"] == 0 ) {
-                alert("payment confirmed")
-                setClear(true)
-            }else{
-                alert("payment was unsuccessful")
+        .then(r => {
+            if(res.ok){
+                return r.json().then(data =>{
+                    console.log(data)
+                    if(data[1]["ResultCode"] == 0 ) {
+                        alert("payment confirmed")
+                        setClear(true)
+                    }else{
+                        alert("payment was unsuccessful")
+                    }
+                    
+                    updateOrder(dataset)
+                })
             }
-            
-            updateOrder(dataset)
+            else{
+                updateOrder(dataset)
+            }
         })
         .catch(err => {console.log(err); updateOrder(dataset)})
         
