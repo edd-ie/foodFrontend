@@ -147,6 +147,10 @@ function App() {
       {
         path: '/payment',
         element: <Payment user={user}/>
+      },
+      {
+        path: '/restaurant/history',
+        element: <RestHistory/>
       }
     ]
   )
@@ -192,3 +196,4 @@ import Verify from './components/utility/verification';
 import CheckEmail from './components/utility/checkEmail';
 import ResetPassword from './components/utility/ResetPassword';
 import Payment from './components/customer/pages/Payment';
+import RestHistory from './components/restaurant/Components/RestHistory';

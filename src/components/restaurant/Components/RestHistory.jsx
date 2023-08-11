@@ -32,13 +32,7 @@ function RestHistory() {
   return (
     <div className='khistory'>
         <NavR/>
-        <div className="searchHeading">
-        <form action="submit" className='ksearchForm'>
-          <input type="text" name='search' placeholder='Search Orders' className='kSearchBar' />
-          <button className="kSearchBtn">Search</button>
-        </form>
-        <h2 className='kCaption'>Your Order History</h2>
-      </div>
+       <h2 className='kCaption'>Your Order History</h2>
         <div className="kMain">
         <table className="ktable">
             <thead>
