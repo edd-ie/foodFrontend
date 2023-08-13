@@ -24,6 +24,7 @@
 }
 
 .filter{
+  margin-top: 1%;
   width: 100%;
   height: 5%;
   display: flex;
@@ -106,7 +107,8 @@
   position: relative;
   width: 50%;
   word-wrap: normal;
-  background: white;
+  background: black;
+  color: white;
 }
 
 .menuCont h1{
@@ -140,6 +142,7 @@
 
 
 .eResMenu{
+  border-radius: 15px;
   position: relative;
   width: 100%;
   height: 100%;

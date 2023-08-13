@@ -22,6 +22,7 @@ export default function NavC({cart, user, setLogin}) {
     }
 
     function handleLogOff() {
+        
         handleProfile() 
         localStorage.removeItem('foodChapUser')
         window.location.reload(true);
@@ -31,28 +32,40 @@ export default function NavC({cart, user, setLogin}) {
     return(
         <div id="rootNav">
             <div className="rLink rLogo" onClick={handleHome}></div>
+            
             <div className="rLink">
                 <Link to='/blog'>Blog</Link>
             </div>
+
             <div className="rLink">
                 <Link to='/Favourites'>Favourites</Link>
             </div>
+
             <div className="rLink">
                 <Link to='/customer/restaurant'>Restaurant</Link>
             </div>
+
             <div className="rLink">
                 <Link to='/customer/tracking'>Ordered Foods</Link>
             </div>
-            <div className="rLink"> <Link to='/customer/history'>History</Link></div>
+
+            <div className="rLink"> 
+                <Link to='/customer/history'>History</Link>
+            </div>
+
             <div className="rLink rCart">
-                <Link to='/customer/cart'>Cart</Link>
+                <Link to='/customer/cart'>Cart
                 <span className="material-symbols-sharp">
                     shopping_cart
                 </span>
                 <div className="cartCount">
                     {cart}
                 </div>
+                
+                </Link>
+                
             </div>
+
             <div className="rLink rProf" onClick={()=>{handleProfile();  nav('/profile')}}></div>
 
             {show && 
@@ -64,10 +77,10 @@ export default function NavC({cart, user, setLogin}) {
                         <p>Account</p> 
                     </div> 
                     <div className="rProfSettingItem" onClick={handleLogOff}>
-                        <span className="material-symbols-sharp"  onClick={handleLogOff}>
+                        <Link to='/'><span className="material-symbols-sharp"  onClick={handleLogOff}>
                         logout
                         </span> 
-                        <p  onClick={handleLogOff}>Logout</p>    
+                        <p  onClick={handleLogOff}>Logout</p>   </Link> 
                     </div>   
                 </div>
             }

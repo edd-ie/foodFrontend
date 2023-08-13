@@ -7,7 +7,8 @@ export default function Payment() {
     const [receipt, setReceipt] = useState([])
     const nav = useNavigate()
 
-    const url = "https://5389-197-139-44-10.ngrok-free.app"
+    
+    const url = "https://cf0b-197-139-44-10.ngrok-free.app"
 
     let totalMPesa = 1;
 
@@ -27,7 +28,8 @@ export default function Payment() {
           {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(dataSet)
+            body: JSON.stringify(dataSet),
+            mode: 'no-cors'
 
           }
           ).then(r => r.json())
@@ -106,25 +108,29 @@ export default function Payment() {
         console.log("file: Payment.jsx:60 -> checkPayment -> dataset:", dataset);
 
         // updateOrder(dataset) /// for testing
-
-        fetch(`${url}/stkquery`,{
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({checkoutRequestID:receipt[1]["CheckoutRequestID"]})
-        })
-        .then(r => r.json())
-        .then(data =>{
-            console.log(data)
-            if(data[1]["ResultCode"] == 0 ) {
-                alert("payment confirmed")
-                setClear(true)
-            }else{
-                alert("payment was unsuccessful")
-            }
+        updateOrder(dataset)
+        // if(receipt[1]["CheckoutRequestID"]){fetch(`${url}/stkquery`,{
+        //     method: 'POST',
+        //     headers: {"Content-Type": "application/json"},
+        //     body: JSON.stringify({checkoutRequestID:receipt[1]["CheckoutRequestID"]}),
+        //     mode: 'no-cors'
+        // })
+        // .then(r => r.json())
+        // .then(data =>{
+        //     console.log(data)
+        //     if(data[1]["ResultCode"] == 0 ) {
+        //         alert("payment confirmed")
+        //         setClear(true)
+        //     }else{
+        //         alert("payment was unsuccessful")
+        //     }
             
-            updateOrder(dataset)
-        })
-        .catch(err => {console.log(err); updateOrder(dataset)})
+        //     updateOrder(dataset)
+        // })
+        // .catch(err => {console.log(err); updateOrder(dataset)})}
+        // else{
+        //     updateOrder(dataset)
+        // }
         
     }
     

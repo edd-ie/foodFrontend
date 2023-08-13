@@ -119,6 +119,15 @@ export default function Restaurant({ user, setUser, setLogin, login }) {
     );
   });
 
+  function search(value){
+    console.log(value)
+    let search = restaurants.filter((shop)=>{
+      return shop.name.toLowerCase().includes(value.toLowerCase())
+    })
+    console.log(search)  
+    setFilteredRestaurants(search)
+  }
+
   return (
     <div className="chweResMain">
       <NavC />
@@ -161,7 +170,7 @@ export default function Restaurant({ user, setUser, setLogin, login }) {
             <h3 id='mHRes'>Order your best food anytime</h3>
             <div id="mSearch">
               <input id="mButton1" type="text" value="Ngong Road, NRB 📍" />
-              <input id="mButton2" type="text" placeholder="Search for a restaurant" />
+              <input id="mButton2" type="text" placeholder="Search for a restaurant" onChange={(e)=>search(e.target.value)}/>
               <input id="mButton3" type='submit' value='search' />
             </div>
           </div>
