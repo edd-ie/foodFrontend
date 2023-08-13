@@ -67,13 +67,13 @@ Users can sort restaurants by different categories to fit their preferences.
 
 ![Alt text](./src/assets/restaurants.png)
 
-### <a id="prof">User Profile and Settings</a>
+### <a id="prof">Menu</a>
 
 Users can see restaurant details and google maps location and each individual food item offered by the restaurant and they can view more details or add it to cart.
 
 ![Alt text](./src/assets/menus.png)
 
-### <a id="save">Menu</a>
+### <a id="save">Restaurant Menu</a>
 
 The application allows restaurants to add, edit or delete foods on their menu offering
 
