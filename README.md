@@ -85,9 +85,9 @@ This project was a team effort from the following individuals :
 
 - [Edd.ie](https://github.com/edd-ie)
 - [Glory](https://github.com/Nkathaglow)
-- [Elizabeth]("https://github.com/elizabethkerubo02")
-- [Mark]("https://github.com/markchweya")
-- [Mohamed]("https://github.com/mohasalanka")
+- [Elizabeth](https://github.com/elizabethkerubo02)
+- [Mark](https://github.com/markchweya)
+- [Mohamed](https://github.com/mohasalanka)
 
 ### <a id="license">Licenses</a>
 
